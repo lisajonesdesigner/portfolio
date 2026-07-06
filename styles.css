@@ -131,6 +131,12 @@ p {
   margin-bottom: 18px;
 }
 
+/* Bold is bold, everywhere. Parents setting font-weight (cards, captions,
+   labels) must not soften <strong>. */
+strong, b {
+  font-weight: 700;
+}
+
 p:last-child {
   margin-bottom: 0;
 }
