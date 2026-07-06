@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lisa Jones — Telstra Health PAS</title>
-  <meta name="description" content="Case study: redefining Emergency Department patient administration with a FHIR-native model at Telstra Health — the MVP that became Kyra PAS.">
+  <title>Lisa Jones | Telstra Health Kyra PAS</title>
+  <meta name="description" content="Case study: redefining Emergency Department patient administration with a FHIR-native model at Telstra Health. The MVP that became Kyra PAS.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lisa Jones">
-  <meta property="og:title" content="Lisa Jones — Telstra Health PAS">
-  <meta property="og:description" content="Case study: redefining Emergency Department patient administration with a FHIR-native model at Telstra Health — the MVP that became Kyra PAS.">
+  <meta property="og:title" content="Lisa Jones | Telstra Health Kyra PAS">
+  <meta property="og:description" content="Case study: redefining Emergency Department patient administration with a FHIR-native model at Telstra Health. The MVP that became Kyra PAS.">
   <meta property="og:url" content="https://lisajones.com.au/pas.html">
   <meta property="og:image" content="https://lisajones.com.au/images/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -99,7 +99,7 @@
   <h3>The behavioural consequence</h3>
   <p>In practice, administrative interaction in ED is deferred until workload allows. Staff rely on memory, paper, or duplicate entry to keep patient flow moving, correcting records later when pressure eases. This behaviour is not accidental. It is a rational response to systems that slow care when used as designed.</p>
 
-  <img class="img img--bordered mt-md" src="images/pas-legacy.webp" alt="Legacy PAS interfaces — terminal and form-based systems">
+  <img class="img img--bordered mt-md" src="images/pas-legacy.webp" alt="Legacy PAS interfaces: terminal and form-based systems">
   <div class="text-caption"><strong>The legacy PAS reality.</strong> Left: a terminal-style interface that clinical staff nicknamed "the green screen." Right: a later-generation form-based system. Both prioritise exhaustive data capture over flow, increasing cognitive load and error risk under ED conditions.</div>
 
   <h3 class="mt-lg">A system integrity problem, not a UI problem</h3>
@@ -114,7 +114,7 @@
   <p>For PAS, this meant supporting uncertainty, refining identity over time, and operating alongside legacy platforms rather than attempting wholesale replacement.</p>
 
   <img class="img img--bordered mt-md" src="images/pas-fhir-architecture.webp" alt="FHIR-native system model mapped retrospectively">
-  <div class="text-caption"><strong>The FHIR-native system model, mapped retrospectively.</strong> Kyra PAS participates in a shared clinical data layer alongside the EMR and bed management system, rather than acting as a siloed system of record.</div>
+  <div class="text-caption"><strong>The FHIR-native system model.</strong> Mapped retrospectively. Kyra PAS participates in a shared clinical data layer alongside the EMR and bed management system, rather than acting as a siloed system of record.</div>
 
   <div class="insight mt-md">
     <span class="insight__label">Insight</span>
@@ -136,13 +136,13 @@
   <p>The product owner scoped the MVP to a single high-risk journey: ED arrival and triage, identity check or creation, patient movement across ED locations, admission completion, and transfer or discharge. My job was to make that journey work as a coherent, clinically safe interaction model within six months.</p>
 
   <img class="img img--bordered mt-md" src="images/pas-journey-map.webp" alt="The MVP admission journey map">
-  <div class="text-caption"><strong>The MVP admission journey</strong> across arrival, triage, identity management, movement, admission decision, and handover, showing key pain points and design responses at each stage.</div>
+  <div class="text-caption"><strong>The MVP admission journey.</strong> Arrival, triage, identity management, movement, admission decision, and handover, with key pain points and design responses at each stage.</div>
 
   <h3 class="mt-lg">Understanding the system</h3>
   <p>Emergency admission involves more than the ED. Frontstage clinical and clerical work, midstage PAS coordination, and backstage updates across EMR, bed management, billing, and reporting systems all have to move together without blocking patient flow. The service blueprint below maps where uncertainty enters the workflow, which system owns which decisions, and how downstream systems stay informed.</p>
 
   <img class="img img--bordered mt-md" src="images/pas-blueprint.webp" alt="Emergency admission service blueprint">
-  <div class="text-caption"><strong>Emergency admission coordination</strong> across ED staff, Kyra PAS, and hospital platforms, from patient arrival through to discharge.</div>
+  <div class="text-caption"><strong>Emergency admission coordination.</strong> ED staff, Kyra PAS, and hospital platforms working together from patient arrival through to discharge.</div>
 
   <h3 class="mt-lg">Designing under real constraints</h3>
   <p>There was no production system and no external testing budget. Validation relied on weekly design reviews with the engineering team, structured walkthroughs with clinical SMEs and PAS specialists, architectural alignment sessions, and regular internal critique. These sessions produced concrete changes.</p>
@@ -165,24 +165,22 @@
       <source src="images/pas-dashboard.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="text-caption caption--padded"><strong>The ED movement board prototype</strong> (silent screen recording, no audio). Patient cards carry triage category, wait time, and location. Staff move patients by dragging cards between columns. Triage timing indicators show urgency status at a glance across the whole department.</div>
+  <div class="text-caption caption--padded"><strong>The ED movement board prototype.</strong> Silent screen recording. Patient cards carry triage category, wait time, and location. Staff move patients by dragging cards between columns. Triage timing indicators show urgency status at a glance across the whole department.</div>
 
   <div class="insight mt-md">
     <span class="insight__label">Decision</span>
     <p>Treat patient movement as a first-class interaction to support situational awareness, not as an administrative status update.</p>
   </div>
 
-  <h3 class="mt-lg">Concrete design decisions</h3>
-
-  <h3>From wireframe assumption to resolved interaction model</h3>
+  <h3 class="mt-lg">From wireframe assumption to resolved interaction model</h3>
   <p>The patient card is the atomic unit of the entire interaction model. Getting it wrong would have cascaded through every other surface.</p>
   <p>My initial wireframe listed nine data points I assumed the card needed to carry: name, MRN, current location, expected location, triage level, doctor's info, what was wrong, time since admission, and waiting time against triage limits. The reasoning felt sound at the time.</p>
   <p>Clinical walkthroughs cut that down quickly. Most of that information was either contextual (already visible from which column the card sat in on the board), secondary (accessible by clicking through to the detail panel), or a risk if surfaced in abbreviated form on a small component under time pressure. What the card actually needed to carry was name, age, sex, URN, and triage category. Everything else lived in the detail panel, accessible on click without leaving the board.</p>
 
-  <h3>Location tied to the bay, not the card.</h3>
+  <h3>Location tied to the bay, not the card</h3>
   <p>I had originally included a bay number field on the card itself. During review I realised this was the wrong model. The bay is not a property of the patient; the patient is a property of the bay. An empty bay square waiting to receive a card reinforced the spatial logic of the board and removed a redundant data point from the card.</p>
 
-  <h3>Card style aligned to existing Telstra Health clinical products.</h3>
+  <h3>Card style aligned to existing Telstra Health clinical products</h3>
   <p>Rather than introducing a new visual language, I matched the card style and DOB formatting conventions already in use across Telstra Health's hospital-facing products. This reduced the learning curve and reinforced that Kyra PAS belonged to the same platform family.</p>
 
   <p>The ED board itself was designed as a column-per-location layout where each column represented a physical space in the department: waiting area, triage, resus, trauma bays, fast track. Staff moved patients by dragging cards between columns. State updated automatically. The detail panel slid out on the right when a card was selected, keeping the full board visible while staff reviewed or updated patient information.</p>
@@ -205,7 +203,7 @@
   <p>Discussion moved quickly from whether the approach could work to how it could progress, including integration pathways, staged rollout, and expansion to other admission scenarios. The conversation that had previously centred on legacy constraints shifted to platform ambition.</p>
 
   <img class="img img--bordered mt-md" src="images/pas-launch.webp" alt="The Telstra Health Kyra launch event">
-  <div class="text-caption"><strong>The Telstra Health Kyra launch event,</strong> attended by more than 400 clinicians, health service leaders, and digital health stakeholders. Discussion moved quickly from whether the approach could work to how it could be implemented at scale.</div>
+  <div class="text-caption"><strong>The Kyra launch event.</strong> More than 400 clinicians, health service leaders, and digital health stakeholders attended. Discussion moved quickly from whether the approach could work to how it could be implemented at scale.</div>
 
   <div class="insight mt-md">
     <span class="insight__label">Outcome</span>
@@ -216,7 +214,7 @@
   <p>The MVP demonstrated not only that the interaction model worked, but that it could be introduced without forcing hospitals to abandon their existing systems overnight. The lead engineer and system architect designed a FHIR-native architecture that allowed Kyra PAS to operate alongside a legacy PAS during a transition period, with FHIR resources progressively taking ownership of data domains as confidence in the new system grew. My interaction model was designed to operate within that architecture from the start, which meant the ED workflows I built were already positioned to extend to other modules as the platform matured.</p>
 
   <img class="img img--bordered mt-md" src="images/pas-migration.webp" alt="The progressive migration model">
-  <div class="text-caption"><strong>The progressive migration model,</strong> mapped retrospectively. Kyra PAS introduced incrementally alongside legacy systems, with FHIR resource ownership transferred in planned stages rather than through a high-risk cutover.</div>
+  <div class="text-caption"><strong>The progressive migration model.</strong> Mapped retrospectively. Kyra PAS introduced incrementally alongside legacy systems, with FHIR resource ownership transferred in planned stages rather than through a high-risk cutover.</div>
 
   <hr class="divider divider--spaced">
 
@@ -227,7 +225,7 @@
 </div>
 </div>
 
-<div class="page-end"></div>
+<div class="page-end page-end--grey"></div>
 
 <div class="footer-wrap">
   <footer>
