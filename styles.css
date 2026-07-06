@@ -118,9 +118,9 @@ h2 {
 }
 
 h3 {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--grey-1);
 }
 
@@ -161,18 +161,20 @@ a:hover {
 
 /* ============================================================
    4. LABELS
-   .eyebrow        — section overline. Use <div>. Purple, 19px bold.
+   .eyebrow        — section overline. Use <div>. Purple, 13px bold uppercase.
    .card-label     — inside cards above title. Grey-2, 15px semibold.
    .card-label--muted — subdued variant. Grey-5.
    .meta-label     — intro strip only. Grey-2, 12px bold caps.
    ============================================================ */
 .eyebrow {
-  font-size: 19px;
+  font-size: 13px;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--purple);
   display: block;
   margin-top: 8px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .card-label {
@@ -230,7 +232,7 @@ a:hover {
 }
 
 .text-caption strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--grey-1);
   display: inline;
 }
@@ -1561,8 +1563,7 @@ footer a:hover {
   .page-end { min-height: 48px; }
 
   .eyebrow {
-    font-size: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   footer {
@@ -1585,7 +1586,6 @@ footer a:hover {
   h2 { font-size: clamp(20px, 5vw, 28px); }
 
   .eyebrow {
-    font-size: 16px;
     margin-bottom: 24px;
   }
 
