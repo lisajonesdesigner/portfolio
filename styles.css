@@ -425,6 +425,14 @@ body.nav-open {
   background: var(--purple);
 }
 
+.section--dark .eyebrow {
+  color: var(--on-dark-mid);
+}
+
+.section--dark h2 {
+  color: var(--on-dark);
+}
+
 .page-end {
   flex: 1;
   min-height: 80px;
@@ -448,6 +456,8 @@ body.nav-open {
    .grid--gap-sm  — 12px gap
    .grid--gap-lg  — 32px gap
    .grid--overflow — allow overflow (needed for .img--zoom)
+   .grid--masonry-2 — 2-col CSS-columns masonry (variable-height cards,
+                      e.g. testimonials). Children need break-inside: avoid.
    ============================================================ */
 .grid {
   display: grid;
@@ -458,6 +468,18 @@ body.nav-open {
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid--masonry-2 {
+  display: block;
+  column-count: 2;
+  column-gap: 32px;
+  margin-top: 28px;
+}
+
+.grid--masonry-2 > * {
+  break-inside: avoid;
+  margin-bottom: 32px;
+}
 
 .grid--gap-sm  { gap: 12px; }
 .grid--gap-lg  { gap: 32px; }
@@ -1245,6 +1267,21 @@ td:first-child {
   display: block;
 }
 
+/* Testimonial on light cards — e.g. .card--shadow */
+.testimonial-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--grey-1);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.testimonial-role {
+  font-size: 13px;
+  color: var(--grey-5);
+  display: block;
+}
+
 /* Video embed */
 .video-wrap {
   margin: 28px 0;
@@ -1310,6 +1347,69 @@ td:first-child {
 .miro-wrap iframe {
   display: block;
   width: 100%;
+}
+
+
+/* ============================================================
+   19b. CONTACT FORM
+   .contact-form — wraps the whole form, max-width constrained
+   .form-group   — label + input/textarea pair
+   ============================================================ */
+.contact-form {
+  max-width: 480px;
+  margin-top: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grey-2);
+  margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--grey-1);
+  padding: 12px 14px;
+  border: 1px solid var(--grey-7);
+  background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-status {
+  margin-top: 16px;
+  font-size: 14px;
+  display: none;
+}
+
+.form-status.is-visible {
+  display: block;
+}
+
+.form-status.success {
+  color: var(--teal);
+}
+
+.form-status.error {
+  color: var(--red);
 }
 
 
@@ -1406,6 +1506,10 @@ footer a:hover {
   .grid--3,
   .grid--4 {
     grid-template-columns: 1fr;
+  }
+
+  .grid--masonry-2 {
+    column-count: 1;
   }
 
   .module-grid {
@@ -1506,3 +1610,264 @@ footer a:hover {
   footer         { padding: 32px 16px; }
 }
 
+
+
+/* ============================================================
+   20. ADDITIONS — skip link, hub kicker, card meta, coming
+   badge, spacing utilities (replaces inline styles)
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--purple);
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Name · role · location line above hub h1 */
+.hub-kicker {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--grey-3);
+  margin-bottom: 14px;
+}
+
+/* Tools / credentials line below hub h1 */
+.hub-sub {
+  font-size: 15px;
+  color: var(--grey-4);
+  margin-top: 12px;
+}
+
+/* Org · role · outcome line under project card titles */
+.project-card__meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grey-4);
+  margin-top: 10px;
+}
+
+/* "Case study coming soon" chip on unbuilt cards */
+.coming-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: rgba(255,255,255,0.92);
+  color: var(--grey-2);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+/* Spacing utilities */
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.section--pad-top { padding-top: 80px; }
+.divider--spaced { margin: 48px 0; }
+
+/* Cross-pointer link between the two hub pages */
+.hub-cross {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.hub-cross:hover {
+  text-decoration: underline;
+}
+
+/* About page — bio text + headshot layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-photo img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-photo {
+    max-width: 320px;
+  }
+  .about-photo img {
+    margin-top: 8px;
+  }
+}
+
+/* About page — self-portrait illustration */
+.about-illustration img {
+  display: block;
+  max-height: 360px;
+  width: auto;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   About hero — full-bleed purple band with clover watermark
+   ============================================================ */
+.about-hero {
+  background: var(--purple);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 48px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid #fff;
+}
+
+.about-hero h1 {
+  color: #fff;
+  font-size: clamp(30px, 4vw, 48px);
+  margin-bottom: 16px;
+}
+
+.about-hero__lead {
+  color: #d9c6d9;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.55;
+  max-width: 560px;
+}
+
+/* Giant clover from Lisa's own illustration, tone-on-tone */
+.about-hero__clover {
+  position: absolute;
+  right: -100px;
+  bottom: -130px;
+  width: 480px;
+  height: auto;
+  color: #47104d;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .about-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .about-hero__photo {
+    width: 180px;
+    margin: 0 auto;
+  }
+  .about-hero__lead {
+    margin: 0 auto;
+  }
+  .about-hero__clover {
+    width: 300px;
+    right: -80px;
+    bottom: -90px;
+  }
+}
+
+/* About section headings: h3 size, purple */
+.about-heading {
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+/* About — Beyond the work: text left, white card running behind the
+   illustration, figure bottom-locked to the dark band below */
+.about-beyond {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  column-gap: 48px;
+  padding-bottom: 0;
+}
+
+.about-beyond__text {
+  grid-column: 1;
+  grid-row: 1;
+  padding-bottom: 24px;
+}
+
+.about-beyond__card {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  z-index: 0;
+  align-self: end;
+  margin-bottom: 50px;
+}
+
+.about-beyond__card p {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.about-beyond__figure {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  z-index: 1;
+  align-self: end;
+}
+
+.about-beyond__figure img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  object-position: bottom;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .about-beyond {
+    grid-template-columns: 1fr;
+  }
+  .about-beyond__text {
+    padding-bottom: 16px;
+  }
+  .about-beyond__card {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 0;
+  }
+  .about-beyond__figure {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 16px;
+  }
+  .about-beyond__figure img {
+    max-height: 300px;
+    width: auto;
+    margin: 0 auto;
+  }
+}

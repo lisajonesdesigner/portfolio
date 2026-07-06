@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisa Jones — Contact</title>
+  <meta name="description" content="Get in touch with Lisa Jones, Senior Product Designer and Digital Learning Designer in Melbourne.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lisa Jones">
+  <meta property="og:title" content="Lisa Jones — Contact">
+  <meta property="og:description" content="Get in touch with Lisa Jones, Senior Product Designer and Digital Learning Designer in Melbourne.">
+  <meta property="og:url" content="https://www.lisajones.com.au/contact.html">
+  <meta property="og:image" content="https://www.lisajones.com.au/images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/admin-favicon-day.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/admin-favicon-night.png" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/admin-lj-logo.png" alt="Lisa Jones">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html">Product Design</a></li>
+      <li><a href="learning.html">Learning Design</a></li>
+      <li><a href="contact.html" class="nav-link--active">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</div>
+
+<div class="nav-overlay" aria-hidden="true">
+  <ul class="nav-overlay__links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html">Product Design</a></li>
+    <li><a href="learning.html">Learning Design</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+
+<!-- CONTACT -->
+<div class="section section--pad-top" id="main">
+  <div class="eyebrow">Contact</div>
+  <h2>Get in touch</h2>
+  <p class="text-lead">Have a project in mind, or want to talk about product design in regulated environments? Send a message and I'll get back to you.</p>
+
+  <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/lisajonesdesigner@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Portfolio enquiry">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn--purple">Send message</button>
+
+    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+  </form>
+</div>
+
+<div class="page-end"></div>
+
+<div class="footer-wrap">
+  <footer>
+    <div>
+      <h3>Contact</h3>
+      <a href="mailto:lisajonesdesigner@gmail.com">lisajonesdesigner@gmail.com</a>
+      <p>+61 418 612 763</p>
+      <a href="https://www.linkedin.com/in/lisajonesdesigner" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div>
+      <h3>Quick links</h3>
+      <a href="index.html">Product Design</a>
+      <a href="learning.html">Learning Design</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const overlay = document.querySelector(".nav-overlay");
+  const body = document.body;
+  if (toggle && overlay) {
+    toggle.addEventListener("click", () => {
+      const open = overlay.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open);
+      body.classList.toggle("nav-open", open);
+    });
+    overlay.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        overlay.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", false);
+        body.classList.remove("nav-open");
+      });
+    });
+  }
+</script>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  if (form && status) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.className = "form-status is-visible";
+      status.textContent = "Sending…";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok) {
+          status.className = "form-status is-visible success";
+          status.textContent = "Thanks — your message has been sent. I'll be in touch soon.";
+          form.reset();
+        } else {
+          throw new Error("Form submission failed");
+        }
+      } catch (err) {
+        status.className = "form-status is-visible error";
+        status.textContent = "Something went wrong. Please email lisajonesdesigner@gmail.com directly.";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

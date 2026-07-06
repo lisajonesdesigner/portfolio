@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lisa Jones — About</title>
+  <meta name="description" content="Senior Product Designer in Melbourne. 20 years of visual craft, now applied to regulated health, aged care, and education platforms.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lisa Jones">
+  <meta property="og:title" content="Lisa Jones — About">
+  <meta property="og:description" content="Senior Product Designer in Melbourne. 20 years of visual craft, now applied to regulated health, aged care, and education platforms.">
+  <meta property="og:url" content="https://www.lisajones.com.au/about.html">
+  <meta property="og:image" content="https://www.lisajones.com.au/images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/admin-favicon-day.png" media="(prefers-color-scheme: light)">
@@ -11,18 +19,20 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <div class="nav-wrap">
   <nav>
     <div class="logo">
-      <a href="product.html">
+      <a href="index.html">
         <img src="images/admin-lj-logo.png" alt="Lisa Jones">
       </a>
     </div>
     <ul class="nav-links">
       <li><a href="about.html" class="nav-link--active">About</a></li>
-      <li><a href="product.html">Product Design</a></li>
+      <li><a href="index.html">Product Design</a></li>
       <li><a href="learning.html">Learning Design</a></li>
-      <li><a href="https://www.lisajones.com.au/contact">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
@@ -34,52 +44,107 @@
 <div class="nav-overlay" aria-hidden="true">
   <ul class="nav-overlay__links">
     <li><a href="about.html">About</a></li>
-    <li><a href="product.html">Product Design</a></li>
+    <li><a href="index.html">Product Design</a></li>
     <li><a href="learning.html">Learning Design</a></li>
-    <li><a href="https://www.lisajones.com.au/contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </div>
 
 
-<!-- BIO -->
-<div class="section" style="padding-top: 80px;">
-  <div class="eyebrow">About</div>
-  <h2>Senior Product Designer.<br>Regulated health, aged care,<br>and education platforms.</h2>
-  <p class="mt-lg">My work focuses on platforms where structure, policy, and accountability shape the experience as much as user needs. I design calm, predictable systems for people working under pressure, with decisions grounded in clear responsibility boundaries, defensible interaction logic, and evidence traceability.</p>
-  <p>I specialise in environments where failure carries risk, including healthcare, aged care, and higher education platforms operating under regulatory, audit, and accessibility constraints. Recent work includes FHIR-aligned clinical and care systems, assessor-led funding reform, and institution-wide learning platforms, delivered in close partnership with product, engineering, and domain experts.</p>
-  <p>I bring a strong foundation in visual design and accessibility, informed by 20 years across branding, advertising, and design agencies. This supports clear hierarchy, restraint, and legibility across complex workflows rather than surface polish.</p>
-  <p>Postgraduate study in digital learning design informs how systems guide users through unfamiliar or high-stakes tasks. This strengthens onboarding and in-product guidance while reducing misuse, variation, and operational risk.</p>
-  <p>I work best where systems need to scale, rules matter, and clarity is non-negotiable.</p>
+<!-- HERO -->
+<div class="about-hero" id="main">
+  <svg class="about-hero__clover" viewBox="167 719 74 69" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M235.8 745.1C234.7 731.8 219 740.5 211.3 746.5C210.7 738.6 205.5 723.5 189.3 726.3C173.1 729.1 191.3 746.9 202.4 755.4C191.9 752.4 171.9 750.7 176.5 767.1C181 783.5 195.7 769.2 202.4 760C202.3 767.6 204.4 782.5 213.8 782C223.2 781.4 216 767.1 211.3 760C219.9 760.5 236.9 758.4 235.8 745.1Z" fill="currentColor"/>
+  </svg>
+  <div class="about-hero__inner">
+    <img class="about-hero__photo" src="images/headshot.webp" alt="Lisa Jones">
+    <div>
+      <h1>Hello, I'm Lisa.</h1>
+      <p class="about-hero__lead">Senior product designer and digital learning designer in Melbourne. I make complex, regulated systems make sense.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="section section--pad-top">
+  <h3 class="about-heading">How I got here</h3>
+  <p>Art school, then 20 years in agencies, then product. The visual craft stayed. The problems changed: policy, standards, and dense data models, used by people under real pressure.</p>
+  <p>Now I design clinical platforms, aged care funding tools, and university learning systems. Work where the rules are real and clarity is non-negotiable.</p>
+  <p>Postgraduate study in digital learning design taught me the other half: how people learn high-stakes tasks. My units were assessed at High Distinction level, with full marks for an Articulate Rise module and a web analytics case study.</p>
+  <p>Accessibility is the through-line. AI can close accessibility gaps. Its biases can also quietly widen them. My recent research puts that tension to work, <a href="access.html">using AI critically for accessible learning</a>.</p>
+</div>
+
+<!-- BEYOND THE WORK -->
+<div class="section--grey">
+  <div class="section about-beyond">
+    <div class="about-beyond__text">
+      <h3 class="about-heading">Beyond the work</h3>
+      <p>I exhibit as an artist, sing in a band, and do impro theatre. Impro is the best training there is for workshops and user interviews: listen hard, build on what you're given, stay calm when the scene changes. Bushwalking untangles the rest.</p>
+    </div>
+    <div class="about-beyond__card card--shadow">
+      <span class="card-label">Pattern recognition</span>
+      <p>The logo? A four-leaf clover. I find them everywhere.</p>
+    </div>
+    <div class="about-beyond__figure">
+      <img src="images/admin-illustration.webp" alt="One-line self-portrait illustration by Lisa, arms crossed, holding a four-leaf clover">
+    </div>
+  </div>
 </div>
 
 <!-- IN THEIR WORDS -->
-<div class="section--grey">
+<div class="section--dark">
   <div class="section">
     <div class="eyebrow">In their words</div>
-    <h2>What colleagues say</h2>
-    <div class="grid grid--2 grid--gap-lg mt-lg">
-      <div class="card--dark">
-        <p class="testimonial__quote">Thank you for all that you did. You will always be remembered at Monash because your design will be reproduced <strong>EVERYWHERE.</strong> Thanks for being such an important part of this project. You put your artistry into a dull place, and it is so much better for it. Thank you again.</p>
-        <span class="testimonial__name">Professor Allie Clemans</span>
-        <span class="testimonial__role">Deputy Vice-Chancellor (Education), Senior Vice-President, Monash University</span>
+    <div class="grid--masonry-2">
+      <div class="card--shadow">
+        <span class="testimonial-name">Professor Allie Clemans</span>
+        <span class="testimonial-role">Deputy Vice-Chancellor (Education), Senior Vice-President, Monash University</span>
+        <p class="mt-md">Thank you for all that you did. You will always be remembered at Monash because your design will be reproduced <strong>EVERYWHERE.</strong> Thanks for being such an important part of this project. You put your artistry into a dull place, and it is so much better for it. Thank you again.</p>
       </div>
-      <div class="card--dark">
-        <p class="testimonial__quote">Aged care offers a steep learning curve to anyone new to healthcare. Lisa has negotiated this and is well on her way to a deeper understanding of our users, our products and the industry. She doesn't shy away from a challenge, as shown by her expanding involvement across both the Clinical Manager and Resident Manager products. She has actively engaged our clients to seek feedback and validation, as evidenced by her work on the admission templates and, more recently, AN-ACC. Lisa has been an invaluable source of expertise, providing input as we shape and build out our DNA-R design system.</p>
-        <span class="testimonial__name">Matthew Sarah</span>
-        <span class="testimonial__role">UX Manager (Aged and Disability), Telstra Health</span>
+      <div class="card--shadow">
+        <span class="testimonial-name">Matthew Sarah</span>
+        <span class="testimonial-role">UX Manager (Aged and Disability), Telstra Health</span>
+        <p class="mt-md">Aged care offers a steep learning curve to anyone new to healthcare. Lisa has negotiated this and is well on her way to a deeper understanding of our users, our products and the industry. She doesn't shy away from a challenge, as shown by her expanding involvement across both the Clinical Manager and Resident Manager products. She has actively engaged our clients to seek feedback and validation, as evidenced by her work on the admission templates and, more recently, AN-ACC. Lisa has been an invaluable source of expertise, providing input as we shape and build out our DNA-R design system.</p>
       </div>
-      <div class="card--dark">
-        <p class="testimonial__quote">Lisa is an outstanding UI/UX designer who has consistently demonstrated exceptional skills. She possesses a unique ability to blend creativity with user-centric design principles. Her designs not only look visually stunning but also prioritise the end user's experience. She has a keen eye for detail and an intuitive understanding of what it takes to create intuitive and user-friendly interfaces. She excels at working within multidisciplinary teams, effectively communicating her design vision and incorporating feedback from various stakeholders. Lisa's enthusiasm and passion for UX design are infectious and inspiring.</p>
-        <span class="testimonial__name">Ankur Agrawal</span>
-        <span class="testimonial__role">Product Manager and Delivery Lead, Monash University</span>
+      <div class="card--shadow">
+        <span class="testimonial-name">Ankur Agrawal</span>
+        <span class="testimonial-role">Product Manager and Delivery Lead, Monash University</span>
+        <p class="mt-md">Lisa is an outstanding UI/UX designer who has consistently demonstrated exceptional skills. She possesses a unique ability to blend creativity with user-centric design principles. Her designs not only look visually stunning but also prioritise the end user's experience. She has a keen eye for detail and an intuitive understanding of what it takes to create intuitive and user-friendly interfaces. She excels at working within multidisciplinary teams, effectively communicating her design vision and incorporating feedback from various stakeholders. Lisa's enthusiasm and passion for UX design are infectious and inspiring.</p>
       </div>
-      <div class="card--dark">
-        <p class="testimonial__quote">Lisa is a very passionate and talented senior UX and UI designer. She is able to effectively apply sound UX techniques and amazing visual design skills to deliver the best solutions. Lisa worked with multiple stakeholders with multiple expectations, effectively navigating that to deliver the best outcomes. Lisa is a highly skilled designer, and any business would be very lucky to have her.</p>
-        <span class="testimonial__name">Renuja Marshall</span>
-        <span class="testimonial__role">UX Design Lead (Hospitals), Telstra Health</span>
+      <div class="card--shadow">
+        <span class="testimonial-name">Renuja Marshall</span>
+        <span class="testimonial-role">UX Design Lead (Hospitals), Telstra Health</span>
+        <p class="mt-md">Lisa is a very passionate and talented senior UX and UI designer. She is able to effectively apply sound UX techniques and amazing visual design skills to deliver the best solutions. Lisa worked with multiple stakeholders with multiple expectations, effectively navigating that to deliver the best outcomes. Lisa is a highly skilled designer, and any business would be very lucky to have her.</p>
+      </div>
+      <div class="card--shadow">
+        <span class="testimonial-name">Natasha Dwyer</span>
+        <span class="testimonial-role">Associate Professor, Victoria University · Lisa's postgraduate teacher</span>
+        <p class="mt-md">I witnessed her depth of experience and thoughtfulness she brings to her work. She draws confidently on a strong professional background while remaining genuinely open to new ideas, perspectives, and ways of working. Her engagement with new concepts is never superficial. She approached ideas critically, asking thoughtful questions and testing assumptions, while remaining constructive and open-minded. She combines innovation with persistence. Rather than stopping at interesting ideas, she puts in the hard work required to carry them through, refining, iterating, and ultimately getting to the other side with outcomes that are both practical and forward-thinking.</p>
+      </div>
+      <div class="card--shadow">
+        <span class="testimonial-name">Rusty Benson</span>
+        <span class="testimonial-role">Inclusive Research &amp; Strategy, Intopia · reported directly to Lisa</span>
+        <p class="mt-md">Lisa brings a blend of craft experience, collaboration and dedication. She has an innate ability to understand user needs and translate them into intuitive and seamless experiences. Whether crafting wireframes, conducting research, or prototyping interfaces, she approaches each task with a strong understanding of usability principles. I enjoyed working with her in a complex and constantly changing project environment. I wholeheartedly recommend Lisa Jones for any senior-level UX design role.</p>
+      </div>
+      <div class="card--shadow">
+        <span class="testimonial-name">Lecturer feedback</span>
+        <span class="testimonial-role">Analysing the Web and Social Networks (postgraduate) · 100/100, HD</span>
+        <p class="mt-md">Beautiful presentation of distilled thinking. Such excellent layering of LX and UX. What an excellent portfolio piece.</p>
+      </div>
+      <div class="card--shadow">
+        <span class="testimonial-name">Lecturer feedback</span>
+        <span class="testimonial-role">Engaging Learners in Digital Environments (postgraduate) · 20/20, HD</span>
+        <p class="mt-md">Amazing how you have balanced creativity and practical thinking with deep theoretical reflections... and very succinctly.</p>
       </div>
     </div>
   </div>
+</div>
+
+<!-- CTA -->
+<div class="section">
+  <div class="eyebrow">Currently</div>
+  <h2>Open to senior product and digital learning design roles in Melbourne.</h2>
+  <p class="mt-lg"><a href="contact.html">Get in touch</a> or find me on <a href="https://www.linkedin.com/in/lisajonesdesigner" target="_blank" rel="noopener">LinkedIn</a>.</p>
 </div>
 
 <div class="page-end"></div>
@@ -90,13 +155,14 @@
       <h3>Contact</h3>
       <a href="mailto:lisajonesdesigner@gmail.com">lisajonesdesigner@gmail.com</a>
       <p>+61 418 612 763</p>
+      <a href="https://www.linkedin.com/in/lisajonesdesigner" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div>
       <h3>Quick links</h3>
-      <a href="product.html">Product Design</a>
+      <a href="index.html">Product Design</a>
       <a href="learning.html">Learning Design</a>
       <a href="about.html">About</a>
-      <a href="https://www.lisajones.com.au/contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
   </footer>
 </div>

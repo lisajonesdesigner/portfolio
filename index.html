@@ -2,10 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=product.html">
-  <title>Lisa Jones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisa Jones | Senior Product Designer — Melbourne</title>
+  <meta name="description" content="Senior Product Designer in Melbourne. System-level UX for regulated health, aged care, and education platforms. Policy, standards, and dense data models, translated into clear, defensible workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lisa Jones">
+  <meta property="og:title" content="Lisa Jones | Senior Product Designer — Melbourne">
+  <meta property="og:description" content="System-level UX for regulated health, aged care, and education platforms. Policy, standards, and dense data models, translated into clear, defensible workflows.">
+  <meta property="og:url" content="https://www.lisajones.com.au/">
+  <meta property="og:image" content="https://www.lisajones.com.au/images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/admin-favicon-day.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/admin-favicon-night.png" media="(prefers-color-scheme: dark)">
 </head>
 <body>
-  <p>Redirecting… <a href="product.html">Click here if not redirected.</a></p>
+
+<a class="skip-link" href="#product">Skip to content</a>
+
+<div class="nav-wrap">
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/admin-lj-logo.png" alt="Lisa Jones">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html" class="nav-link--active">Product Design</a></li>
+      <li><a href="learning.html">Learning Design</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</div>
+
+<div class="nav-overlay" aria-hidden="true">
+  <ul class="nav-overlay__links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html">Product Design</a></li>
+    <li><a href="learning.html">Learning Design</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<!-- UX PRODUCT DESIGN -->
+<section id="product">
+
+  <div class="hub-intro">
+    <p class="hub-kicker">Lisa Jones · Senior Product Designer · Melbourne</p>
+    <h1>I design complex, regulated systems for health, aged care, and education. Structure matters, rules are real, and clarity is non-negotiable.</h1>
+    <a class="hub-cross" href="learning.html">I also design digital learning &rarr;</a>
+  </div>
+
+  <div class="project-grid mt-32">
+
+    <div class="project-card">
+      <a class="project-card__link-overlay" href="pas.html" aria-label="Redefining ED patient administration using a FHIR-native model"></a>
+      <div class="project-card__thumb">
+        <img src="images/pas-hero.webp" alt="Kyra PAS emergency department movement board">
+      </div>
+      <div class="project-card__body">
+        <p class="project-card__title">Redefining ED patient administration using a FHIR-native model</p>
+        <p class="project-card__meta">Telstra Health · Lead Product Designer · Shipped as Kyra PAS</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <a class="project-card__link-overlay" href="aged.html" aria-label="Preparing aged-care facilities for assessor-led funding under AN-ACC"></a>
+      <div class="project-card__thumb">
+        <img src="images/aged-hero.webp" alt="AN-ACC aged care assessment preparation">
+      </div>
+      <div class="project-card__body">
+        <p class="project-card__title">Preparing aged-care facilities for assessor-led funding under AN-ACC</p>
+        <p class="project-card__meta">Telstra Health · Senior UX Designer · AN-ACC funding reform</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <a class="project-card__link-overlay" href="monash.html" aria-label="Unifying learning and teaching through a governed, system-led platform"></a>
+      <div class="project-card__thumb">
+        <img src="images/monash-hero.webp" alt="Monash LMS governed learning model">
+      </div>
+      <div class="project-card__body">
+        <p class="project-card__title">Unifying learning and teaching through a governed, system-led platform</p>
+        <p class="project-card__meta">Monash University · Senior Product Designer · Institution-wide platform</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="page-end"></div>
+
+<div class="footer-wrap">
+  <footer>
+    <div>
+      <h3>Contact</h3>
+      <a href="mailto:lisajonesdesigner@gmail.com">lisajonesdesigner@gmail.com</a>
+      <p>+61 418 612 763</p>
+      <a href="https://www.linkedin.com/in/lisajonesdesigner" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div>
+      <h3>Quick links</h3>
+      <a href="index.html">Product Design</a>
+      <a href="learning.html">Learning Design</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const overlay = document.querySelector(".nav-overlay");
+  const body = document.body;
+  if (toggle && overlay) {
+    toggle.addEventListener("click", () => {
+      const open = overlay.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open);
+      body.classList.toggle("nav-open", open);
+    });
+    overlay.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        overlay.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", false);
+        body.classList.remove("nav-open");
+      });
+    });
+  }
+</script>
+
 </body>
 </html>
