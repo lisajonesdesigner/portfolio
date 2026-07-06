@@ -110,16 +110,16 @@ h1 {
 }
 
 h2 {
-  font-size: var(--text-lg);
+  font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 700;
   line-height: var(--leading-snug);
   margin-bottom: 28px;
-  color: var(--grey-1);
+  color: var(--purple);
 }
 
 h3 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   margin-bottom: 10px;
   color: var(--grey-1);
 }
@@ -1206,23 +1206,36 @@ td:first-child {
 
 /* Pull quote */
 .pullquote {
-  border-left: 4px solid var(--purple);
-  padding: 20px 28px;
-  margin: 32px 0;
+  background: #fff;
+  border: 1px solid var(--grey-7);
+  padding: 40px 44px;
+  margin: 36px 0;
+}
+
+.section--grey .pullquote {
+  border-color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.pullquote__label {
+  font-size: 14px;
+  color: var(--grey-3);
+  display: block;
+  margin-bottom: 16px;
 }
 
 .pullquote p {
-  font-size: clamp(17px, 2vw, 21px);
-  font-weight: 600;
-  line-height: 1.5;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--grey-1);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .pullquote cite {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--grey-4);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grey-3);
   font-style: normal;
   display: block;
   line-height: 1.6;
@@ -1230,26 +1243,26 @@ td:first-child {
 
 /* Insight / Decision callout */
 .insight {
-  background: var(--grey-9);
-  border-left: 4px solid var(--grey-7);
-  padding: 16px 20px;
-  margin: 24px 0;
+  background: #f6f0f6;
+  border: 1px solid #dcc9dc;
+  padding: 24px 28px;
+  margin: 28px 0;
 }
 
 .insight__label {
-  font-size: var(--text-sm);
+  font-size: 15px;
   font-weight: 700;
   color: var(--purple);
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .insight p {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--grey-1);
   margin: 0;
-  line-height: var(--leading-snug);
+  line-height: 1.5;
 }
 
 /* Testimonial - use inside .card--dark */
@@ -1589,7 +1602,7 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  h2 { font-size: clamp(20px, 5vw, 28px); }
+  h2 { font-size: clamp(22px, 6vw, 30px); }
 
   .eyebrow {
     margin-bottom: 24px;
