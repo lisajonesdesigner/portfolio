@@ -113,7 +113,7 @@ h2 {
   font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 700;
   line-height: var(--leading-snug);
-  margin-bottom: 28px;
+  margin-bottom: 40px;
   color: var(--purple);
 }
 
@@ -135,6 +135,17 @@ p {
    labels) must not soften <strong>. */
 strong, b {
   font-weight: 700;
+}
+
+/* Content cadence: each h3 chunk gets clear air above it,
+   except when it opens a section or follows the h2 directly */
+.section > h3 {
+  margin-top: 40px;
+}
+
+.section > h3:first-child,
+.section > h2 + h3 {
+  margin-top: 0;
 }
 
 p:last-child {
@@ -176,11 +187,10 @@ a:hover {
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--purple);
   display: block;
   margin-top: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
 }
 
 .card-label {
@@ -507,6 +517,25 @@ body.nav-open {
 
 .img--bordered {
   border: 1px solid var(--grey-7);
+}
+
+/* Half-width image, right aligned - text flows down the left */
+.img--half-right {
+  width: 48%;
+  float: right;
+  margin: 8px 0 24px 36px;
+}
+
+.img--half-right + .text-caption {
+  float: right;
+  clear: right;
+  width: 48%;
+  margin: -16px 0 24px 36px;
+}
+
+/* Contain floats inside sections */
+.section {
+  display: flow-root;
 }
 
 .img--zoom {
@@ -1581,13 +1610,18 @@ footer a:hover {
 
   .page-end { min-height: 48px; }
 
-  .eyebrow {
-    margin-bottom: 28px;
-  }
-
   footer {
     grid-template-columns: 1fr;
     padding: 40px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .img--half-right,
+  .img--half-right + .text-caption {
+    float: none;
+    width: 100%;
+    margin: 24px 0 0;
   }
 }
 
@@ -1603,10 +1637,6 @@ footer a:hover {
   }
 
   h2 { font-size: clamp(22px, 6vw, 30px); }
-
-  .eyebrow {
-    margin-bottom: 24px;
-  }
 
   .card--step {
     grid-template-columns: 40px 1fr;
