@@ -221,17 +221,17 @@ a:hover {
 
 /* Use <div class="text-caption"> not <p> — base p styles would override */
 .text-caption {
-  font-size: 12px;
-  font-style: italic;
+  font-size: 13px;
   color: var(--grey-3);
-  margin-top: 8px;
-  line-height: 1.5;
+  margin-top: 10px;
+  line-height: 1.55;
   display: block;
+  max-width: 68ch;
 }
 
 .text-caption strong {
-  font-style: italic;
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--grey-1);
   display: inline;
 }
 
