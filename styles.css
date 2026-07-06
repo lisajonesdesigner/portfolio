@@ -1,0 +1,1508 @@
+/* ============================================================
+   STYLES.CSS — Lisa Jones Portfolio
+   Single stylesheet for all pages.
+
+   SECTIONS
+   1.  Custom properties (tokens)
+   2.  Reset & base
+   3.  Typography — headings, body, lists, links
+   4.  Labels
+   5.  Utilities — text styles, spacing
+   6.  Navigation
+   7.  Page layout — sections & divider
+   8.  Grid
+   9.  Images
+   10. Buttons
+   11. Cards
+   12. Accordions
+   13. Tables
+   14. Hub page — project grid & cards
+   15. Hero
+   16. Case study — intro
+   17. Case study — part dividers
+   18. Case study — content blocks
+   19. Case study — module grid & miro (learning pages)
+   20. Footer
+   21. Media queries
+   ============================================================ */
+
+
+/* ============================================================
+   1. CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+
+  /* Type scale */
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 16px;
+  --text-lg:   clamp(22px, 3.5vw, 32px);
+  --text-xl:   clamp(28px, 4.5vw, 52px);
+
+  /* Line heights */
+  --leading-tight:  1.15;
+  --leading-snug:   1.25;
+  --leading-normal: 1.7;
+
+  /* Greyscale */
+  --grey-1: #1a1a1a;   /* body text, headings */
+  --grey-2: #333333;   /* secondary body */
+  --grey-3: #555555;   /* captions */
+  --grey-4: #666666;   /* faint text */
+  --grey-5: #888888;   /* muted labels */
+  --grey-6: #999999;   /* disabled */
+  --grey-7: #cccccc;   /* borders */
+  --grey-8: #EBEBEA;   /* section backgrounds */
+  --grey-9: #F7F5F1;   /* table background */
+
+  /* Brand */
+  --purple:       #330033;
+  --purple-hover: #4d004d;
+  --green:        #60EFDE;
+
+  /* Semantic */
+  --red:   #CC2200;
+  --amber: #8B6914;
+  --teal:  #1A6B6B;
+
+  /* On-dark */
+  --on-dark:        #ffffff;
+  --on-dark-high:   rgba(255,255,255,0.88);
+  --on-dark-mid:    rgba(255,255,255,0.75);
+  --on-dark-low:    rgba(255,255,255,0.55);
+  --on-dark-faint:  rgba(255,255,255,0.5);
+  --on-dark-border: rgba(255,255,255,0.15);
+
+  /* Shadows */
+  --shadow-text-sm: 0 1px 3px rgba(0,0,0,0.6);
+  --shadow-text-md: 0 4px 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.6);
+}
+
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--grey-1);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* ============================================================
+   3. TYPOGRAPHY — HEADINGS, BODY, LISTS, LINKS
+   ============================================================ */
+h1 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+h2 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  margin-bottom: 28px;
+  color: var(--grey-1);
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--grey-1);
+}
+
+p {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--grey-1);
+  margin-bottom: 18px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  line-height: var(--leading-normal);
+  margin-bottom: 8px;
+  color: var(--grey-2);
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--purple-hover);
+}
+
+
+/* ============================================================
+   4. LABELS
+   .eyebrow        — section overline. Use <div>. Purple, 19px bold.
+   .card-label     — inside cards above title. Grey-2, 15px semibold.
+   .card-label--muted — subdued variant. Grey-5.
+   .meta-label     — intro strip only. Grey-2, 12px bold caps.
+   ============================================================ */
+.eyebrow {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--purple);
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 60px;
+}
+
+.card-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--grey-2);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.card-label--muted {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--grey-5);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.meta-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--grey-2);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* On dark cards, labels go light */
+.card--dark .card-label,
+.card--dark .card-label--muted {
+  color: rgba(255,255,255,0.7);
+}
+
+
+/* ============================================================
+   5. UTILITIES — TEXT STYLES & SPACING
+   ============================================================ */
+
+/* Text styles */
+.text-lead {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--grey-1);
+  line-height: var(--leading-normal);
+  margin-bottom: 18px;
+}
+
+/* Use <div class="text-caption"> not <p> — base p styles would override */
+.text-caption {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--grey-3);
+  margin-top: 8px;
+  line-height: 1.5;
+  display: block;
+}
+
+.text-caption strong {
+  font-style: italic;
+  font-weight: 700;
+  display: inline;
+}
+
+.caption--padded {
+  margin-top: 16px;
+}
+
+/* Semantic colour utilities — use on <td> or <th> */
+.col-good { color: var(--teal); }
+.col-warn { color: var(--amber); }
+.col-fail { color: var(--red); }
+
+/* Spacing utilities */
+.mt-sm { margin-top: 16px; }
+.mt-md { margin-top: 24px; }
+.mt-lg { margin-top: 36px; }
+.mb-sm { margin-bottom: 16px; }
+.mb-md { margin-bottom: 24px; }
+.mb-lg { margin-bottom: 36px; }
+
+
+/* ============================================================
+   6. NAVIGATION
+   .nav-wrap     — full-width white bar + sticky positioning
+   nav           — constrained to 1200px
+   .nav-dropdown — hover/focus-within dropdown
+   .nav-toggle   — hamburger, shown below 800px
+   .nav-overlay  — fullscreen mobile menu
+   ============================================================ */
+.nav-wrap {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav .logo img {
+  height: 36px;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+
+nav .nav-links li {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav .nav-links a {
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--grey-1);
+  line-height: 1;
+}
+
+nav .nav-links a:hover {
+  color: var(--purple);
+}
+
+/* Active nav link */
+nav .nav-links a.nav-link--active {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* Hamburger toggle — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 300;
+  width: 32px;
+  height: 32px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--grey-1);
+  transition: transform 0.2s, opacity 0.2s;
+  transform-origin: center;
+}
+
+body.nav-open .nav-toggle span:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+
+body.nav-open .nav-toggle span:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+/* Fullscreen mobile overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 150;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 40px 40px;
+}
+
+.nav-overlay.is-open {
+  display: flex;
+}
+
+.nav-overlay__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border: 1px solid var(--grey-7);
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.nav-overlay__links li {
+  margin-bottom: 0;
+}
+
+.nav-overlay__links a {
+  display: block;
+  padding: 16px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--grey-1);
+  text-decoration: none;
+  border-bottom: 1px solid var(--grey-7);
+}
+
+.nav-overlay__links li:last-child a {
+  border-bottom: none;
+}
+
+.nav-overlay__links a:hover {
+  background: var(--grey-8);
+  color: var(--purple);
+}
+
+
+
+/* ============================================================
+   7. PAGE LAYOUT — SECTIONS & DIVIDER
+   .section       — 900px max, 50px padding
+   .section--wide — 1200px max, 50px padding
+   .section--grey — full-bleed grey background (wrap outside .section)
+   .section--dark — full-bleed purple background (wrap outside .section)
+   .page-end      — spacer before footer
+   .divider       — horizontal rule, light grey
+   ============================================================ */
+.section {
+  padding: 50px max(48px, calc(50% - 402px));
+}
+
+.section--wide {
+  padding: 50px max(48px, calc(50% - 552px));
+}
+
+.section--grey {
+  background: var(--grey-8);
+}
+
+.section--dark {
+  background: var(--purple);
+}
+
+.page-end {
+  flex: 1;
+  min-height: 80px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--grey-7);
+  margin: 0 max(48px, calc(50% - 402px));
+}
+
+.divider--dark {
+  border-top-color: var(--grey-1);
+}
+
+
+/* ============================================================
+   8. GRID
+   .grid          — base display:grid, 24px gap, mt 28px
+   .grid--2/3/4   — column count
+   .grid--gap-sm  — 12px gap
+   .grid--gap-lg  — 32px gap
+   .grid--overflow — allow overflow (needed for .img--zoom)
+   ============================================================ */
+.grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid--gap-sm  { gap: 12px; }
+.grid--gap-lg  { gap: 32px; }
+.grid--overflow { overflow: visible; }
+
+
+/* ============================================================
+   9. IMAGES
+   .img           — block, full width
+   .img--bordered — 1px grey border
+   .img--zoom     — hover scale 2.2× (parent needs .grid--overflow)
+   ============================================================ */
+.img {
+  display: block;
+  width: 100%;
+}
+
+.img--bordered {
+  border: 1px solid var(--grey-7);
+}
+
+.img--zoom {
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.img--zoom:hover {
+  transform: scale(2.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  z-index: 10;
+  transform-origin: center top;
+}
+
+
+/* ============================================================
+   10. BUTTONS
+   .btn           — base, always combine with a variant
+   .btn--purple   — primary action
+   .btn--outline  — secondary action
+   .btn--grey     — neutral
+   .btn--text     — text link with arrow, no border
+   ============================================================ */
+.btn {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.15s;
+}
+
+.btn:hover::after {
+  transform: translateX(4px);
+}
+
+.btn--purple {
+  background: var(--purple);
+  color: var(--on-dark);
+  border-color: var(--purple);
+}
+
+.btn--purple:hover {
+  background: #000;
+  border-color: #000;
+  color: var(--on-dark);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.btn--outline:hover {
+  background: #edeaed;
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.btn--grey {
+  background: var(--grey-8);
+  color: var(--grey-1);
+  border-color: var(--grey-8);
+}
+
+.btn--grey:hover {
+  background: var(--grey-8);
+  color: var(--grey-1);
+  border-color: var(--grey-6);
+}
+
+.btn--text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--purple);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn--text::after {
+  content: "→";
+  display: inline-block;
+  transition: transform 0.15s;
+}
+
+.btn--text:hover {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1px;
+}
+
+.btn--text:hover::after {
+  transform: translateX(4px);
+}
+
+
+/* ============================================================
+   11. CARDS
+   .card              — white, grey border
+   .card--bar-purple  — white, purple left bar, shadow
+   .card--bar-grey    — white, grey left bar
+   .card--tinted      — soft grey background
+   .card--shadow      — white, drop shadow
+   .card--dark        — purple background, white text
+   .card--step        — numbered process step, bottom divider
+
+   On .section--grey, .card--bar-purple and .card--tinted adjust.
+   ============================================================ */
+.card {
+  background: #fff;
+  border: 1px solid var(--grey-7);
+  padding: 20px 24px;
+}
+
+.card--bar-purple {
+  background: #fff;
+  border: none;
+  border-left: 5px solid var(--purple);
+  padding: 24px 28px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.09);
+}
+
+.section--grey .card--bar-purple {
+  box-shadow: none;
+  border: 1px solid var(--grey-7);
+  border-left: 5px solid var(--purple);
+}
+
+.card--bar-grey {
+  background: #fff;
+  border: none;
+  border-left: 5px solid var(--grey-6);
+  padding: 24px 28px;
+}
+
+.card--tinted {
+  background: var(--grey-8);
+  border: none;
+  padding: 24px 28px;
+}
+
+.section--grey .card--tinted {
+  background: #fff;
+  border: 1px solid var(--grey-7);
+}
+
+.card--shadow {
+  background: #fff;
+  border: none;
+  padding: 24px 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+
+.card--dark {
+  background: var(--purple);
+  border: none;
+  padding: 36px 40px;
+}
+
+.card--step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--grey-7);
+  padding: 28px 0;
+  align-items: start;
+}
+
+.card--step:last-child {
+  border-bottom: none;
+}
+
+/* Card content elements */
+.card__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--grey-1);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card__num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--purple);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.card__body {
+  min-width: 0;
+}
+
+.card p,
+.card blockquote,
+.card li {
+  font-size: 15px;
+  color: var(--grey-2);
+  line-height: var(--leading-normal);
+}
+
+.card p { margin-bottom: 0; }
+
+.card--dark .card__title { color: var(--on-dark); }
+.card--dark p,
+.card--dark li            { color: var(--on-dark-high); }
+
+
+/* ============================================================
+   12. ACCORDIONS
+   <details class="accordion">
+     <summary class="accordion__trigger">Label</summary>
+     <div class="accordion__body">…</div>
+   </details>
+   ============================================================ */
+.accordion {
+  margin: 12px 0;
+  border: 1px solid var(--grey-7);
+  overflow: hidden;
+}
+
+.accordion__trigger {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey-1);
+  padding: 14px 18px;
+  cursor: pointer;
+  background: #fff;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.accordion__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__trigger::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+details[open] .accordion__trigger::after {
+  content: "−";
+}
+
+.accordion__body {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* ============================================================
+   13. TABLES
+   Wrap in .table-wrap for horizontal scroll.
+   th.col-good / col-warn / col-fail — coloured header cells.
+   First td per row is bold automatically.
+   ============================================================ */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 28px 0 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  background: var(--grey-9);
+  min-width: 480px;
+}
+
+th {
+  background: var(--grey-1);
+  color: var(--on-dark);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: var(--text-xs);
+}
+
+th:first-child { width: 120px; }
+
+th.col-good { background: var(--teal);  color: var(--on-dark); }
+th.col-warn { background: var(--amber); color: var(--on-dark); }
+th.col-fail { background: var(--red);   color: var(--on-dark); }
+
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--grey-7);
+  vertical-align: top;
+  color: var(--grey-2);
+  line-height: 1.5;
+}
+
+tr:last-child td { border-bottom: none; }
+
+td:first-child {
+  font-weight: 600;
+  color: var(--grey-1);
+}
+
+
+/* ============================================================
+   14. HUB PAGE — PROJECT GRID & CARDS
+   .hub-intro     — page header, constrained to 1200px
+   .portfolio-section — wraps each portfolio group (product/learning)
+   .project-grid  — 3-col card grid, constrained to 1200px
+   .project-card  — full-image card with body below
+   ============================================================ */
+.hub-intro {
+  padding: 80px 48px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hub-intro h1 {
+  font-size: clamp(22px, 3vw, 38px);
+  line-height: 1.2;
+  color: var(--purple);
+  max-width: 800px;
+  margin-bottom: 10px;
+}
+
+.portfolio-section {
+  padding: 48px 48px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-section h2 {
+  margin-bottom: 8px;
+}
+
+.portfolio-section .section-desc {
+  font-size: 15px;
+  color: var(--grey-4);
+  margin-bottom: 28px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Full-card click overlay — place before other children */
+.project-card__link-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.project-card__thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card__thumb img {
+  transform: scale(1.03);
+}
+
+.project-card__body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card__sector {
+  display: none;
+}
+
+.project-card__title {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--grey-1);
+  flex: 1;
+}
+
+/* Unbuilt cards — not clickable but no overlay */
+.project-card.coming {
+  pointer-events: none;
+}
+
+/* Logo chip overlaid bottom-left of card thumbnail */
+.project-card__logo {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  height: 30px;
+  width: auto;
+  max-width: 140px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  z-index: 2;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+/* "learn more >" text link below card title */
+.project-card__learn-more {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--purple);
+  text-decoration: none;
+  margin-top: 14px;
+  display: inline-block;
+}
+
+.project-card__learn-more:hover {
+  text-decoration: underline;
+}
+
+/* Grey band for experimental/research sections on hub pages */
+.section-experimental {
+  background: var(--grey-8);
+  padding: 48px 0 64px;
+  margin-top: 96px;
+}
+
+/* Learning hub — grey spacer fills remaining viewport height after section-experimental */
+.learning-page-end {
+  flex: 1;
+  background: var(--grey-8);
+  min-height: 0;
+}
+
+/* Experimental / research section label */
+.section-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--grey-1);
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   15. HERO
+   Full-bleed image with dark overlay.
+   .hero__content — sits at bottom of hero (flex child)
+   .hero__logo    — org logo chip, above heading
+   .hero__title   — white h1 overlaid on image
+   ============================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.27);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 10;
+  padding: 0 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Org logo above heading — no white bg (logos have their own white) */
+.hero__logo {
+  height: 51px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.hero__title {
+  color: #fff;
+  font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+
+/* ============================================================
+   15b. CASE HEADER
+   Title block below hero on case study pages.
+   ============================================================ */
+.case-header {
+  padding: 48px max(48px, calc(50% - 402px)) 0;
+}
+
+.case-header h1 {
+  color: var(--purple);
+  max-width: 780px;
+  margin-bottom: 24px;
+}
+
+.case-meta {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--grey-1);
+  margin-bottom: 0;
+}
+
+.case-context {
+  padding: 32px max(48px, calc(50% - 402px)) 0;
+}
+
+.case-context p {
+  font-size: 16px;
+  color: var(--grey-1);
+}
+
+
+/* ============================================================
+   16. CASE STUDY — INTRO
+   Sits below the hero. Holds summary, meta row, and constraints.
+   .intro__header   — flex row: summary left, logo right
+   .intro__logo     — org logo, fixed height
+   .intro__summary  — 18px lead paragraph
+   .intro__meta     — auto-fit grid of label/value pairs
+   .intro__action   — launch button + note (learning pages)
+   .intro__constraints — bullet list of project constraints
+   ============================================================ */
+.intro {
+  padding: 48px max(48px, calc(50% - 402px)) 40px;
+}
+
+.intro__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.intro__logo {
+  height: 36px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 6px;
+}
+
+.intro__summary {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: var(--leading-normal);
+  color: var(--grey-1);
+  max-width: 680px;
+  padding-bottom: 32px;
+}
+
+/* Auto-fit handles both 3-item (learning) and 4-item (product) grids */
+.intro__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--grey-7);
+  padding-bottom: 32px;
+}
+
+.intro__meta-item .value {
+  font-size: 14px;
+  color: var(--grey-1);
+  line-height: 1.5;
+}
+
+/* Launch button + small note — used on access.html */
+.intro__action {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid var(--grey-7);
+}
+
+.intro__note {
+  font-size: 11px;
+  color: var(--grey-3);
+  line-height: var(--leading-normal);
+  margin: 0;
+}
+
+/* Constraints list */
+.intro__constraints {
+  padding-top: 24px;
+  border-top: 1px solid var(--grey-7);
+}
+
+.intro__constraints h3 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--grey-2);
+  margin-bottom: 10px;
+}
+
+.intro__constraints li {
+  font-size: 14px;
+  color: var(--grey-2);
+  margin-bottom: 6px;
+}
+
+
+/* ============================================================
+   17. CASE STUDY — PART DIVIDERS
+   Numbered section headers: PART 1, PART 2, PART 3.
+   Sits outside .section so padding aligns with content.
+   ============================================================ */
+.part-divider {
+  padding: 64px max(48px, calc(50% - 402px)) 0;
+}
+
+.part-num {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--purple);
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   18. CASE STUDY — CONTENT BLOCKS
+   .pullquote    — large quote with purple left bar
+   .insight      — tinted callout with label (Insight / Decision)
+   .testimonial__* — quote + attribution for impact section
+   .video-wrap   — black-bg video container
+   ============================================================ */
+
+/* Pull quote */
+.pullquote {
+  border-left: 4px solid var(--purple);
+  padding: 20px 28px;
+  margin: 32px 0;
+}
+
+.pullquote p {
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--grey-1);
+  margin-bottom: 12px;
+}
+
+.pullquote cite {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grey-4);
+  font-style: normal;
+  display: block;
+  line-height: 1.6;
+}
+
+/* Insight / Decision callout */
+.insight {
+  background: var(--grey-9);
+  border-left: 4px solid var(--grey-7);
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+
+.insight__label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--purple);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.insight p {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--grey-1);
+  margin: 0;
+  line-height: var(--leading-snug);
+}
+
+/* Testimonial — use inside .card--dark */
+.testimonial__quote {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--on-dark);
+  margin-bottom: 20px;
+}
+
+.testimonial__name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--on-dark-high);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.testimonial__role {
+  font-size: var(--text-xs);
+  color: var(--on-dark-low);
+  display: block;
+}
+
+/* Video embed */
+.video-wrap {
+  margin: 28px 0;
+  background: #000;
+  border: 1px solid var(--grey-7);
+  overflow: hidden;
+}
+
+.video-wrap video {
+  display: block;
+  width: 100%;
+  max-height: 540px;
+  object-fit: contain;
+}
+
+
+/* ============================================================
+   19. CASE STUDY — MODULE GRID & MIRO (learning pages only)
+   .module-grid  — 2-col grid of module cards
+   .module-card  — individual module with active state
+   .miro-wrap    — Miro iframe container
+   ============================================================ */
+.module-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+.module-card {
+  background: #fff;
+  border: 1px solid var(--grey-7);
+  padding: 20px;
+}
+
+.module-card.active {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+.module-card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.module-card p {
+  font-size: var(--text-sm);
+  color: var(--grey-4);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.module-card.active .card-label--muted { color: var(--on-dark-low); }
+.module-card.active h3                 { color: var(--on-dark); }
+.module-card.active p                  { color: var(--on-dark-low); }
+
+.miro-wrap {
+  margin: 28px 0 0;
+  border: 1px solid var(--grey-7);
+  overflow: hidden;
+}
+
+.miro-wrap iframe {
+  display: block;
+  width: 100%;
+}
+
+
+/* ============================================================
+   20. FOOTER
+   .footer-wrap — full-bleed dark background
+   footer       — 2-col grid, constrained to 1200px
+   ============================================================ */
+.footer-wrap {
+  background: #111;
+}
+
+footer {
+  color: var(--on-dark);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer h3 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--on-dark-faint);
+  margin-bottom: 16px;
+}
+
+footer p,
+footer a {
+  font-size: 14px;
+  color: var(--on-dark-mid);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  line-height: var(--leading-normal);
+}
+
+footer a:hover {
+  color: var(--on-dark);
+}
+
+
+/* ============================================================
+   21. MEDIA QUERIES
+   800px — hide desktop nav, show hamburger
+   720px — project grid goes 2-col
+   640px — general padding reduction, 1-col grids
+   480px — project grid goes 1-col, further tightening
+   360px — minimal padding for very small screens
+   ============================================================ */
+@media (max-width: 800px) {
+  nav .nav-links { display: none; }
+  .nav-toggle    { display: flex; }
+  nav            { padding: 16px 20px; }
+}
+
+
+@media (max-width: 720px) {
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
+  }
+  .hub-intro { padding-left: 20px; padding-right: 20px; }
+}
+
+@media (max-width: 640px) {
+  .hub-intro {
+    padding: 48px 20px 32px;
+  }
+
+  .hub-intro h1 {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+
+  .portfolio-section {
+    padding: 40px 20px 0;
+  }
+
+  .section,
+  .section--wide {
+    padding: 40px 20px;
+  }
+
+  .section--grey,
+  .section--dark {
+    padding: 0;
+  }
+
+  .divider { margin: 0 20px; }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    padding: 32px 20px;
+  }
+
+  .intro__summary  { font-size: 16px; }
+  .intro__meta     { gap: 16px; }
+
+  .intro__header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .intro__logo     { height: 28px; }
+
+  .intro__action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .part-divider { padding: 48px 20px 0; }
+
+  .pullquote { padding: 16px 20px; }
+
+  .hero           { min-height: 320px; }
+  .hero__content  { padding: 28px 20px; }
+  .hero__logo     { height: 35px; margin-bottom: 14px; }
+  .hero__title    { font-size: clamp(22px, 6vw, 36px); }
+  .section-experimental { margin-top: 64px; padding: 32px 0 48px; }
+  .case-header    { padding: 36px 20px 0; }
+  .case-context   { padding: 24px 20px 0; }
+
+  .card--dark {
+    padding: 24px 20px;
+  }
+
+  .card--bar-purple,
+  .card--bar-grey,
+  .card--tinted,
+  .card--shadow {
+    padding: 20px;
+  }
+
+  .page-end { min-height: 48px; }
+
+  .eyebrow {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  .hub-intro { padding-left: 16px; padding-right: 16px; }
+
+  .intro__meta {
+    grid-template-columns: 1fr;
+  }
+
+  h2 { font-size: clamp(20px, 5vw, 28px); }
+
+  .eyebrow {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .card--step {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  table { min-width: 300px; }
+}
+
+@media (max-width: 360px) {
+  nav            { padding: 14px 16px; }
+  .hub-intro     { padding: 36px 16px 24px; }
+  .portfolio-section { padding: 32px 16px 0; }
+  .section,
+  .section--wide { padding: 28px 16px; }
+  .intro         { padding: 24px 16px; }
+  .case-header   { padding: 28px 16px 0; }
+  .case-context  { padding: 20px 16px 0; }
+  .part-divider  { padding-left: 16px; padding-right: 16px; }
+  footer         { padding: 32px 16px; }
+}
+

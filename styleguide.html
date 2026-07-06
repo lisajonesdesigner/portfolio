@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styleguide — Lisa Jones Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Styleguide-only styles — not in main CSS */
+    .sg-page { max-width: 900px; margin: 0 auto; padding: 60px 48px; }
+    .sg-section { margin-bottom: 72px; }
+    .sg-heading {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-5);
+      border-bottom: 1px solid var(--grey-7);
+      padding-bottom: 10px;
+      margin-bottom: 32px;
+    }
+    .sg-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 24px; }
+    .sg-swatch {
+      width: 80px;
+      height: 80px;
+      border-radius: 4px;
+      border: 1px solid var(--grey-7);
+      display: flex;
+      align-items: flex-end;
+      padding: 6px;
+    }
+    .sg-swatch span { font-size: 10px; font-weight: 600; }
+    .sg-label { font-size: 11px; color: var(--grey-4); margin-top: 4px; }
+    .sg-item { min-width: 0; }
+    .sg-class { font-size: 11px; font-family: monospace; background: var(--grey-9); color: var(--grey-3); padding: 2px 6px; border-radius: 2px; display: inline-block; margin-top: 4px; }
+    @media (max-width: 640px) { .sg-page { padding: 40px 20px; } }
+  </style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/admin-lj-logo.png" alt="Lisa Jones">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">← Back to portfolio</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="sg-page">
+
+  <h1 style="margin-bottom: 8px;">Styleguide</h1>
+  <p style="color: var(--grey-4); margin-bottom: 64px;">All components used across the portfolio. CSS class references are shown in <code style="font-size:12px; background:var(--grey-9); padding:1px 5px;">monospace</code>. One stylesheet: <strong>styles.css</strong>.</p>
+
+
+  <!-- 1. COLOURS -->
+  <div class="sg-section">
+    <div class="sg-heading">1 — Colour tokens &nbsp; <span style="font-weight:400">CSS section 1: Custom properties</span></div>
+
+    <p style="font-size:13px; color:var(--grey-4); margin-bottom:20px;">All colours are CSS custom properties on <code style="font-size:11px; background:var(--grey-9); padding:1px 4px;">:root</code>. Reference them as <code style="font-size:11px; background:var(--grey-9); padding:1px 4px;">var(--name)</code>.</p>
+
+    <div class="sg-row">
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-1);"><span style="color:#fff">--grey-1</span></div>
+        <div class="sg-label">#1a1a1a · body text</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-2);"><span style="color:#fff">--grey-2</span></div>
+        <div class="sg-label">#333 · secondary body</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-3);"><span style="color:#fff">--grey-3</span></div>
+        <div class="sg-label">#555 · captions</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-5);"><span style="color:#fff">--grey-5</span></div>
+        <div class="sg-label">#888 · muted labels</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-7);"><span>--grey-7</span></div>
+        <div class="sg-label">#ccc · borders</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-8);"><span>--grey-8</span></div>
+        <div class="sg-label">#EBEBEA · section bg</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--grey-9);"><span>--grey-9</span></div>
+        <div class="sg-label">#F7F5F1 · table bg</div>
+      </div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--purple);"><span style="color:#fff">--purple</span></div>
+        <div class="sg-label">#330033 · brand primary</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--teal);"><span style="color:#fff">--teal</span></div>
+        <div class="sg-label">#1A6B6B · good/pass</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--amber);"><span style="color:#fff">--amber</span></div>
+        <div class="sg-label">#8B6914 · warn</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-swatch" style="background:var(--red);"><span style="color:#fff">--red</span></div>
+        <div class="sg-label">#CC2200 · fail</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2. TYPOGRAPHY -->
+  <div class="sg-section">
+    <div class="sg-heading">2 — Typography &nbsp; <span style="font-weight:400">CSS section 3: Typography</span></div>
+
+    <h1>h1 — Page title · var(--text-xl) · 700</h1>
+    <div class="sg-class">h1</div>
+    <hr style="border:none; border-top:1px solid var(--grey-7); margin: 24px 0;">
+
+    <h2>h2 — Section heading · var(--text-lg) · 700</h2>
+    <div class="sg-class">h2</div>
+    <hr style="border:none; border-top:1px solid var(--grey-7); margin: 24px 0;">
+
+    <h3>h3 — Subsection heading · 17px · 600</h3>
+    <div class="sg-class">h3</div>
+    <hr style="border:none; border-top:1px solid var(--grey-7); margin: 24px 0;">
+
+    <p>p — Body copy · 16px · 400 · line-height 1.7. Used for all running text across case studies and hub pages. Last child has no bottom margin.</p>
+    <div class="sg-class">p</div>
+    <hr style="border:none; border-top:1px solid var(--grey-7); margin: 24px 0;">
+
+    <p class="text-lead">text-lead — 17px medium, used as a section intro or summary paragraph above content.</p>
+    <div class="sg-class">.text-lead</div>
+    <hr style="border:none; border-top:1px solid var(--grey-7); margin: 24px 0;">
+
+    <span class="text-caption"><strong>text-caption</strong> — 12px italic grey-3. Use a &lt;div&gt; not &lt;p&gt; or base p styles override it. Appears below images and embeds.</span>
+    <div class="sg-class" style="margin-top:8px;">.text-caption &nbsp; .caption--padded (adds 16px top margin)</div>
+  </div>
+
+
+  <!-- 3. LABELS -->
+  <div class="sg-section">
+    <div class="sg-heading">3 — Labels &nbsp; <span style="font-weight:400">CSS section 4: Labels</span></div>
+
+    <div class="sg-row" style="gap:32px; align-items:flex-start; flex-wrap:wrap;">
+      <div class="sg-item">
+        <div class="eyebrow" style="margin-bottom:8px;">Eyebrow label</div>
+        <div class="sg-class">.eyebrow</div>
+        <div class="sg-label">19px bold purple. Use &lt;div&gt;. Goes above h2 section headings.</div>
+      </div>
+      <div class="sg-item">
+        <span class="card-label">Card label</span>
+        <div class="sg-class">.card-label</div>
+        <div class="sg-label">15px semibold grey-2. Inside cards above title.</div>
+      </div>
+      <div class="sg-item">
+        <span class="card-label--muted">Muted card label</span>
+        <div class="sg-class">.card-label--muted</div>
+        <div class="sg-label">15px semibold grey-5. Subdued variant.</div>
+      </div>
+      <div class="sg-item">
+        <span class="meta-label">Meta label</span>
+        <div class="sg-class">.meta-label</div>
+        <div class="sg-label">12px bold grey-2. Intro strip only — Role, Audience etc.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 4. BUTTONS -->
+  <div class="sg-section">
+    <div class="sg-heading">4 — Buttons &nbsp; <span style="font-weight:400">CSS section 10: Buttons</span></div>
+
+    <div class="sg-row" style="align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="sg-item">
+        <a href="#" class="btn btn--purple">Primary action</a>
+        <div class="sg-class" style="margin-top:8px;">.btn .btn--purple</div>
+      </div>
+      <div class="sg-item">
+        <a href="#" class="btn btn--outline">Secondary</a>
+        <div class="sg-class" style="margin-top:8px;">.btn .btn--outline</div>
+      </div>
+      <div class="sg-item">
+        <a href="#" class="btn btn--grey">Neutral</a>
+        <div class="sg-class" style="margin-top:8px;">.btn .btn--grey</div>
+      </div>
+      <div class="sg-item">
+        <a href="#" class="btn--text">Text link</a>
+        <div class="sg-class" style="margin-top:8px;">.btn--text</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5. CARDS -->
+  <div class="sg-section">
+    <div class="sg-heading">5 — Cards &nbsp; <span style="font-weight:400">CSS section 11: Cards</span></div>
+
+    <div class="grid grid--2 grid--gap-sm">
+      <div>
+        <div class="card" style="margin-bottom:4px;">
+          <span class="card-label">card</span>
+          <p>White background, 1px grey border. Default card for general content.</p>
+        </div>
+        <div class="sg-class">.card</div>
+      </div>
+      <div>
+        <div class="card--bar-purple" style="margin-bottom:4px;">
+          <span class="card-label">card--bar-purple</span>
+          <p>White, purple left bar, drop shadow. Use once per section for key callouts.</p>
+        </div>
+        <div class="sg-class">.card--bar-purple</div>
+      </div>
+      <div>
+        <div class="card--bar-grey" style="margin-bottom:4px;">
+          <span class="card-label">card--bar-grey</span>
+          <p>White, grey left bar. Neutral emphasis, no shadow.</p>
+        </div>
+        <div class="sg-class">.card--bar-grey</div>
+      </div>
+      <div>
+        <div class="card--tinted" style="margin-bottom:4px;">
+          <span class="card-label">card--tinted</span>
+          <p>Grey-8 background, no border. Groups related info on white sections. Goes white on grey sections.</p>
+        </div>
+        <div class="sg-class">.card--tinted</div>
+      </div>
+      <div>
+        <div class="card--shadow" style="margin-bottom:4px;">
+          <span class="card-label">card--shadow</span>
+          <p>White, drop shadow, no border. Use on white backgrounds only.</p>
+        </div>
+        <div class="sg-class">.card--shadow</div>
+      </div>
+      <div>
+        <div class="card--dark" style="margin-bottom:4px;">
+          <span class="card-label--muted">card--dark</span>
+          <p style="color:var(--on-dark-high);">Purple background, white text. Impact quotes, dark emphasis.</p>
+        </div>
+        <div class="sg-class">.card--dark</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <div class="card--step">
+        <span class="card__num">1</span>
+        <div class="card__body">
+          <h3>card--step — Numbered process step</h3>
+          <p>Two-column grid: number left, content right. Bottom border divides steps. No background. Used in process/method sequences.</p>
+        </div>
+      </div>
+      <div class="sg-class" style="margin-top:8px;">.card--step &nbsp; .card__num &nbsp; .card__body &nbsp; .card__title</div>
+    </div>
+  </div>
+
+
+  <!-- 6. SECTIONS -->
+  <div class="sg-section">
+    <div class="sg-heading">6 — Page layout &nbsp; <span style="font-weight:400">CSS section 7: Page layout</span></div>
+    <div class="grid grid--2 grid--gap-sm">
+      <div class="card--tinted">
+        <div class="sg-class">.section</div>
+        <p style="font-size:14px; margin-top:8px;">900px max-width, 50px/48px padding. Default content column.</p>
+      </div>
+      <div class="card--tinted">
+        <div class="sg-class">.section--wide</div>
+        <p style="font-size:14px; margin-top:8px;">1200px max-width, 50px/48px padding. Wider content for grids.</p>
+      </div>
+      <div class="card--tinted">
+        <div class="sg-class">.section--grey</div>
+        <p style="font-size:14px; margin-top:8px;">Full-bleed grey-8 wrapper. Place a .section inside it.</p>
+      </div>
+      <div class="card--tinted">
+        <div class="sg-class">.section--dark</div>
+        <p style="font-size:14px; margin-top:8px;">Full-bleed purple wrapper. Place a .section inside it.</p>
+      </div>
+    </div>
+    <p style="font-size:13px; color:var(--grey-4); margin-top:16px;"><span class="sg-class">.divider</span> — horizontal rule, 0 48px margin. <span class="sg-class">.divider--dark</span> — dark variant. <span class="sg-class">.page-end</span> — 80px bottom spacer before footer.</p>
+  </div>
+
+
+  <!-- 7. GRID -->
+  <div class="sg-section">
+    <div class="sg-heading">7 — Grid &nbsp; <span style="font-weight:400">CSS section 8: Grid</span></div>
+    <p style="font-size:13px; color:var(--grey-4); margin-bottom:20px;">All grids use <code style="font-size:11px; background:var(--grey-9); padding:1px 4px;">.grid</code> as base. Combine with a column modifier.</p>
+    <div class="grid grid--3 grid--gap-sm">
+      <div class="card--tinted" style="text-align:center; padding:16px;"><div class="sg-class">.grid--2</div><p style="font-size:12px;margin-top:4px;">2 columns</p></div>
+      <div class="card--tinted" style="text-align:center; padding:16px;"><div class="sg-class">.grid--3</div><p style="font-size:12px;margin-top:4px;">3 columns</p></div>
+      <div class="card--tinted" style="text-align:center; padding:16px;"><div class="sg-class">.grid--4</div><p style="font-size:12px;margin-top:4px;">4 columns</p></div>
+    </div>
+    <p style="font-size:13px; color:var(--grey-4); margin-top:16px;">Gap modifiers: <span class="sg-class">.grid--gap-sm</span> 12px &nbsp; default 24px &nbsp; <span class="sg-class">.grid--gap-lg</span> 32px. Add <span class="sg-class">.grid--overflow</span> when using <span class="sg-class">.img--zoom</span>.</p>
+  </div>
+
+
+  <!-- 8. IMAGES -->
+  <div class="sg-section">
+    <div class="sg-heading">8 — Images &nbsp; <span style="font-weight:400">CSS section 9: Images</span></div>
+    <p style="font-size:13px; color:var(--grey-4); margin-bottom:16px;"><span class="sg-class">.img</span> — block, 100% width. &nbsp; <span class="sg-class">.img--bordered</span> — adds 1px grey border. &nbsp; <span class="sg-class">.img--zoom</span> — hover scale 2.2× (parent needs <span class="sg-class">.grid--overflow</span>).</p>
+    <div class="text-caption"><strong>Always follow an image with a .text-caption div</strong> for captions. Use caption--padded after iframes or videos.</div>
+  </div>
+
+
+  <!-- 9. HUB PAGE COMPONENTS -->
+  <div class="sg-section">
+    <div class="sg-heading">9 — Hub page &nbsp; <span style="font-weight:400">CSS section 14: Hub page</span></div>
+
+    <p style="font-size:13px; color:var(--grey-4); margin-bottom:20px;">Used on index.html only.</p>
+
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.hub-intro</div>
+      <p style="font-size:14px; margin-top:6px;">1200px max, 80px top padding. Contains h1 + intro paragraph.</p>
+    </div>
+
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.portfolio-section</div>
+      <p style="font-size:14px; margin-top:6px;">1200px max, 48px padding. Holds the h2 section heading and .section-desc paragraph above each grid. Use <code style="font-size:11px;">id="product"</code> and <code style="font-size:11px;">id="learning"</code> for anchor nav.</p>
+    </div>
+
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.project-grid</div>
+      <p style="font-size:14px; margin-top:6px;">3-col card grid, 1200px max, 48px side padding.</p>
+    </div>
+
+    <div class="card--tinted">
+      <div class="sg-class">.project-card &nbsp; .project-card__link-overlay &nbsp; .project-card__thumb &nbsp; .project-card__body &nbsp; .project-card__sector &nbsp; .project-card__title</div>
+      <p style="font-size:14px; margin-top:6px;">Full-image card. Place <strong>.project-card__link-overlay</strong> first inside the card to make the whole card clickable. Add <span class="sg-class">.coming</span> to grey out cards without pages.</p>
+    </div>
+  </div>
+
+
+  <!-- 10. CASE STUDY — INTRO -->
+  <div class="sg-section">
+    <div class="sg-heading">10 — Case study intro &nbsp; <span style="font-weight:400">CSS section 16: Case study — intro</span></div>
+    <p style="font-size:13px; color:var(--grey-4); margin-bottom:16px;">Sits directly below the hero on case study pages.</p>
+
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.intro__header</div>
+      <p style="font-size:14px; margin-top:6px;">Flex row: summary text left, org logo right. Stacks on mobile.</p>
+    </div>
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.intro__logo</div>
+      <p style="font-size:14px; margin-top:6px;">Org logo, 36px height. Goes inside .intro__header.</p>
+    </div>
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.intro__summary</div>
+      <p style="font-size:14px; margin-top:6px;">18px medium lead paragraph. One-paragraph "at a glance".</p>
+    </div>
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.intro__meta</div>
+      <p style="font-size:14px; margin-top:6px;">Auto-fit grid of .intro__meta-item elements (Role, Org, Timeframe, Users). Handles 3 or 4 items. Each item uses .meta-label + .value.</p>
+    </div>
+    <div class="card--tinted" style="margin-bottom:12px;">
+      <div class="sg-class">.intro__constraints</div>
+      <p style="font-size:14px; margin-top:6px;">Constraint bullet list below the meta row. Used on product pages.</p>
+    </div>
+    <div class="card--tinted">
+      <div class="sg-class">.intro__action &nbsp; .intro__note</div>
+      <p style="font-size:14px; margin-top:6px;">Launch button + small explanatory note. Used on access.html.</p>
+    </div>
+  </div>
+
+
+  <!-- 11. CASE STUDY — CONTENT BLOCKS -->
+  <div class="sg-section">
+    <div class="sg-heading">11 — Case study content blocks &nbsp; <span style="font-weight:400">CSS sections 17–18</span></div>
+
+    <div style="margin-bottom:32px;">
+      <div class="part-divider" style="padding:0 0 24px;">
+        <span class="part-num">Part 1</span>
+        <h2 style="margin-bottom:0;">Part divider — numbered section header</h2>
+      </div>
+      <div class="sg-class">.part-divider &nbsp; .part-num</div>
+      <p style="font-size:13px; color:var(--grey-4); margin-top:6px;">Sits outside .section. Padding aligns with content column. Always followed by a .section.</p>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="pullquote">
+        <p>There's an unwritten rule that it takes 2 to 4 weeks to relearn Moodle each time a student starts a new unit.</p>
+        <cite>Monash Moodle Evaluation, March 2023</cite>
+      </div>
+      <div class="sg-class">.pullquote → p + cite</div>
+      <p style="font-size:13px; color:var(--grey-4); margin-top:6px;">Large quote with purple left bar. For verbatim student or staff quotes.</p>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="insight">
+        <span class="insight__label">Insight</span>
+        <p>The breakdown was structural, not visual or discipline-specific.</p>
+      </div>
+      <div class="sg-class">.insight → .insight__label + p</div>
+      <p style="font-size:13px; color:var(--grey-4); margin-top:6px;">Tinted callout. Label can be "Insight", "Decision", or "Outcome".</p>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="card--dark" style="margin-bottom:4px;">
+        <p class="testimonial__quote">Your design will be reproduced EVERYWHERE. You put your artistry into a dull place and it is so much better for it.</p>
+        <span class="testimonial__name">Professor Allie Clemans</span>
+        <span class="testimonial__role">Acting Deputy Vice-Chancellor (Education), Monash University</span>
+      </div>
+      <div class="sg-class">.card--dark → .testimonial__quote + .testimonial__name + .testimonial__role</div>
+      <p style="font-size:13px; color:var(--grey-4); margin-top:6px;">Impact section testimonials. Use inside a .grid--3 on a .section--grey background.</p>
+    </div>
+
+    <div>
+      <div class="video-wrap" style="margin-bottom:4px;">
+        <div style="background:#111; height:80px; display:flex; align-items:center; justify-content:center;">
+          <span style="color:var(--grey-5); font-size:13px;">video element goes here</span>
+        </div>
+      </div>
+      <div class="sg-class">.video-wrap → video[controls]</div>
+      <p style="font-size:13px; color:var(--grey-4); margin-top:6px;">Black-bg container for MP4 embeds. Max height 540px. Follow with .text-caption.caption--padded.</p>
+    </div>
+  </div>
+
+
+  <!-- 12. LEARNING-ONLY COMPONENTS -->
+  <div class="sg-section">
+    <div class="sg-heading">12 — Learning page components &nbsp; <span style="font-weight:400">CSS section 19: Module grid &amp; Miro</span></div>
+
+    <div class="module-grid" style="margin-bottom:8px; margin-top:0;">
+      <div class="module-card">
+        <div class="card-label--muted">Module 1 · 1 hr</div>
+        <h3>module-card — inactive</h3>
+        <p>White bg, grey border.</p>
+      </div>
+      <div class="module-card active">
+        <div class="card-label--muted">Module 2 · Built</div>
+        <h3>module-card — active</h3>
+        <p>Purple bg, white text.</p>
+      </div>
+    </div>
+    <div class="sg-class">.module-grid → .module-card &nbsp; .module-card.active</div>
+    <p style="font-size:13px; color:var(--grey-4); margin-top:6px; margin-bottom:24px;">2-col grid for program overview cards. Used in access.html.</p>
+
+    <div class="card--tinted">
+      <div class="sg-class">.miro-wrap → iframe</div>
+      <p style="font-size:14px; margin-top:6px;">Container for Miro embed iframes. Grey border, overflow hidden. Used in access.html.</p>
+    </div>
+  </div>
+
+
+  <!-- 13. TABLES & ACCORDIONS -->
+  <div class="sg-section">
+    <div class="sg-heading">13 — Tables &amp; Accordions &nbsp; <span style="font-weight:400">CSS sections 12–13</span></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Criteria</th>
+            <th class="col-good">Good (3)</th>
+            <th class="col-warn">Needs work (2)</th>
+            <th class="col-fail">Fail (1)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Example row</td>
+            <td>Meets the standard</td>
+            <td>Partially meets</td>
+            <td>Does not meet</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sg-class" style="margin-top:8px;">.table-wrap → table → thead/tbody → th.col-good / .col-warn / .col-fail</div>
+    <p style="font-size:13px; color:var(--grey-4); margin-top:4px; margin-bottom:24px;">Always wrap tables in .table-wrap for horizontal scroll.</p>
+
+    <details class="accordion">
+      <summary class="accordion__trigger">Accordion — click to expand</summary>
+      <div class="accordion__body" style="padding:16px 18px;">
+        <p style="font-size:14px;">Content goes here. Accordion uses native &lt;details&gt;/&lt;summary&gt; — no JavaScript required.</p>
+      </div>
+    </details>
+    <div class="sg-class" style="margin-top:8px;">details.accordion → summary.accordion__trigger + div.accordion__body</div>
+  </div>
+
+
+  <!-- 14. HERO -->
+  <div class="sg-section">
+    <div class="sg-heading">14 — Hero &nbsp; <span style="font-weight:400">CSS section 15: Hero</span></div>
+    <p style="font-size:13px; color:var(--grey-4); margin-bottom:16px;">Full-bleed image hero with overlay. Used at the top of all case study pages.</p>
+    <div class="card--tinted">
+      <div class="sg-class">.hero → .hero__bg (img) + .hero__overlay (div) + .hero__inner (div) → h1</div>
+      <p style="font-size:14px; margin-top:6px;">Min-height 520px, black bg fallback. Overlay is rgba(0,0,0,0.35). Text has shadow-text-md. Reduces to 320px on mobile.</p>
+    </div>
+  </div>
+
+
+  <!-- 15. NAVIGATION REFERENCE -->
+  <div class="sg-section">
+    <div class="sg-heading">15 — Navigation &nbsp; <span style="font-weight:400">CSS section 6: Navigation</span></div>
+    <div class="card--tinted">
+      <div class="sg-class">.nav-wrap → nav → .logo + ul.nav-links + button.nav-toggle</div>
+      <p style="font-size:14px; margin-top:6px;">Sticky white bar. Nav constrained to 1200px. Links at 48px gap. Hamburger shown below 800px, triggers .nav-overlay.</p>
+      <div class="sg-class" style="margin-top:8px;">.nav-dropdown → button.nav-dropdown__trigger + ul.nav-dropdown__menu → li → a</div>
+      <p style="font-size:14px; margin-top:6px;">Pure CSS dropdown, no JS. Opens on :focus-within. Chevron swaps ∨/∧.</p>
+      <div class="sg-class" style="margin-top:8px;">.nav-overlay.is-open → ul.nav-overlay__links → li → a</div>
+      <p style="font-size:14px; margin-top:6px;">Fullscreen mobile overlay. Toggled via JS on .nav-toggle click.</p>
+    </div>
+  </div>
+
+</div><!-- /sg-page -->
+
+<div class="footer-wrap">
+  <footer>
+    <div>
+      <h3>Contact</h3>
+      <a href="mailto:lisajonesdesigner@gmail.com">lisajonesdesigner@gmail.com</a>
+    </div>
+    <div>
+      <h3>Quick links</h3>
+      <a href="index.html">← Portfolio</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
