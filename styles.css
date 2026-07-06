@@ -1,27 +1,27 @@
 /* ============================================================
-   STYLES.CSS — Lisa Jones Portfolio
+   STYLES.CSS - Lisa Jones Portfolio
    Single stylesheet for all pages.
 
    SECTIONS
    1.  Custom properties (tokens)
    2.  Reset & base
-   3.  Typography — headings, body, lists, links
+   3.  Typography - headings, body, lists, links
    4.  Labels
-   5.  Utilities — text styles, spacing
+   5.  Utilities - text styles, spacing
    6.  Navigation
-   7.  Page layout — sections & divider
+   7.  Page layout - sections & divider
    8.  Grid
    9.  Images
    10. Buttons
    11. Cards
    12. Accordions
    13. Tables
-   14. Hub page — project grid & cards
+   14. Hub page - project grid & cards
    15. Hero
-   16. Case study — intro
-   17. Case study — part dividers
-   18. Case study — content blocks
-   19. Case study — module grid & miro (learning pages)
+   16. Case study - intro
+   17. Case study - part dividers
+   18. Case study - content blocks
+   19. Case study - module grid & miro (learning pages)
    20. Footer
    21. Media queries
    ============================================================ */
@@ -49,8 +49,8 @@
   --grey-2: #333333;   /* secondary body */
   --grey-3: #555555;   /* captions */
   --grey-4: #666666;   /* faint text */
-  --grey-5: #888888;   /* muted labels */
-  --grey-6: #999999;   /* disabled */
+  --grey-5: #696969;   /* muted labels (AA on white and grey-8) */
+  --grey-6: #767676;   /* disabled */
   --grey-7: #cccccc;   /* borders */
   --grey-8: #EBEBEA;   /* section backgrounds */
   --grey-9: #F7F5F1;   /* table background */
@@ -101,7 +101,7 @@ body {
 
 
 /* ============================================================
-   3. TYPOGRAPHY — HEADINGS, BODY, LISTS, LINKS
+   3. TYPOGRAPHY - HEADINGS, BODY, LISTS, LINKS
    ============================================================ */
 h1 {
   font-size: var(--text-xl);
@@ -167,10 +167,10 @@ a:hover {
 
 /* ============================================================
    4. LABELS
-   .eyebrow        — section overline. Use <div>. Purple, 13px bold uppercase.
-   .card-label     — inside cards above title. Grey-2, 15px semibold.
-   .card-label--muted — subdued variant. Grey-5.
-   .meta-label     — intro strip only. Grey-2, 12px bold caps.
+   .eyebrow        - section overline. Use <div>. Purple, 13px bold uppercase.
+   .card-label     - inside cards above title. Grey-2, 15px semibold.
+   .card-label--muted - subdued variant. Grey-5.
+   .meta-label     - intro strip only. Grey-2, 12px bold caps.
    ============================================================ */
 .eyebrow {
   font-size: 13px;
@@ -215,7 +215,7 @@ a:hover {
 
 
 /* ============================================================
-   5. UTILITIES — TEXT STYLES & SPACING
+   5. UTILITIES - TEXT STYLES & SPACING
    ============================================================ */
 
 /* Text styles */
@@ -227,14 +227,14 @@ a:hover {
   margin-bottom: 18px;
 }
 
-/* Use <div class="text-caption"> not <p> — base p styles would override */
+/* Use <div class="text-caption"> not <p> - base p styles would override */
 .text-caption {
   font-size: 13px;
+  font-style: italic;
   color: var(--grey-3);
   margin-top: 10px;
   line-height: 1.55;
   display: block;
-  max-width: 68ch;
 }
 
 .text-caption strong {
@@ -247,7 +247,7 @@ a:hover {
   margin-top: 16px;
 }
 
-/* Semantic colour utilities — use on <td> or <th> */
+/* Semantic colour utilities - use on <td> or <th> */
 .col-good { color: var(--teal); }
 .col-warn { color: var(--amber); }
 .col-fail { color: var(--red); }
@@ -263,11 +263,11 @@ a:hover {
 
 /* ============================================================
    6. NAVIGATION
-   .nav-wrap     — full-width white bar + sticky positioning
-   nav           — constrained to 1200px
-   .nav-dropdown — hover/focus-within dropdown
-   .nav-toggle   — hamburger, shown below 800px
-   .nav-overlay  — fullscreen mobile menu
+   .nav-wrap     - full-width white bar + sticky positioning
+   nav           - constrained to 1200px
+   .nav-dropdown - hover/focus-within dropdown
+   .nav-toggle   - hamburger, shown below 800px
+   .nav-overlay  - fullscreen mobile menu
    ============================================================ */
 .nav-wrap {
   background: #fff;
@@ -320,7 +320,7 @@ nav .nav-links a.nav-link--active {
   font-weight: 600;
 }
 
-/* Hamburger toggle — hidden on desktop */
+/* Hamburger toggle - hidden on desktop */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -409,13 +409,13 @@ body.nav-open {
 
 
 /* ============================================================
-   7. PAGE LAYOUT — SECTIONS & DIVIDER
-   .section       — 900px max, 50px padding
-   .section--wide — 1200px max, 50px padding
-   .section--grey — full-bleed grey background (wrap outside .section)
-   .section--dark — full-bleed purple background (wrap outside .section)
-   .page-end      — spacer before footer
-   .divider       — horizontal rule, light grey
+   7. PAGE LAYOUT - SECTIONS & DIVIDER
+   .section       - 900px max, 50px padding
+   .section--wide - 1200px max, 50px padding
+   .section--grey - full-bleed grey background (wrap outside .section)
+   .section--dark - full-bleed purple background (wrap outside .section)
+   .page-end      - spacer before footer
+   .divider       - horizontal rule, light grey
    ============================================================ */
 .section {
   padding: 50px max(48px, calc(50% - 402px));
@@ -459,12 +459,12 @@ body.nav-open {
 
 /* ============================================================
    8. GRID
-   .grid          — base display:grid, 24px gap, mt 28px
-   .grid--2/3/4   — column count
-   .grid--gap-sm  — 12px gap
-   .grid--gap-lg  — 32px gap
-   .grid--overflow — allow overflow (needed for .img--zoom)
-   .grid--masonry-2 — 2-col CSS-columns masonry (variable-height cards,
+   .grid          - base display:grid, 24px gap, mt 28px
+   .grid--2/3/4   - column count
+   .grid--gap-sm  - 12px gap
+   .grid--gap-lg  - 32px gap
+   .grid--overflow - allow overflow (needed for .img--zoom)
+   .grid--masonry-2 - 2-col CSS-columns masonry (variable-height cards,
                       e.g. testimonials). Children need break-inside: avoid.
    ============================================================ */
 .grid {
@@ -496,9 +496,9 @@ body.nav-open {
 
 /* ============================================================
    9. IMAGES
-   .img           — block, full width
-   .img--bordered — 1px grey border
-   .img--zoom     — hover scale 2.2× (parent needs .grid--overflow)
+   .img           - block, full width
+   .img--bordered - 1px grey border
+   .img--zoom     - hover scale 2.2× (parent needs .grid--overflow)
    ============================================================ */
 .img {
   display: block;
@@ -526,11 +526,11 @@ body.nav-open {
 
 /* ============================================================
    10. BUTTONS
-   .btn           — base, always combine with a variant
-   .btn--purple   — primary action
-   .btn--outline  — secondary action
-   .btn--grey     — neutral
-   .btn--text     — text link with arrow, no border
+   .btn           - base, always combine with a variant
+   .btn--purple   - primary action
+   .btn--outline  - secondary action
+   .btn--grey     - neutral
+   .btn--text     - text link with arrow, no border
    ============================================================ */
 .btn {
   display: inline-block;
@@ -625,13 +625,13 @@ body.nav-open {
 
 /* ============================================================
    11. CARDS
-   .card              — white, grey border
-   .card--bar-purple  — white, purple left bar, shadow
-   .card--bar-grey    — white, grey left bar
-   .card--tinted      — soft grey background
-   .card--shadow      — white, drop shadow
-   .card--dark        — purple background, white text
-   .card--step        — numbered process step, bottom divider
+   .card              - white, grey border
+   .card--bar-purple  - white, purple left bar, shadow
+   .card--bar-grey    - white, grey left bar
+   .card--tinted      - soft grey background
+   .card--shadow      - white, drop shadow
+   .card--dark        - purple background, white text
+   .card--step        - numbered process step, bottom divider
 
    On .section--grey, .card--bar-purple and .card--tinted adjust.
    ============================================================ */
@@ -789,7 +789,7 @@ details[open] .accordion__trigger::after {
 /* ============================================================
    13. TABLES
    Wrap in .table-wrap for horizontal scroll.
-   th.col-good / col-warn / col-fail — coloured header cells.
+   th.col-good / col-warn / col-fail - coloured header cells.
    First td per row is bold automatically.
    ============================================================ */
 .table-wrap {
@@ -838,11 +838,11 @@ td:first-child {
 
 
 /* ============================================================
-   14. HUB PAGE — PROJECT GRID & CARDS
-   .hub-intro     — page header, constrained to 1200px
-   .portfolio-section — wraps each portfolio group (product/learning)
-   .project-grid  — 3-col card grid, constrained to 1200px
-   .project-card  — full-image card with body below
+   14. HUB PAGE - PROJECT GRID & CARDS
+   .hub-intro     - page header, constrained to 1200px
+   .portfolio-section - wraps each portfolio group (product/learning)
+   .project-grid  - 3-col card grid, constrained to 1200px
+   .project-card  - full-image card with body below
    ============================================================ */
 .hub-intro {
   padding: 80px 48px 16px;
@@ -893,7 +893,7 @@ td:first-child {
   cursor: pointer;
 }
 
-/* Full-card click overlay — place before other children */
+/* Full-card click overlay - place before other children */
 .project-card__link-overlay {
   position: absolute;
   inset: 0;
@@ -938,7 +938,7 @@ td:first-child {
   flex: 1;
 }
 
-/* Unbuilt cards — not clickable but no overlay */
+/* Unbuilt cards - not clickable but no overlay */
 .project-card.coming {
   pointer-events: none;
 }
@@ -980,7 +980,7 @@ td:first-child {
   margin-top: 96px;
 }
 
-/* Learning hub — grey spacer fills remaining viewport height after section-experimental */
+/* Learning hub - grey spacer fills remaining viewport height after section-experimental */
 .learning-page-end {
   flex: 1;
   background: var(--grey-8);
@@ -999,9 +999,9 @@ td:first-child {
 /* ============================================================
    15. HERO
    Full-bleed image with dark overlay.
-   .hero__content — sits at bottom of hero (flex child)
-   .hero__logo    — org logo chip, above heading
-   .hero__title   — white h1 overlaid on image
+   .hero__content - sits at bottom of hero (flex child)
+   .hero__logo    - org logo chip, above heading
+   .hero__title   - white h1 overlaid on image
    ============================================================ */
 .hero {
   position: relative;
@@ -1037,7 +1037,7 @@ td:first-child {
   width: 100%;
 }
 
-/* Org logo above heading — no white bg (logos have their own white) */
+/* Org logo above heading - no white bg (logos have their own white) */
 .hero__logo {
   height: 51px;
   width: auto;
@@ -1088,14 +1088,14 @@ td:first-child {
 
 
 /* ============================================================
-   16. CASE STUDY — INTRO
+   16. CASE STUDY - INTRO
    Sits below the hero. Holds summary, meta row, and constraints.
-   .intro__header   — flex row: summary left, logo right
-   .intro__logo     — org logo, fixed height
-   .intro__summary  — 18px lead paragraph
-   .intro__meta     — auto-fit grid of label/value pairs
-   .intro__action   — launch button + note (learning pages)
-   .intro__constraints — bullet list of project constraints
+   .intro__header   - flex row: summary left, logo right
+   .intro__logo     - org logo, fixed height
+   .intro__summary  - 18px lead paragraph
+   .intro__meta     - auto-fit grid of label/value pairs
+   .intro__action   - launch button + note (learning pages)
+   .intro__constraints - bullet list of project constraints
    ============================================================ */
 .intro {
   padding: 48px max(48px, calc(50% - 402px)) 40px;
@@ -1142,7 +1142,7 @@ td:first-child {
   line-height: 1.5;
 }
 
-/* Launch button + small note — used on access.html */
+/* Launch button + small note - used on access.html */
 .intro__action {
   display: flex;
   align-items: center;
@@ -1179,7 +1179,7 @@ td:first-child {
 
 
 /* ============================================================
-   17. CASE STUDY — PART DIVIDERS
+   17. CASE STUDY - PART DIVIDERS
    Numbered section headers: PART 1, PART 2, PART 3.
    Sits outside .section so padding aligns with content.
    ============================================================ */
@@ -1197,11 +1197,11 @@ td:first-child {
 
 
 /* ============================================================
-   18. CASE STUDY — CONTENT BLOCKS
-   .pullquote    — large quote with purple left bar
-   .insight      — tinted callout with label (Insight / Decision)
-   .testimonial__* — quote + attribution for impact section
-   .video-wrap   — black-bg video container
+   18. CASE STUDY - CONTENT BLOCKS
+   .pullquote    - large quote with purple left bar
+   .insight      - tinted callout with label (Insight / Decision)
+   .testimonial__* - quote + attribution for impact section
+   .video-wrap   - black-bg video container
    ============================================================ */
 
 /* Pull quote */
@@ -1252,7 +1252,7 @@ td:first-child {
   line-height: var(--leading-snug);
 }
 
-/* Testimonial — use inside .card--dark */
+/* Testimonial - use inside .card--dark */
 .testimonial__quote {
   font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
@@ -1275,7 +1275,7 @@ td:first-child {
   display: block;
 }
 
-/* Testimonial on light cards — e.g. .card--shadow */
+/* Testimonial on light cards - e.g. .card--shadow */
 .testimonial-name {
   font-size: 15px;
   font-weight: 700;
@@ -1307,10 +1307,10 @@ td:first-child {
 
 
 /* ============================================================
-   19. CASE STUDY — MODULE GRID & MIRO (learning pages only)
-   .module-grid  — 2-col grid of module cards
-   .module-card  — individual module with active state
-   .miro-wrap    — Miro iframe container
+   19. CASE STUDY - MODULE GRID & MIRO (learning pages only)
+   .module-grid  - 2-col grid of module cards
+   .module-card  - individual module with active state
+   .miro-wrap    - Miro iframe container
    ============================================================ */
 .module-grid {
   display: grid;
@@ -1360,8 +1360,8 @@ td:first-child {
 
 /* ============================================================
    19b. CONTACT FORM
-   .contact-form — wraps the whole form, max-width constrained
-   .form-group   — label + input/textarea pair
+   .contact-form - wraps the whole form, max-width constrained
+   .form-group   - label + input/textarea pair
    ============================================================ */
 .contact-form {
   max-width: 480px;
@@ -1423,8 +1423,8 @@ td:first-child {
 
 /* ============================================================
    20. FOOTER
-   .footer-wrap — full-bleed dark background
-   footer       — 2-col grid, constrained to 1200px
+   .footer-wrap - full-bleed dark background
+   footer       - 2-col grid, constrained to 1200px
    ============================================================ */
 .footer-wrap {
   background: #111;
@@ -1464,11 +1464,11 @@ footer a:hover {
 
 /* ============================================================
    21. MEDIA QUERIES
-   800px — hide desktop nav, show hamburger
-   720px — project grid goes 2-col
-   640px — general padding reduction, 1-col grids
-   480px — project grid goes 1-col, further tightening
-   360px — minimal padding for very small screens
+   800px - hide desktop nav, show hamburger
+   720px - project grid goes 2-col
+   640px - general padding reduction, 1-col grids
+   480px - project grid goes 1-col, further tightening
+   360px - minimal padding for very small screens
    ============================================================ */
 @media (max-width: 800px) {
   nav .nav-links { display: none; }
@@ -1619,7 +1619,7 @@ footer a:hover {
 
 
 /* ============================================================
-   20. ADDITIONS — skip link, hub kicker, card meta, coming
+   20. ADDITIONS - skip link, hub kicker, card meta, coming
    badge, spacing utilities (replaces inline styles)
    ============================================================ */
 .skip-link {
@@ -1696,7 +1696,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* About page — bio text + headshot layout */
+/* About page - bio text + headshot layout */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -1722,7 +1722,7 @@ footer a:hover {
   }
 }
 
-/* About page — self-portrait illustration */
+/* About page - self-portrait illustration */
 .about-illustration img {
   display: block;
   max-height: 360px;
@@ -1731,7 +1731,7 @@ footer a:hover {
 }
 
 /* ============================================================
-   About hero — full-bleed purple band with clover watermark
+   About hero - full-bleed purple band with clover watermark
    ============================================================ */
 .about-hero {
   background: var(--purple);
@@ -1807,7 +1807,7 @@ footer a:hover {
   color: var(--purple);
   margin-bottom: 16px;
 }
-/* About — Beyond the work: text left, white card running behind the
+/* About - Beyond the work: text left, white card running behind the
    illustration, figure bottom-locked to the dark band below */
 .about-beyond {
   display: grid;
