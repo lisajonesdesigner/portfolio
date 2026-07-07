@@ -1,34 +1,35 @@
 /* ============================================================
    STYLES.CSS - Lisa Jones Portfolio
-   Single stylesheet for all pages.
+   One stylesheet for the whole site.
 
-   SECTIONS
-   1.  Custom properties (tokens)
-   2.  Reset & base
-   3.  Typography - headings, body, lists, links
-   4.  Labels
-   5.  Utilities - text styles, spacing
-   6.  Navigation
-   7.  Page layout - sections & divider
-   8.  Grid
-   9.  Images
-   10. Buttons
-   11. Cards
-   12. Accordions
-   13. Tables
-   14. Hub page - project grid & cards
-   15. Hero
-   16. Case study - intro
-   17. Case study - part dividers
-   18. Case study - content blocks
-   19. Case study - module grid & miro (learning pages)
-   20. Footer
-   21. Media queries
+   FIND IT FAST (Cmd+F the word in caps):
+   - Colours & sizes ......... search TOKENS
+   - Headings h1/h2/h3 ....... search TYPOGRAPHY
+   - mt-1..5 / mb-1..5 ....... search SPACING
+   - Nav bar / mobile menu ... search NAVIGATION
+   - Page sections & bands ... search LAYOUT
+   - Buttons ................. search BUTTONS
+   - Cards (all kinds) ....... search CARDS
+   - Project tiles on hubs ... search HUB
+   - Case study pieces ....... search CASE
+   - About page .............. search ABOUT
+   - Footer .................. search FOOTER
+   - Mobile breakpoints ...... search MEDIA
+
+   NAMING RULES (only 3 to remember):
+   1. Utilities are short: mt-3 bg-grey text-purple img-border
+      Spacing scale: 1=8px 2=16px 3=24px 4=32px 5=48px
+   2. Variants are hyphenated: card, card-grey, card-purple,
+      btn, btn-purple, btn-outline
+   3. Children are prefixed by their parent: project-thumb,
+      project-title live inside project-card
+
+   Every class is demonstrated live in styleguide.html.
    ============================================================ */
 
 
 /* ============================================================
-   1. CUSTOM PROPERTIES
+   1. TOKENS - colours, type scale, shadows (change values here)
    ============================================================ */
 :root {
 
@@ -180,7 +181,7 @@ a:hover {
    4. LABELS
    .eyebrow        - section overline. Use <div>. Purple, 13px bold uppercase.
    .card-label     - inside cards above title. Grey-2, 15px semibold.
-   .card-label--muted - subdued variant. Grey-5.
+   .text-muted - subdued variant. Grey-5.
    .meta-label     - intro strip only. Grey-2, 12px bold caps.
    ============================================================ */
 .eyebrow {
@@ -201,7 +202,7 @@ a:hover {
   margin-bottom: 14px;
 }
 
-.card-label--muted {
+.text-muted {
   font-size: 15px;
   font-weight: 600;
   color: var(--grey-5);
@@ -218,18 +219,18 @@ a:hover {
 }
 
 /* On dark cards, labels go light */
-.card--dark .card-label,
-.card--dark .card-label--muted {
+.card-purple .card-label,
+.card-purple .text-muted {
   color: rgba(255,255,255,0.7);
 }
 
 
 /* ============================================================
-   5. UTILITIES - TEXT STYLES & SPACING
+   5. UTILITIES - SPACING scale, text helpers
    ============================================================ */
 
 /* Text styles */
-.text-lead {
+.lead {
   font-size: 17px;
   font-weight: 500;
   color: var(--grey-1);
@@ -238,7 +239,7 @@ a:hover {
 }
 
 /* Use <div class="text-caption"> not <p> - base p styles would override */
-.text-caption {
+.caption {
   font-size: 13px;
   font-style: italic;
   color: var(--grey-3);
@@ -247,14 +248,10 @@ a:hover {
   display: block;
 }
 
-.text-caption strong {
+.caption strong {
   font-weight: 700;
   color: var(--grey-1);
   display: inline;
-}
-
-.caption--padded {
-  margin-top: 16px;
 }
 
 /* Semantic colour utilities - use on <td> or <th> */
@@ -262,13 +259,19 @@ a:hover {
 .col-warn { color: var(--amber); }
 .col-fail { color: var(--red); }
 
-/* Spacing utilities */
-.mt-sm { margin-top: 16px; }
-.mt-md { margin-top: 24px; }
-.mt-lg { margin-top: 36px; }
-.mb-sm { margin-bottom: 16px; }
-.mb-md { margin-bottom: 24px; }
-.mb-lg { margin-bottom: 36px; }
+/* Spacing utilities - numeric scale, Bootstrap style.
+   1 = 8px   2 = 16px   3 = 24px   4 = 32px   5 = 48px */
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+.mt-5 { margin-top: 48px; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+.mb-5 { margin-bottom: 48px; }
+.pt-5 { padding-top: 80px; }
 
 
 /* ============================================================
@@ -325,7 +328,7 @@ nav .nav-links a:hover {
 }
 
 /* Active nav link */
-nav .nav-links a.nav-link--active {
+nav .nav-links a.nav-active {
   color: var(--purple);
   font-weight: 600;
 }
@@ -383,7 +386,7 @@ body.nav-open {
   display: flex;
 }
 
-.nav-overlay__links {
+.nav-overlay-links {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -393,11 +396,11 @@ body.nav-open {
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
 }
 
-.nav-overlay__links li {
+.nav-overlay-links li {
   margin-bottom: 0;
 }
 
-.nav-overlay__links a {
+.nav-overlay-links a {
   display: block;
   padding: 16px 24px;
   font-size: 15px;
@@ -407,11 +410,11 @@ body.nav-open {
   border-bottom: 1px solid var(--grey-7);
 }
 
-.nav-overlay__links li:last-child a {
+.nav-overlay-links li:last-child a {
   border-bottom: none;
 }
 
-.nav-overlay__links a:hover {
+.nav-overlay-links a:hover {
   background: var(--grey-8);
   color: var(--purple);
 }
@@ -419,11 +422,11 @@ body.nav-open {
 
 
 /* ============================================================
-   7. PAGE LAYOUT - SECTIONS & DIVIDER
+   7. LAYOUT - sections, bands, dividers
    .section       - 900px max, 50px padding
    .section--wide - 1200px max, 50px padding
-   .section--grey - full-bleed grey background (wrap outside .section)
-   .section--dark - full-bleed purple background (wrap outside .section)
+   .bg-grey - full-bleed grey background (wrap outside .section)
+   .bg-purple - full-bleed purple background (wrap outside .section)
    .page-end      - spacer before footer
    .divider       - horizontal rule, light grey
    ============================================================ */
@@ -431,23 +434,20 @@ body.nav-open {
   padding: 50px max(48px, calc(50% - 402px));
 }
 
-.section--wide {
-  padding: 50px max(48px, calc(50% - 552px));
-}
 
-.section--grey {
+.bg-grey {
   background: var(--grey-8);
 }
 
-.section--dark {
+.bg-purple {
   background: var(--purple);
 }
 
-.section--dark .eyebrow {
+.bg-purple .eyebrow {
   color: var(--on-dark-mid);
 }
 
-.section--dark h2 {
+.bg-purple h2 {
   color: var(--on-dark);
 }
 
@@ -462,7 +462,7 @@ body.nav-open {
   margin: 0 max(48px, calc(50% - 402px));
 }
 
-.divider--dark {
+.divider-dark {
   border-top-color: var(--grey-1);
 }
 
@@ -470,11 +470,11 @@ body.nav-open {
 /* ============================================================
    8. GRID
    .grid          - base display:grid, 24px gap, mt 28px
-   .grid--2/3/4   - column count
-   .grid--gap-sm  - 12px gap
-   .grid--gap-lg  - 32px gap
-   .grid--overflow - allow overflow (needed for .img--zoom)
-   .grid--masonry-2 - 2-col CSS-columns masonry (variable-height cards,
+   .grid-2/3/4   - column count
+   .gap-1  - 12px gap
+   .gap-4  - 32px gap
+   .grid-overflow - allow overflow (needed for .img-zoom)
+   .masonry - 2-col CSS-columns masonry (variable-height cards,
                       e.g. testimonials). Children need break-inside: avoid.
    ============================================================ */
 .grid {
@@ -483,50 +483,49 @@ body.nav-open {
   margin-top: 28px;
 }
 
-.grid--2 { grid-template-columns: repeat(2, 1fr); }
-.grid--3 { grid-template-columns: repeat(3, 1fr); }
-.grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
 
-.grid--masonry-2 {
+.masonry {
   display: block;
   column-count: 2;
   column-gap: 32px;
   margin-top: 28px;
 }
 
-.grid--masonry-2 > * {
+.masonry > * {
   break-inside: avoid;
   margin-bottom: 32px;
 }
 
-.grid--gap-sm  { gap: 12px; }
-.grid--gap-lg  { gap: 32px; }
-.grid--overflow { overflow: visible; }
+.gap-1  { gap: 12px; }
+.gap-4  { gap: 32px; }
+.grid-overflow { overflow: visible; }
 
 
 /* ============================================================
    9. IMAGES
    .img           - block, full width
-   .img--bordered - 1px grey border
-   .img--zoom     - hover scale 2.2× (parent needs .grid--overflow)
+   .img-border - 1px grey border
+   .img-zoom     - hover scale 2.2× (parent needs .grid-overflow)
    ============================================================ */
 .img {
   display: block;
   width: 100%;
 }
 
-.img--bordered {
+.img-border {
   border: 1px solid var(--grey-7);
 }
 
 /* Half-width image, right aligned - text flows down the left */
-.img--half-right {
+.img-right {
   width: 48%;
   float: right;
   margin: 8px 0 24px 36px;
 }
 
-.img--half-right + .text-caption {
+.img-right + .caption {
   float: right;
   clear: right;
   width: 48%;
@@ -538,14 +537,14 @@ body.nav-open {
   display: flow-root;
 }
 
-.img--zoom {
+.img-zoom {
   cursor: zoom-in;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   z-index: 1;
 }
 
-.img--zoom:hover {
+.img-zoom:hover {
   transform: scale(2.2);
   box-shadow: 0 12px 40px rgba(0,0,0,0.3);
   z-index: 10;
@@ -556,10 +555,10 @@ body.nav-open {
 /* ============================================================
    10. BUTTONS
    .btn           - base, always combine with a variant
-   .btn--purple   - primary action
-   .btn--outline  - secondary action
-   .btn--grey     - neutral
-   .btn--text     - text link with arrow, no border
+   .btn-purple   - primary action
+   .btn-outline  - secondary action
+   .btn-grey     - neutral
+   .btn-link     - text link with arrow, no border
    ============================================================ */
 .btn {
   display: inline-block;
@@ -583,43 +582,43 @@ body.nav-open {
   transform: translateX(4px);
 }
 
-.btn--purple {
+.btn-purple {
   background: var(--purple);
   color: var(--on-dark);
   border-color: var(--purple);
 }
 
-.btn--purple:hover {
+.btn-purple:hover {
   background: #000;
   border-color: #000;
   color: var(--on-dark);
 }
 
-.btn--outline {
+.btn-outline {
   background: transparent;
   color: var(--purple);
   border-color: var(--purple);
 }
 
-.btn--outline:hover {
+.btn-outline:hover {
   background: #edeaed;
   color: var(--purple);
   border-color: var(--purple);
 }
 
-.btn--grey {
+.btn-grey {
   background: var(--grey-8);
   color: var(--grey-1);
   border-color: var(--grey-8);
 }
 
-.btn--grey:hover {
+.btn-grey:hover {
   background: var(--grey-8);
   color: var(--grey-1);
   border-color: var(--grey-6);
 }
 
-.btn--text {
+.btn-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -635,19 +634,19 @@ body.nav-open {
   cursor: pointer;
 }
 
-.btn--text::after {
+.btn-link::after {
   content: "→";
   display: inline-block;
   transition: transform 0.15s;
 }
 
-.btn--text:hover {
+.btn-link:hover {
   text-decoration: underline;
   text-underline-offset: 8px;
   text-decoration-thickness: 1px;
 }
 
-.btn--text:hover::after {
+.btn-link:hover::after {
   transform: translateX(4px);
 }
 
@@ -655,14 +654,14 @@ body.nav-open {
 /* ============================================================
    11. CARDS
    .card              - white, grey border
-   .card--bar-purple  - white, purple left bar, shadow
-   .card--bar-grey    - white, grey left bar
-   .card--tinted      - soft grey background
-   .card--shadow      - white, drop shadow
-   .card--dark        - purple background, white text
-   .card--step        - numbered process step, bottom divider
+   .card-bar  - white, purple left bar, shadow
+   .card-bar-grey    - white, grey left bar
+   .card-grey      - soft grey background
+   .card-shadow      - white, drop shadow
+   .card-purple        - purple background, white text
+   .step        - numbered process step, bottom divider
 
-   On .section--grey, .card--bar-purple and .card--tinted adjust.
+   On .bg-grey, .card-bar and .card-grey adjust.
    ============================================================ */
 .card {
   background: #fff;
@@ -670,7 +669,7 @@ body.nav-open {
   padding: 20px 24px;
 }
 
-.card--bar-purple {
+.card-bar {
   background: #fff;
   border: none;
   border-left: 5px solid var(--purple);
@@ -678,44 +677,44 @@ body.nav-open {
   box-shadow: 0 3px 16px rgba(0,0,0,0.09);
 }
 
-.section--grey .card--bar-purple {
+.bg-grey .card-bar {
   box-shadow: none;
   border: 1px solid var(--grey-7);
   border-left: 5px solid var(--purple);
 }
 
-.card--bar-grey {
+.card-bar-grey {
   background: #fff;
   border: none;
   border-left: 5px solid var(--grey-6);
   padding: 24px 28px;
 }
 
-.card--tinted {
+.card-grey {
   background: var(--grey-8);
   border: none;
   padding: 24px 28px;
 }
 
-.section--grey .card--tinted {
+.bg-grey .card-grey {
   background: #fff;
   border: 1px solid var(--grey-7);
 }
 
-.card--shadow {
+.card-shadow {
   background: #fff;
   border: none;
   padding: 24px 28px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.10);
 }
 
-.card--dark {
+.card-purple {
   background: var(--purple);
   border: none;
   padding: 36px 40px;
 }
 
-.card--step {
+.step {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 20px;
@@ -726,12 +725,12 @@ body.nav-open {
   align-items: start;
 }
 
-.card--step:last-child {
+.step:last-child {
   border-bottom: none;
 }
 
 /* Card content elements */
-.card__title {
+.card-title {
   font-size: 17px;
   font-weight: 600;
   color: var(--grey-1);
@@ -739,7 +738,7 @@ body.nav-open {
   display: block;
 }
 
-.card__num {
+.step-num {
   font-size: 28px;
   font-weight: 700;
   color: var(--purple);
@@ -747,7 +746,7 @@ body.nav-open {
   padding-top: 2px;
 }
 
-.card__body {
+.step-body {
   min-width: 0;
 }
 
@@ -761,16 +760,16 @@ body.nav-open {
 
 .card p { margin-bottom: 0; }
 
-.card--dark .card__title { color: var(--on-dark); }
-.card--dark p,
-.card--dark li            { color: var(--on-dark-high); }
+.card-purple .card-title { color: var(--on-dark); }
+.card-purple p,
+.card-purple li            { color: var(--on-dark-high); }
 
 
 /* ============================================================
    12. ACCORDIONS
    <details class="accordion">
-     <summary class="accordion__trigger">Label</summary>
-     <div class="accordion__body">…</div>
+     <summary class="accordion-btn">Label</summary>
+     <div class="accordion-body">…</div>
    </details>
    ============================================================ */
 .accordion {
@@ -779,7 +778,7 @@ body.nav-open {
   overflow: hidden;
 }
 
-.accordion__trigger {
+.accordion-btn {
   font-size: 14px;
   font-weight: 600;
   color: var(--grey-1);
@@ -793,11 +792,11 @@ body.nav-open {
   gap: 12px;
 }
 
-.accordion__trigger::-webkit-details-marker {
+.accordion-btn::-webkit-details-marker {
   display: none;
 }
 
-.accordion__trigger::after {
+.accordion-btn::after {
   content: "+";
   font-size: 22px;
   font-weight: 300;
@@ -805,11 +804,11 @@ body.nav-open {
   flex-shrink: 0;
 }
 
-details[open] .accordion__trigger::after {
+details[open] .accordion-btn::after {
   content: "−";
 }
 
-.accordion__body {
+.accordion-body {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -867,9 +866,9 @@ td:first-child {
 
 
 /* ============================================================
-   14. HUB PAGE - PROJECT GRID & CARDS
+   14. HUB pages - project grid & tiles
    .hub-intro     - page header, constrained to 1200px
-   .portfolio-section - wraps each portfolio group (product/learning)
+   .hub-section - wraps each portfolio group (product/learning)
    .project-grid  - 3-col card grid, constrained to 1200px
    .project-card  - full-image card with body below
    ============================================================ */
@@ -887,21 +886,16 @@ td:first-child {
   margin-bottom: 10px;
 }
 
-.portfolio-section {
+.hub-section {
   padding: 48px 48px 0;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.portfolio-section h2 {
+.hub-section h2 {
   margin-bottom: 8px;
 }
 
-.portfolio-section .section-desc {
-  font-size: 15px;
-  color: var(--grey-4);
-  margin-bottom: 28px;
-}
 
 .project-grid {
   display: grid;
@@ -923,20 +917,20 @@ td:first-child {
 }
 
 /* Full-card click overlay - place before other children */
-.project-card__link-overlay {
+.project-link {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.project-card__thumb {
+.project-thumb {
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
 }
 
-.project-card__thumb img {
+.project-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -944,22 +938,19 @@ td:first-child {
   transition: transform 0.3s ease;
 }
 
-.project-card:hover .project-card__thumb img {
+.project-card:hover .project-thumb img {
   transform: scale(1.03);
 }
 
-.project-card__body {
+.project-body {
   padding: 20px 24px 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.project-card__sector {
-  display: none;
-}
 
-.project-card__title {
+.project-title {
   font-size: 15px;
   font-weight: 500;
   line-height: 1.5;
@@ -973,48 +964,18 @@ td:first-child {
 }
 
 /* Logo chip overlaid bottom-left of card thumbnail */
-.project-card__logo {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  height: 30px;
-  width: auto;
-  max-width: 140px;
-  background: #fff;
-  padding: 4px 10px;
-  border-radius: 3px;
-  z-index: 2;
-  pointer-events: none;
-  object-fit: contain;
-}
 
 /* "learn more >" text link below card title */
-.project-card__learn-more {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--purple);
-  text-decoration: none;
-  margin-top: 14px;
-  display: inline-block;
-}
 
-.project-card__learn-more:hover {
-  text-decoration: underline;
-}
 
 /* Grey band for experimental/research sections on hub pages */
-.section-experimental {
+.hub-band {
   background: var(--grey-8);
   padding: 48px 0 64px;
   margin-top: 96px;
 }
 
 /* Learning hub - grey spacer fills remaining viewport height after section-experimental */
-.learning-page-end {
-  flex: 1;
-  background: var(--grey-8);
-  min-height: 0;
-}
 
 /* Experimental / research section label */
 .section-label {
@@ -1028,9 +989,9 @@ td:first-child {
 /* ============================================================
    15. HERO
    Full-bleed image with dark overlay.
-   .hero__content - sits at bottom of hero (flex child)
-   .hero__logo    - org logo chip, above heading
-   .hero__title   - white h1 overlaid on image
+   .hero-content - sits at bottom of hero (flex child)
+   .hero-logo    - org logo chip, above heading
+   .hero-title   - white h1 overlaid on image
    ============================================================ */
 .hero {
   position: relative;
@@ -1042,7 +1003,7 @@ td:first-child {
   justify-content: center;
 }
 
-.hero__bg {
+.hero-bg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1051,13 +1012,13 @@ td:first-child {
   object-position: center;
 }
 
-.hero__overlay {
+.hero-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.27);
 }
 
-.hero__content {
+.hero-content {
   position: relative;
   z-index: 10;
   padding: 0 48px;
@@ -1067,7 +1028,7 @@ td:first-child {
 }
 
 /* Org logo above heading - no white bg (logos have their own white) */
-.hero__logo {
+.hero-logo {
   height: 51px;
   width: auto;
   max-width: 260px;
@@ -1076,7 +1037,7 @@ td:first-child {
   margin-bottom: 20px;
 }
 
-.hero__title {
+.hero-title {
   color: #fff;
   font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 700;
@@ -1106,47 +1067,26 @@ td:first-child {
   margin-bottom: 0;
 }
 
-.case-context {
-  padding: 32px max(48px, calc(50% - 402px)) 0;
-}
 
-.case-context p {
-  font-size: 16px;
-  color: var(--grey-1);
-}
 
 
 /* ============================================================
-   16. CASE STUDY - INTRO
+   16. CASE study - intro
    Sits below the hero. Holds summary, meta row, and constraints.
    .intro__header   - flex row: summary left, logo right
    .intro__logo     - org logo, fixed height
-   .intro__summary  - 18px lead paragraph
-   .intro__meta     - auto-fit grid of label/value pairs
-   .intro__action   - launch button + note (learning pages)
-   .intro__constraints - bullet list of project constraints
+   .intro-summary  - 18px lead paragraph
+   .intro-meta     - auto-fit grid of label/value pairs
+   .intro-action   - launch button + note (learning pages)
+   .constraints - bullet list of project constraints
    ============================================================ */
 .intro {
   padding: 48px max(48px, calc(50% - 402px)) 40px;
 }
 
-.intro__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 32px;
-}
 
-.intro__logo {
-  height: 36px;
-  width: auto;
-  flex-shrink: 0;
-  display: block;
-  margin-top: 6px;
-}
 
-.intro__summary {
+.intro-summary {
   font-size: 18px;
   font-weight: 500;
   line-height: var(--leading-normal);
@@ -1156,7 +1096,7 @@ td:first-child {
 }
 
 /* Auto-fit handles both 3-item (learning) and 4-item (product) grids */
-.intro__meta {
+.intro-meta {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 24px;
@@ -1165,14 +1105,14 @@ td:first-child {
   padding-bottom: 32px;
 }
 
-.intro__meta-item .value {
+.meta-item .meta-value {
   font-size: 14px;
   color: var(--grey-1);
   line-height: 1.5;
 }
 
 /* Launch button + small note - used on access.html */
-.intro__action {
+.intro-action {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -1180,7 +1120,7 @@ td:first-child {
   border-top: 1px solid var(--grey-7);
 }
 
-.intro__note {
+.intro-note {
   font-size: 11px;
   color: var(--grey-3);
   line-height: var(--leading-normal);
@@ -1188,27 +1128,12 @@ td:first-child {
 }
 
 /* Constraints list */
-.intro__constraints {
-  padding-top: 24px;
-  border-top: 1px solid var(--grey-7);
-}
 
-.intro__constraints h3 {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--grey-2);
-  margin-bottom: 10px;
-}
 
-.intro__constraints li {
-  font-size: 14px;
-  color: var(--grey-2);
-  margin-bottom: 6px;
-}
 
 
 /* ============================================================
-   17. CASE STUDY - PART DIVIDERS
+   17. CASE study - part dividers
    Numbered section headers: PART 1, PART 2, PART 3.
    Sits outside .section so padding aligns with content.
    ============================================================ */
@@ -1226,7 +1151,7 @@ td:first-child {
 
 
 /* ============================================================
-   18. CASE STUDY - CONTENT BLOCKS
+   18. CASE study - pullquote, insight, testimonials, video
    .pullquote    - large quote with purple left bar
    .insight      - tinted callout with label (Insight / Decision)
    .testimonial__* - quote + attribution for impact section
@@ -1241,12 +1166,12 @@ td:first-child {
   margin: 36px 0;
 }
 
-.section--grey .pullquote {
+.bg-grey .pullquote {
   border-color: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
-.pullquote__label {
+.pullquote-label {
   font-size: 14px;
   color: var(--grey-3);
   display: block;
@@ -1278,7 +1203,7 @@ td:first-child {
   margin: 28px 0;
 }
 
-.insight__label {
+.insight-label {
   font-size: 15px;
   font-weight: 700;
   color: var(--purple);
@@ -1294,8 +1219,8 @@ td:first-child {
   line-height: 1.5;
 }
 
-/* Testimonial - use inside .card--dark */
-.testimonial__quote {
+/* Testimonial quote - use inside .card-purple */
+.testimonial-quote {
   font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   line-height: 1.5;
@@ -1303,21 +1228,7 @@ td:first-child {
   margin-bottom: 20px;
 }
 
-.testimonial__name {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--on-dark-high);
-  display: block;
-  margin-bottom: 2px;
-}
-
-.testimonial__role {
-  font-size: var(--text-xs);
-  color: var(--on-dark-low);
-  display: block;
-}
-
-/* Testimonial on light cards - e.g. .card--shadow */
+/* Testimonial attribution - light cards; auto-inverts on .card-purple */
 .testimonial-name {
   font-size: 15px;
   font-weight: 700;
@@ -1331,6 +1242,9 @@ td:first-child {
   color: var(--grey-5);
   display: block;
 }
+
+.card-purple .testimonial-name { color: var(--on-dark-high); }
+.card-purple .testimonial-role { color: var(--on-dark-low); }
 
 /* Video embed */
 .video-wrap {
@@ -1384,7 +1298,7 @@ td:first-child {
   line-height: 1.5;
 }
 
-.module-card.active .card-label--muted { color: var(--on-dark-low); }
+.module-card.active .text-muted { color: var(--on-dark-low); }
 .module-card.active h3                 { color: var(--on-dark); }
 .module-card.active p                  { color: var(--on-dark-low); }
 
@@ -1402,10 +1316,10 @@ td:first-child {
 
 /* ============================================================
    19b. CONTACT FORM
-   .contact-form - wraps the whole form, max-width constrained
+   .form - wraps the whole form, max-width constrained
    .form-group   - label + input/textarea pair
    ============================================================ */
-.contact-form {
+.form {
   max-width: 480px;
   margin-top: 8px;
 }
@@ -1422,8 +1336,8 @@ td:first-child {
   margin-bottom: 6px;
 }
 
-.contact-form input,
-.contact-form textarea {
+.form input,
+.form textarea {
   width: 100%;
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
@@ -1433,13 +1347,13 @@ td:first-child {
   background: #fff;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+.form input:focus,
+.form textarea:focus {
   outline: none;
   border-color: var(--purple);
 }
 
-.contact-form textarea {
+.form textarea {
   resize: vertical;
   min-height: 140px;
 }
@@ -1536,29 +1450,27 @@ footer a:hover {
     font-size: clamp(24px, 6vw, 40px);
   }
 
-  .portfolio-section {
+  .hub-section {
     padding: 40px 20px 0;
   }
 
-  .section,
-  .section--wide {
+  .section {
     padding: 40px 20px;
   }
 
-  .section--grey,
-  .section--dark {
+  .bg-grey,
+  .bg-purple {
     padding: 0;
   }
 
   .divider { margin: 0 20px; }
 
-  .grid--2,
-  .grid--3,
-  .grid--4 {
+  .grid-2,
+  .grid-3 {
     grid-template-columns: 1fr;
   }
 
-  .grid--masonry-2 {
+  .masonry {
     column-count: 1;
   }
 
@@ -1570,17 +1482,10 @@ footer a:hover {
     padding: 32px 20px;
   }
 
-  .intro__summary  { font-size: 16px; }
-  .intro__meta     { gap: 16px; }
+  .intro-summary  { font-size: 16px; }
+  .intro-meta     { gap: 16px; }
 
-  .intro__header {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .intro__logo     { height: 28px; }
-
-  .intro__action {
+  .intro-action {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -1590,21 +1495,20 @@ footer a:hover {
   .pullquote { padding: 16px 20px; }
 
   .hero           { min-height: 320px; }
-  .hero__content  { padding: 28px 20px; }
-  .hero__logo     { height: 35px; margin-bottom: 14px; }
-  .hero__title    { font-size: clamp(22px, 6vw, 36px); }
-  .section-experimental { margin-top: 64px; padding: 32px 0 48px; }
+  .hero-content  { padding: 28px 20px; }
+  .hero-logo     { height: 35px; margin-bottom: 14px; }
+  .hero-title    { font-size: clamp(22px, 6vw, 36px); }
+  .hub-band { margin-top: 64px; padding: 32px 0 48px; }
   .case-header    { padding: 36px 20px 0; }
-  .case-context   { padding: 24px 20px 0; }
 
-  .card--dark {
+  .card-purple {
     padding: 24px 20px;
   }
 
-  .card--bar-purple,
-  .card--bar-grey,
-  .card--tinted,
-  .card--shadow {
+  .card-bar,
+  .card-bar-grey,
+  .card-grey,
+  .card-shadow {
     padding: 20px;
   }
 
@@ -1617,8 +1521,8 @@ footer a:hover {
 }
 
 @media (max-width: 640px) {
-  .img--half-right,
-  .img--half-right + .text-caption {
+  .img-right,
+  .img-right + .caption {
     float: none;
     width: 100%;
     margin: 24px 0 0;
@@ -1632,13 +1536,13 @@ footer a:hover {
   }
   .hub-intro { padding-left: 16px; padding-right: 16px; }
 
-  .intro__meta {
+  .intro-meta {
     grid-template-columns: 1fr;
   }
 
   h2 { font-size: clamp(22px, 6vw, 30px); }
 
-  .card--step {
+  .step {
     grid-template-columns: 40px 1fr;
     gap: 12px;
   }
@@ -1649,12 +1553,10 @@ footer a:hover {
 @media (max-width: 360px) {
   nav            { padding: 14px 16px; }
   .hub-intro     { padding: 36px 16px 24px; }
-  .portfolio-section { padding: 32px 16px 0; }
-  .section,
-  .section--wide { padding: 28px 16px; }
+  .hub-section { padding: 32px 16px 0; }
+  .section       { padding: 28px 16px; }
   .intro         { padding: 24px 16px; }
   .case-header   { padding: 28px 16px 0; }
-  .case-context  { padding: 20px 16px 0; }
   .part-divider  { padding-left: 16px; padding-right: 16px; }
   footer         { padding: 32px 16px; }
 }
@@ -1662,8 +1564,7 @@ footer a:hover {
 
 
 /* ============================================================
-   20. ADDITIONS - skip link, hub kicker, card meta, coming
-   badge, spacing utilities (replaces inline styles)
+   22. HUB extras - skip link, kicker, project meta, badge
    ============================================================ */
 .skip-link {
   position: absolute;
@@ -1698,7 +1599,7 @@ footer a:hover {
 }
 
 /* Org · role · outcome line under project card titles */
-.project-card__meta {
+.project-meta {
   font-size: 13px;
   font-weight: 600;
   color: var(--grey-4);
@@ -1706,7 +1607,7 @@ footer a:hover {
 }
 
 /* "Case study coming soon" chip on unbuilt cards */
-.coming-badge {
+.badge {
   position: absolute;
   top: 12px;
   left: 12px;
@@ -1719,11 +1620,7 @@ footer a:hover {
   border-radius: 3px;
 }
 
-/* Spacing utilities */
-.mt-24 { margin-top: 24px; }
-.mt-32 { margin-top: 32px; }
-.section--pad-top { padding-top: 80px; }
-.divider--spaced { margin: 48px 0; }
+.divider-space { margin: 48px 0; }
 
 /* Cross-pointer link between the two hub pages */
 .hub-cross {
@@ -1739,39 +1636,13 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* ============================================================
+   23. ABOUT page - hero, bio grid, beyond-the-work
+   ============================================================ */
 /* About page - bio text + headshot layout */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 48px;
-  align-items: start;
-}
 
-.about-photo img {
-  width: 100%;
-  display: block;
-  border-radius: 4px;
-}
-
-@media (max-width: 800px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-  .about-photo {
-    max-width: 320px;
-  }
-  .about-photo img {
-    margin-top: 8px;
-  }
-}
 
 /* About page - self-portrait illustration */
-.about-illustration img {
-  display: block;
-  max-height: 360px;
-  width: auto;
-  margin: 0 auto;
-}
 
 /* ============================================================
    About hero - full-bleed purple band with clover watermark
@@ -1782,7 +1653,7 @@ footer a:hover {
   overflow: hidden;
 }
 
-.about-hero__inner {
+.about-hero-inner {
   padding: 64px max(48px, calc(50% - 402px));
   display: grid;
   grid-template-columns: 170px 1fr;
@@ -1792,7 +1663,7 @@ footer a:hover {
   z-index: 1;
 }
 
-.about-hero__photo {
+.about-photo {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
@@ -1805,7 +1676,7 @@ footer a:hover {
   margin-bottom: 16px;
 }
 
-.about-hero__lead {
+.about-lead {
   color: #d9c6d9;
   font-size: clamp(17px, 2vw, 21px);
   line-height: 1.55;
@@ -1813,7 +1684,7 @@ footer a:hover {
 }
 
 /* Giant clover from Lisa's own illustration, tone-on-tone */
-.about-hero__clover {
+.about-clover {
   position: absolute;
   right: -100px;
   bottom: -130px;
@@ -1825,47 +1696,46 @@ footer a:hover {
 }
 
 @media (max-width: 800px) {
-  .about-hero__inner {
+  .about-hero-inner {
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 64px 24px;
     text-align: center;
   }
-  .about-hero__photo {
+  .about-photo {
     width: 180px;
     margin: 0 auto;
   }
-  .about-hero__lead {
+  .about-lead {
     margin: 0 auto;
   }
-  .about-hero__clover {
+  .about-clover {
     width: 300px;
     right: -80px;
     bottom: -90px;
   }
 }
 
-/* About section headings: h3 size, purple */
-.about-heading {
+/* Utility: purple text (use on any heading) */
+.text-purple {
   color: var(--purple);
-  margin-bottom: 16px;
 }
 /* About - Beyond the work: text left, white card running behind the
    illustration, figure bottom-locked to the dark band below */
-.about-beyond {
+.beyond {
   display: grid;
   grid-template-columns: 1fr 280px;
   column-gap: 48px;
   padding-bottom: 0;
 }
 
-.about-beyond__text {
+.beyond-text {
   grid-column: 1;
   grid-row: 1;
   padding-bottom: 24px;
 }
 
-.about-beyond__card {
+.beyond-card {
   grid-column: 1 / -1;
   grid-row: 2;
   z-index: 0;
@@ -1873,20 +1743,20 @@ footer a:hover {
   margin-bottom: 50px;
 }
 
-.about-beyond__card p {
+.beyond-card p {
   font-size: 15px;
   font-weight: 500;
   margin: 0;
 }
 
-.about-beyond__figure {
+.beyond-img {
   grid-column: 2;
   grid-row: 1 / 3;
   z-index: 1;
   align-self: end;
 }
 
-.about-beyond__figure img {
+.beyond-img img {
   display: block;
   width: 100%;
   max-height: 420px;
@@ -1896,30 +1766,26 @@ footer a:hover {
 }
 
 @media (max-width: 800px) {
-  .about-beyond {
+  .beyond {
     grid-template-columns: 1fr;
   }
-  .about-beyond__text {
+  .beyond-text {
     padding-bottom: 16px;
   }
-  .about-beyond__card {
+  .beyond-card {
     grid-column: 1;
     grid-row: 2;
     margin-bottom: 0;
   }
-  .about-beyond__figure {
+  .beyond-img {
     grid-column: 1;
     grid-row: 3;
     margin-top: 16px;
   }
-  .about-beyond__figure img {
+  .beyond-img img {
     max-height: 300px;
     width: auto;
     margin: 0 auto;
   }
 }
 
-/* Grey spacer variant: pages whose last section is grey stretch it to the footer */
-.page-end--grey {
-  background: var(--grey-8);
-}
