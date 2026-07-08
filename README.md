@@ -64,7 +64,7 @@ Portfolio site. Plain HTML + one stylesheet (`styles.css`). No build step: edit,
 | `intro-summary`, `intro-meta`, `meta-item`, `meta-label`, `meta-value` | learning-page intro block |
 
 ### Hub pages (index, learning)
-`hub-intro` (header block: `hub-kicker`, `hub-sub`, `hub-cross`) · `hub-section` (group label) · `hub-band` (grey band) · `project-card` (tile: `project-link`, `project-thumb`, `project-body`, `project-title`, `project-meta`) · `badge` ("coming soon" chip) · add `coming` to unclickable tiles
+`hub-intro` (header block: `hub-kicker`, `hub-sub`, `hub-cross`) · `hub-section` (group label) · `hub-band` (grey band) · `hub-cards bg-soft` (soft grey band behind the tile grid) · `project-card` (tile: `project-link`, `project-thumb`, `project-body`, `project-title`, `project-more`) · `badge` ("coming soon" chip) · add `coming` to unclickable tiles
 
 ### Don't rename these (JavaScript uses them)
 `nav-toggle` · `nav-overlay` · `is-open` · `nav-open` · `form-status` · `is-visible` · `success` · `error` · ids `contact-form`, `form-status`

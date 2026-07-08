@@ -1803,3 +1803,70 @@ footer a:hover {
   }
 }
 
+
+
+/* ============================================================
+   24. CASE page nav - track pills (top) & prev-next bar (bottom)
+   ============================================================ */
+/* Track pills: which hub this case study belongs to */
+.pills {
+  display: flex;
+  gap: 8px;
+  padding: 16px max(48px, calc(50% - 402px)) 0;
+}
+
+.pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--grey-7);
+  background: #fff;
+  color: var(--grey-2);
+  text-decoration: none;
+}
+
+.pill:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.pill.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+}
+
+/* Back-to-hub and next-case links at the end of every case study */
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 40px max(48px, calc(50% - 402px));
+  border-top: 1px solid var(--grey-7);
+}
+
+.case-nav a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.case-nav a:last-child {
+  text-align: right;
+}
+
+.case-nav a:hover {
+  text-decoration: underline;
+}
+
+.case-nav-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--grey-4);
+  margin-bottom: 4px;
+}
