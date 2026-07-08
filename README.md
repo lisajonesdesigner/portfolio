@@ -48,7 +48,7 @@ Portfolio site. Plain HTML + one stylesheet (`styles.css`). No build step: edit,
 |---|---|
 | `card` | white, grey border |
 | `card-grey` | soft grey fill |
-| `card-shadow` | white with drop shadow (testimonials) |
+| `card-white` | plain white, no border (testimonials on dark bands) |
 | `card-purple` | purple fill, white text |
 | `card-bar` | white with purple left bar |
 | `step` | numbered process row (`step-num` + `step-body`) |

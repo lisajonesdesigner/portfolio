@@ -393,7 +393,6 @@ body.nav-open {
   width: 100%;
   border: 1px solid var(--grey-7);
   background: #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
 }
 
 .nav-overlay-links li {
@@ -657,7 +656,7 @@ body.nav-open {
    .card-bar  - white, purple left bar, shadow
    .card-bar-grey    - white, grey left bar
    .card-grey      - soft grey background
-   .card-shadow      - white, drop shadow
+   .card-white      - white, drop shadow
    .card-purple        - purple background, white text
    .step        - numbered process step, bottom divider
 
@@ -672,15 +671,9 @@ body.nav-open {
 .card-bar {
   background: #fff;
   border: none;
-  border-left: 5px solid var(--purple);
-  padding: 24px 28px;
-  box-shadow: 0 3px 16px rgba(0,0,0,0.09);
-}
-
-.bg-grey .card-bar {
-  box-shadow: none;
   border: 1px solid var(--grey-7);
   border-left: 5px solid var(--purple);
+  padding: 24px 28px;
 }
 
 .card-bar-grey {
@@ -701,11 +694,10 @@ body.nav-open {
   border: 1px solid var(--grey-7);
 }
 
-.card-shadow {
+.card-white {
   background: #fff;
   border: none;
   padding: 24px 28px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
 }
 
 .card-purple {
@@ -910,7 +902,6 @@ td:first-child {
   display: flex;
   flex-direction: column;
   background: #fff;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -1186,11 +1177,6 @@ td:first-child {
   border: 1px solid var(--grey-7);
   padding: 40px 44px;
   margin: 36px 0;
-}
-
-.bg-grey .pullquote {
-  border-color: #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
 .pullquote-label {
@@ -1530,7 +1516,7 @@ footer a:hover {
   .card-bar,
   .card-bar-grey,
   .card-grey,
-  .card-shadow {
+  .card-white {
     padding: 20px;
   }
 
@@ -1636,19 +1622,6 @@ footer a:hover {
 
 .divider-space { margin: 48px 0; }
 
-/* Cross-pointer link between the two hub pages */
-.hub-cross {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--purple);
-  text-decoration: none;
-}
-
-.hub-cross:hover {
-  text-decoration: underline;
-}
 
 /* ============================================================
    23. ABOUT page - hero, bio grid, beyond-the-work
@@ -1812,6 +1785,10 @@ footer a:hover {
 .pills {
   display: flex;
   gap: 8px;
+}
+
+/* On case-study pages the pill row sits alone under the nav */
+.pills-page {
   padding: 16px max(48px, calc(50% - 402px)) 0;
 }
 
