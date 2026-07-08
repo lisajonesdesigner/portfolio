@@ -1787,9 +1787,33 @@ footer a:hover {
   gap: 8px;
 }
 
-/* On case-study pages the pill row sits alone under the nav */
-.pills-page {
+/* Breadcrumbs on case-study pages: Home > track > project */
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
   padding: 16px max(48px, calc(50% - 402px)) 0;
+  font-size: 13px;
+}
+
+.crumbs a {
+  color: var(--grey-3);
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.crumbs-sep {
+  color: var(--grey-5);
+}
+
+.crumbs-here {
+  color: var(--grey-1);
+  font-weight: 600;
 }
 
 .pill {

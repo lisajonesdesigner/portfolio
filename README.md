@@ -60,6 +60,8 @@ Portfolio site. Plain HTML + one stylesheet (`styles.css`). No build step: edit,
 | `insight` + `insight-label` | tinted purple callout (Insight / Decision / Outcome) |
 | `pullquote` + `pullquote-label` | big white quote card |
 | `testimonial-quote/-name/-role` | quote attribution (works on light and purple cards) |
+| `crumbs` (+`crumbs-sep`, `crumbs-here`) | breadcrumb row: Home > track > project |
+| `case-nav` (+`case-nav-label`) | back-to-hub / next-case bar at page bottom |
 | `case-meta` | Role / Org / Timeframe line under the hero |
 | `intro-summary`, `intro-meta`, `meta-item`, `meta-label`, `meta-value` | learning-page intro block |
 
