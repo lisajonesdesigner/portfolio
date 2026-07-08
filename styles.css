@@ -958,6 +958,28 @@ td:first-child {
   flex: 1;
 }
 
+/* "Learn more" line at the bottom of each tile (whole card is the link) */
+.project-more {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-top: 14px;
+}
+
+.project-card:hover .project-more {
+  text-decoration: underline;
+}
+
+/* Soft grey band behind the tile grid so white cards stand out */
+.bg-soft {
+  background: var(--grey-9);
+}
+
+.hub-cards {
+  padding: 48px 0 64px;
+  margin-top: 32px;
+}
+
 /* Unbuilt cards - not clickable but no overlay */
 .project-card.coming {
   pointer-events: none;
@@ -1596,14 +1618,6 @@ footer a:hover {
   font-size: 15px;
   color: var(--grey-4);
   margin-top: 12px;
-}
-
-/* Org · role · outcome line under project card titles */
-.project-meta {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--grey-4);
-  margin-top: 10px;
 }
 
 /* "Case study coming soon" chip on unbuilt cards */
