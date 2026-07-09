@@ -950,16 +950,14 @@ td:first-child {
   flex: 1;
 }
 
-/* "Learn more" line at the bottom of each tile (whole card is the link) */
-.project-more {
-  font-size: 13px;
-  font-weight: 600;
+/* Arrow in the tile title (whole card is the link) */
+.title-arrow {
   color: var(--purple);
-  margin-top: 14px;
+  font-weight: 600;
 }
 
-.project-card:hover .project-more {
-  text-decoration: underline;
+.project-card:hover .project-title {
+  color: var(--purple);
 }
 
 /* Small topic tags on project tiles */
