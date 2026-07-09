@@ -1047,7 +1047,7 @@ td:first-child {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.14);
+  background: rgba(0,0,0,0.06);
 }
 
 .hero-content {
