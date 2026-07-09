@@ -76,7 +76,7 @@
 
   /* Shadows */
   --shadow-text-sm: 0 1px 3px rgba(0,0,0,0.6);
-  --shadow-text-md: 0 4px 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.6);
+  --shadow-text-md: 0 2px 18px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.65);
 }
 
 
@@ -1028,7 +1028,7 @@ td:first-child {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.27);
+  background: rgba(0,0,0,0.14);
 }
 
 .hero-content {
@@ -1529,6 +1529,10 @@ footer a:hover {
 }
 
 @media (max-width: 640px) {
+  .crumbs { padding: 10px 20px 0; }
+  .crumbs a:first-child,
+  .crumbs .crumbs-sep:first-of-type { display: none; }
+
   .img-right,
   .img-right + .caption {
     float: none;
@@ -1592,10 +1596,9 @@ footer a:hover {
 
 /* Name · role · location line above hub h1 */
 .hub-kicker {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--grey-3);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grey-1);
   margin-bottom: 14px;
 }
 
@@ -1787,43 +1790,46 @@ footer a:hover {
   gap: 8px;
 }
 
-/* Breadcrumbs on case-study pages: Home > track > project */
+/* Breadcrumbs on case-study pages: Home > track > project.
+   Aligned with the nav container, small and light (NN/g style). */
 .crumbs {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  padding: 16px max(48px, calc(50% - 402px)) 0;
-  font-size: 13px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 48px 0;
+  font-size: 12px;
 }
 
 .crumbs a {
-  color: var(--grey-3);
-  text-decoration: none;
+  color: var(--grey-4);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .crumbs a:hover {
   color: var(--purple);
-  text-decoration: underline;
 }
 
 .crumbs-sep {
-  color: var(--grey-5);
+  color: var(--grey-6);
 }
 
 .crumbs-here {
-  color: var(--grey-1);
-  font-weight: 600;
+  color: var(--grey-3);
+  font-weight: 500;
 }
 
 .pill {
   font-size: 12px;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 3px;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 999px;
   border: 1px solid var(--grey-7);
   background: #fff;
-  color: var(--grey-2);
+  color: var(--grey-3);
   text-decoration: none;
 }
 
