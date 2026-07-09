@@ -950,14 +950,18 @@ td:first-child {
   flex: 1;
 }
 
-/* Arrow in the tile title (whole card is the link) */
-.title-arrow {
-  color: var(--purple);
+/* "Learn more" sits at the right end of the title's last line */
+.title-more {
+  float: right;
+  margin-left: 16px;
+  font-size: 13px;
   font-weight: 600;
+  color: var(--purple);
+  white-space: nowrap;
 }
 
-.project-card:hover .project-title {
-  color: var(--purple);
+.project-card:hover .title-more {
+  text-decoration: underline;
 }
 
 /* Small topic tags on project tiles */
@@ -1814,8 +1818,11 @@ footer a:hover {
 .crumbs {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   flex-wrap: wrap;
+  max-width: none;
+  margin: 0;
   padding: 12px max(48px, calc(50% - 402px)) 0;
   font-size: 12px;
 }
