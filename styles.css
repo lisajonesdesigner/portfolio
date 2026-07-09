@@ -962,6 +962,24 @@ td:first-child {
   text-decoration: underline;
 }
 
+/* Small topic tags on project tiles */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--grey-7);
+  background: #fff;
+  color: var(--grey-3);
+}
+
 /* Soft grey band behind the tile grid so white cards stand out */
 .bg-soft {
   background: var(--grey-9);
@@ -1800,7 +1818,7 @@ footer a:hover {
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  padding: 12px 48px 0;
+  padding: 12px max(48px, calc(50% - 402px)) 0;
   font-size: 12px;
 }
 
