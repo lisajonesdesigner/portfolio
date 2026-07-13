@@ -330,7 +330,7 @@ nav .nav-links a:hover {
 /* Active nav link */
 nav .nav-links a.nav-active {
   color: var(--purple);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Hamburger toggle - hidden on desktop */
@@ -906,6 +906,7 @@ td:first-child {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.10);
 }
 
 /* Full-card click overlay - place before other children */
@@ -917,12 +918,12 @@ td:first-child {
 
 .project-thumb {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   position: relative;
 }
 
-.project-thumb img {
+.project-thumb img:not(.thumb-logo) {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -930,17 +931,38 @@ td:first-child {
   transition: transform 0.3s ease;
 }
 
-.project-card:hover .project-thumb img {
+.project-card:hover .project-thumb img:not(.thumb-logo) {
   transform: scale(1.03);
 }
 
+/* Org logo overlay, bottom-left of the thumb, on nologo hero images */
+.thumb-logo {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  height: 42px;
+  width: auto;
+  max-width: 55%;
+  object-fit: contain;
+}
+
 .project-body {
-  padding: 20px 24px 24px;
+  padding: 20px 16px 16px 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+
+/* Company then product, above the card heading */
+.card-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 6px;
+}
 
 .project-title {
   font-size: 15px;
@@ -948,20 +970,39 @@ td:first-child {
   line-height: 1.5;
   color: var(--grey-1);
   flex: 1;
+  margin-bottom: 44px;
 }
 
-/* "Learn more" sits at the right end of the title's last line */
+/* "Learn more" hugs its text, right-aligned below the title */
 .title-more {
-  float: right;
-  margin-left: 16px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--purple);
+  display: inline-block;
+  align-self: flex-end;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--purple);
+  color: #fff;
   white-space: nowrap;
 }
 
 .project-card:hover .title-more {
-  text-decoration: underline;
+  background: #000;
+}
+
+/* "Coming soon" - same pill shape as "Learn more", coloured like the top toggle pills */
+.coming-soon {
+  display: inline-block;
+  align-self: flex-end;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--grey-9);
+  color: var(--grey-3);
+  white-space: nowrap;
 }
 
 /* Small topic tags on project tiles */
@@ -969,7 +1010,6 @@ td:first-child {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 12px;
 }
 
 .tag {
@@ -977,14 +1017,9 @@ td:first-child {
   font-weight: 500;
   padding: 2px 10px;
   border-radius: 999px;
-  border: 1px solid var(--grey-7);
-  background: #fff;
-  color: var(--grey-3);
-}
-
-/* Soft grey band behind the tile grid so white cards stand out */
-.bg-soft {
+  border: none;
   background: var(--grey-9);
+  color: var(--grey-3);
 }
 
 .hub-cards {
@@ -1002,21 +1037,20 @@ td:first-child {
 /* "learn more >" text link below card title */
 
 
-/* Grey band for experimental/research sections on hub pages */
+/* Band for experimental/research sections on hub pages */
 .hub-band {
-  background: var(--grey-8);
   padding: 48px 0 64px;
   margin-top: 96px;
 }
 
 /* Learning hub - grey spacer fills remaining viewport height after section-experimental */
 
-/* Experimental / research section label */
+/* Experimental / research section label - matches the site's h3 scale */
 .section-label {
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--grey-1);
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 
@@ -1468,6 +1502,7 @@ footer a:hover {
     padding: 0 20px;
   }
   .hub-intro { padding-left: 20px; padding-right: 20px; }
+  .thumb-logo { height: 34px; bottom: 12px; left: 12px; }
 }
 
 @media (max-width: 640px) {
@@ -1570,6 +1605,7 @@ footer a:hover {
     padding: 0 16px;
   }
   .hub-intro { padding-left: 16px; padding-right: 16px; }
+  .thumb-logo { height: 38px; bottom: 14px; left: 14px; }
 
   .intro-meta {
     grid-template-columns: 1fr;
@@ -1855,20 +1891,19 @@ footer a:hover {
   font-weight: 500;
   padding: 5px 16px;
   border-radius: 999px;
-  border: 1px solid var(--grey-7);
-  background: #fff;
-  color: var(--grey-3);
+  border: 1px solid var(--purple);
+  background: transparent;
+  color: var(--purple);
   text-decoration: none;
 }
 
 .pill:hover {
-  border-color: var(--purple);
-  color: var(--purple);
+  background: var(--grey-9);
+  color: #000;
 }
 
 .pill.active {
   background: var(--purple);
-  border-color: var(--purple);
   color: #fff;
 }
 
