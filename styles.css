@@ -1674,11 +1674,16 @@ footer a:hover {
 
 /* Name · role · location line above hub h1 */
 .hub-kicker {
+  display: inline-block;
   margin-top: 72px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   color: #000;
-  margin-bottom: 8px;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 999px;
+  padding: 5px 16px;
+  margin-bottom: 16px;
 }
 
 /* Tools / credentials line below hub h1 */
