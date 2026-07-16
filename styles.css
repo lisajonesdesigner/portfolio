@@ -5,7 +5,7 @@
    FIND IT FAST (Cmd+F the word in caps):
    - Colours & sizes ......... search TOKENS
    - Headings h1/h2/h3 ....... search TYPOGRAPHY
-   - mt-1..5 / mb-1..5 ....... search SPACING
+   - mt-1..5 spacing ......... search SPACING
    - Nav bar / mobile menu ... search NAVIGATION
    - Page sections & bands ... search LAYOUT
    - Buttons ................. search BUTTONS
@@ -202,11 +202,9 @@ a:hover {
   margin-bottom: 14px;
 }
 
+/* Colour modifier - always paired with .card-label */
 .text-muted {
-  font-size: 15px;
-  font-weight: 600;
   color: var(--grey-5);
-  display: block;
   margin-bottom: 10px;
 }
 
@@ -238,7 +236,7 @@ a:hover {
   margin-bottom: 18px;
 }
 
-/* Use <div class="text-caption"> not <p> - base p styles would override */
+/* Use <div class="caption"> not <p> - base p styles would override */
 .caption {
   font-size: 13px;
   font-style: italic;
@@ -266,19 +264,18 @@ a:hover {
 .mt-3 { margin-top: 24px; }
 .mt-4 { margin-top: 32px; }
 .mt-5 { margin-top: 48px; }
-.mb-1 { margin-bottom: 8px; }
-.mb-2 { margin-bottom: 16px; }
-.mb-3 { margin-bottom: 24px; }
-.mb-4 { margin-bottom: 32px; }
-.mb-5 { margin-bottom: 48px; }
 .pt-5 { padding-top: 80px; }
+
+/* Utility: purple text (use on any heading) */
+.text-purple {
+  color: var(--purple);
+}
 
 
 /* ============================================================
    6. NAVIGATION
    .nav-wrap     - full-width white bar + sticky positioning
    nav           - constrained to 1200px
-   .nav-dropdown - hover/focus-within dropdown
    .nav-toggle   - hamburger, shown below 800px
    .nav-overlay  - fullscreen mobile menu
    ============================================================ */
@@ -425,7 +422,6 @@ body.nav-open {
 /* ============================================================
    7. LAYOUT - sections, bands, dividers
    .section       - 900px max, 50px padding
-   .section--wide - 1200px max, 50px padding
    .bg-grey - full-bleed grey background (wrap outside .section)
    .bg-purple - full-bleed purple background (wrap outside .section)
    .page-end      - spacer before footer
@@ -433,6 +429,7 @@ body.nav-open {
    ============================================================ */
 .section {
   padding: 50px max(48px, calc(50% - 402px));
+  display: flow-root;
 }
 
 
@@ -471,7 +468,7 @@ body.nav-open {
 /* ============================================================
    8. GRID
    .grid          - base display:grid, 24px gap, mt 28px
-   .grid-2/3/4   - column count
+   .grid-2/3     - column count
    .gap-1  - 12px gap
    .gap-4  - 32px gap
    .grid-overflow - allow overflow (needed for .img-zoom)
@@ -517,25 +514,6 @@ body.nav-open {
 
 .img-border {
   border: 1px solid var(--grey-7);
-}
-
-/* Half-width image, right aligned - text flows down the left */
-.img-right {
-  width: 48%;
-  float: right;
-  margin: 8px 0 24px 36px;
-}
-
-.img-right + .caption {
-  float: right;
-  clear: right;
-  width: 48%;
-  margin: -16px 0 24px 36px;
-}
-
-/* Contain floats inside sections */
-.section {
-  display: flow-root;
 }
 
 .img-zoom {
@@ -1024,23 +1002,6 @@ td:first-child {
   white-space: nowrap;
 }
 
-/* Small topic tags on project tiles */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.tag {
-  font-size: 11px;
-  font-weight: 500;
-  padding: 2px 10px;
-  border-radius: 999px;
-  border: none;
-  background: var(--grey-9);
-  color: var(--grey-3);
-}
-
 .hub-cards {
   padding: 0 0 64px;
   margin-top: 0;
@@ -1051,18 +1012,11 @@ td:first-child {
   pointer-events: none;
 }
 
-/* Logo chip overlaid bottom-left of card thumbnail */
-
-/* "learn more >" text link below card title */
-
-
 /* Band for experimental/research sections on hub pages */
 .hub-band {
   padding: 48px 0 64px;
   margin-top: 96px;
 }
-
-/* Learning hub - grey spacer fills remaining viewport height after section-experimental */
 
 /* Experimental / research section label - matches the site's h3 scale */
 .section-label {
@@ -1159,18 +1113,14 @@ td:first-child {
 
 /* ============================================================
    16. CASE study - intro
-   Sits below the hero. Holds summary, meta row, and constraints.
-   .intro__header   - flex row: summary left, logo right
-   .intro__logo     - org logo, fixed height
+   Sits below the hero. Holds summary, meta row, and launch action.
    .intro-summary  - 18px lead paragraph
    .intro-meta     - auto-fit grid of label/value pairs
    .intro-action   - launch button + note (learning pages)
-   .constraints - bullet list of project constraints
    ============================================================ */
 .intro {
   padding: 48px max(48px, calc(50% - 402px)) 40px;
 }
-
 
 
 .intro-summary {
@@ -1214,11 +1164,6 @@ td:first-child {
   margin: 0;
 }
 
-/* Constraints list */
-
-
-
-
 /* ============================================================
    17. CASE study - part dividers
    Numbered section headers: PART 1, PART 2, PART 3.
@@ -1241,7 +1186,7 @@ td:first-child {
    18. CASE study - pullquote, insight, testimonials, video
    .pullquote    - large quote with purple left bar
    .insight      - tinted callout with label (Insight / Decision)
-   .testimonial__* - quote + attribution for impact section
+   .testimonial-*  - quote + attribution for impact section
    .video-wrap   - black-bg video container
    ============================================================ */
 
@@ -1501,7 +1446,291 @@ footer a:hover {
 
 
 /* ============================================================
-   21. MEDIA QUERIES
+   21. HUB extras - skip link, kicker
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--purple);
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Name · role · location line above hub h1 */
+.hub-kicker {
+  display: inline-block;
+  margin-top: 72px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 999px;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+
+.divider-space { margin: 48px 0; }
+
+
+/* ============================================================
+   22. ABOUT page - hero, bio grid, beyond-the-work
+   ============================================================ */
+/* ============================================================
+   About hero - full-bleed purple band with clover watermark
+   ============================================================ */
+.about-hero {
+  background: var(--purple);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-inner {
+  padding: 64px max(48px, calc(50% - 402px));
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid #fff;
+}
+
+.about-hero h1 {
+  color: #fff;
+  font-size: clamp(30px, 4vw, 48px);
+  margin-bottom: 16px;
+}
+
+.about-lead {
+  color: #d9c6d9;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.55;
+  max-width: 560px;
+}
+
+/* Giant clover from Lisa's own illustration, tone-on-tone */
+.about-clover {
+  position: absolute;
+  right: -100px;
+  bottom: -130px;
+  width: 480px;
+  height: auto;
+  color: #47104d;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .about-photo {
+    width: 180px;
+    margin: 0 auto;
+  }
+  .about-lead {
+    margin: 0 auto;
+  }
+  .about-clover {
+    width: 300px;
+    right: -80px;
+    bottom: -90px;
+  }
+}
+
+/* About - Beyond the work: text left, white card running behind the
+   illustration, figure bottom-locked to the dark band below */
+.beyond {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  column-gap: 48px;
+  padding-bottom: 0;
+}
+
+.beyond-text {
+  grid-column: 1;
+  grid-row: 1;
+  padding-bottom: 24px;
+}
+
+.beyond-card {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  z-index: 0;
+  align-self: end;
+  margin-bottom: 50px;
+}
+
+.beyond-card p {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.beyond-img {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  z-index: 1;
+  align-self: end;
+}
+
+.beyond-img img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  object-position: bottom;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .beyond {
+    grid-template-columns: 1fr;
+  }
+  .beyond-text {
+    padding-bottom: 16px;
+  }
+  .beyond-card {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 0;
+  }
+  .beyond-img {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 16px;
+  }
+  .beyond-img img {
+    max-height: 300px;
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* ============================================================
+   23. CASE page nav - track pills (top) & prev-next bar (bottom)
+   ============================================================ */
+/* Track pills: which hub this case study belongs to */
+.pills {
+  display: flex;
+  gap: 8px;
+}
+
+/* Breadcrumbs on case-study pages: Home > track > project.
+   Aligned with the nav container, small and light (NN/g style). */
+.crumbs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: none;
+  margin: 0;
+  padding: 12px max(48px, calc(50% - 402px)) 0;
+  font-size: 12px;
+}
+
+.crumbs a {
+  color: var(--grey-4);
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crumbs a:hover {
+  color: var(--purple);
+}
+
+.crumbs-sep {
+  color: var(--grey-6);
+}
+
+.crumbs-here {
+  color: var(--grey-3);
+  font-weight: 500;
+}
+
+.pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--purple);
+  background: transparent;
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.pill:hover {
+  background: var(--grey-9);
+  color: #000;
+}
+
+.pill.active {
+  background: var(--purple);
+  color: #fff;
+}
+
+/* Back-to-hub and next-case links at the end of every case study */
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 40px max(48px, calc(50% - 402px));
+  border-top: 1px solid var(--grey-7);
+}
+
+.case-nav a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.case-nav a:last-child {
+  text-align: right;
+}
+
+.case-nav a:hover {
+  text-decoration: underline;
+}
+
+.case-nav-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--grey-4);
+  margin-bottom: 4px;
+}
+
+
+/* ============================================================
+   24. MEDIA QUERIES
    800px - hide desktop nav, show hamburger
    720px - project grid goes 2-col
    640px - general padding reduction, 1-col grids
@@ -1603,19 +1832,10 @@ footer a:hover {
     grid-template-columns: 1fr;
     padding: 40px 20px;
   }
-}
 
-@media (max-width: 640px) {
   .crumbs { padding: 10px 20px 0; }
   .crumbs a:first-child,
   .crumbs .crumbs-sep:first-of-type { display: none; }
-
-  .img-right,
-  .img-right + .caption {
-    float: none;
-    width: 100%;
-    margin: 24px 0 0;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1649,319 +1869,4 @@ footer a:hover {
   .case-header   { padding: 28px 16px 0; }
   .part-divider  { padding-left: 16px; padding-right: 16px; }
   footer         { padding: 32px 16px; }
-}
-
-
-
-/* ============================================================
-   22. HUB extras - skip link, kicker, project meta, badge
-   ============================================================ */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 100;
-  background: var(--purple);
-  color: #fff;
-  padding: 10px 18px;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.skip-link:focus {
-  left: 0;
-}
-
-/* Name · role · location line above hub h1 */
-.hub-kicker {
-  display: inline-block;
-  margin-top: 72px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #000;
-  background: transparent;
-  border: 1px solid #000;
-  border-radius: 999px;
-  padding: 5px 16px;
-  margin-bottom: 16px;
-}
-
-/* Tools / credentials line below hub h1 */
-.hub-sub {
-  font-size: 15px;
-  color: var(--grey-4);
-  margin-top: 12px;
-}
-
-/* "Case study coming soon" chip on unbuilt cards */
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-  background: rgba(255,255,255,0.92);
-  color: var(--grey-2);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 3px;
-}
-
-.divider-space { margin: 48px 0; }
-
-
-/* ============================================================
-   23. ABOUT page - hero, bio grid, beyond-the-work
-   ============================================================ */
-/* About page - bio text + headshot layout */
-
-
-/* About page - self-portrait illustration */
-
-/* ============================================================
-   About hero - full-bleed purple band with clover watermark
-   ============================================================ */
-.about-hero {
-  background: var(--purple);
-  position: relative;
-  overflow: hidden;
-}
-
-.about-hero-inner {
-  padding: 64px max(48px, calc(50% - 402px));
-  display: grid;
-  grid-template-columns: 170px 1fr;
-  gap: 40px;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.about-photo {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 1px solid #fff;
-}
-
-.about-hero h1 {
-  color: #fff;
-  font-size: clamp(30px, 4vw, 48px);
-  margin-bottom: 16px;
-}
-
-.about-lead {
-  color: #d9c6d9;
-  font-size: clamp(17px, 2vw, 21px);
-  line-height: 1.55;
-  max-width: 560px;
-}
-
-/* Giant clover from Lisa's own illustration, tone-on-tone */
-.about-clover {
-  position: absolute;
-  right: -100px;
-  bottom: -130px;
-  width: 480px;
-  height: auto;
-  color: #47104d;
-  transform: rotate(-12deg);
-  pointer-events: none;
-}
-
-@media (max-width: 800px) {
-  .about-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 64px 24px;
-    text-align: center;
-  }
-  .about-photo {
-    width: 180px;
-    margin: 0 auto;
-  }
-  .about-lead {
-    margin: 0 auto;
-  }
-  .about-clover {
-    width: 300px;
-    right: -80px;
-    bottom: -90px;
-  }
-}
-
-/* Utility: purple text (use on any heading) */
-.text-purple {
-  color: var(--purple);
-}
-/* About - Beyond the work: text left, white card running behind the
-   illustration, figure bottom-locked to the dark band below */
-.beyond {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  column-gap: 48px;
-  padding-bottom: 0;
-}
-
-.beyond-text {
-  grid-column: 1;
-  grid-row: 1;
-  padding-bottom: 24px;
-}
-
-.beyond-card {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  z-index: 0;
-  align-self: end;
-  margin-bottom: 50px;
-}
-
-.beyond-card p {
-  font-size: 15px;
-  font-weight: 500;
-  margin: 0;
-}
-
-.beyond-img {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  z-index: 1;
-  align-self: end;
-}
-
-.beyond-img img {
-  display: block;
-  width: 100%;
-  max-height: 420px;
-  object-fit: contain;
-  object-position: bottom;
-  margin: 0;
-}
-
-@media (max-width: 800px) {
-  .beyond {
-    grid-template-columns: 1fr;
-  }
-  .beyond-text {
-    padding-bottom: 16px;
-  }
-  .beyond-card {
-    grid-column: 1;
-    grid-row: 2;
-    margin-bottom: 0;
-  }
-  .beyond-img {
-    grid-column: 1;
-    grid-row: 3;
-    margin-top: 16px;
-  }
-  .beyond-img img {
-    max-height: 300px;
-    width: auto;
-    margin: 0 auto;
-  }
-}
-
-
-
-/* ============================================================
-   24. CASE page nav - track pills (top) & prev-next bar (bottom)
-   ============================================================ */
-/* Track pills: which hub this case study belongs to */
-.pills {
-  display: flex;
-  gap: 8px;
-}
-
-/* Breadcrumbs on case-study pages: Home > track > project.
-   Aligned with the nav container, small and light (NN/g style). */
-.crumbs {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  flex-wrap: wrap;
-  max-width: none;
-  margin: 0;
-  padding: 12px max(48px, calc(50% - 402px)) 0;
-  font-size: 12px;
-}
-
-.crumbs a {
-  color: var(--grey-4);
-  text-decoration: none;
-}
-
-.crumbs a:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.crumbs a:hover {
-  color: var(--purple);
-}
-
-.crumbs-sep {
-  color: var(--grey-6);
-}
-
-.crumbs-here {
-  color: var(--grey-3);
-  font-weight: 500;
-}
-
-.pill {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--purple);
-  background: transparent;
-  color: var(--purple);
-  text-decoration: none;
-}
-
-.pill:hover {
-  background: var(--grey-9);
-  color: #000;
-}
-
-.pill.active {
-  background: var(--purple);
-  color: #fff;
-}
-
-/* Back-to-hub and next-case links at the end of every case study */
-.case-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding: 40px max(48px, calc(50% - 402px));
-  border-top: 1px solid var(--grey-7);
-}
-
-.case-nav a {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--purple);
-  text-decoration: none;
-}
-
-.case-nav a:last-child {
-  text-align: right;
-}
-
-.case-nav a:hover {
-  text-decoration: underline;
-}
-
-.case-nav-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--grey-4);
-  margin-bottom: 4px;
 }
