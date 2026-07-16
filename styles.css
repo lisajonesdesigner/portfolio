@@ -1019,8 +1019,8 @@ td:first-child {
   padding: 5px 16px;
   border-radius: 999px;
   border: none;
-  background: var(--grey-9);
-  color: var(--grey-3);
+  background: var(--grey-8);
+  color: var(--grey-2);
   white-space: nowrap;
 }
 
