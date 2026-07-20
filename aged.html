@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://lisajones.com.au/aged.html">
   <meta property="og:image" content="https://lisajones.com.au/images/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/admin-favicon-day.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/admin-favicon-night.png" media="(prefers-color-scheme: dark)">
@@ -51,17 +51,17 @@
 </div>
 
 
-<nav class="crumbs" aria-label="Breadcrumb">
+<nav class="crumbs crumbs-aged" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="crumbs-sep">&rsaquo;</span>
   <a href="index.html">UX Product Design</a>
   <span class="crumbs-sep">&rsaquo;</span>
-  <span class="crumbs-here" aria-current="page">Telstra Health Clinical Manager</span>
+  <span class="crumbs-here" aria-current="page">Telstra Health Aged Care</span>
 </nav>
 
 <!-- HERO -->
 <div class="hero" id="main">
-  <img class="hero-bg" src="images/aged-cover.webp" alt="Aged care professional with resident">
+  <img class="hero-bg" src="images/aged-cover.webp" alt="">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <img class="hero-logo" src="images/aged-logo.webp" alt="Telstra Health Aged &amp; Disability">
@@ -69,167 +69,252 @@
   </div>
 </div>
 
-<div class="case-header">
-  <p class="case-meta"><strong>Role:</strong> Senior UX Designer &nbsp; <strong>Organisation:</strong> Telstra Health (Aged &amp; Disability) &nbsp; <strong>Timeframe:</strong> 6-month delivery window &nbsp; <strong>Users:</strong> Clerical and clinical staff preparing residents for assessment</p>
-</div>
+<!-- CASE STUDY BODY: content column + sticky table of contents -->
+<div class="case-toc-layout">
 
-<div class="section">
-  <p>Telstra Health's Clinical Manager is a core operational system used daily by residential aged-care providers to manage clinical documentation, administration, and compliance. It sits at the centre of how care is recorded, evidence is assembled, and regulatory obligations are met.</p>
-  <p>Following the Royal Commission into Aged Care Quality and Safety, funding reform replaced ACFI with AN-ACC and changed how resident classifications are determined. Providers no longer determine funding outcomes but remain responsible for the quality and completeness of evidence reviewed by independent assessors. I designed the Clinical Manager update that supports assessor-aligned preparation within that shift.</p>
-  <p>Clinical Manager operates across a national footprint of approximately 60,000 residential aged-care beds, situating this system update within a large-scale AN-ACC funding and compliance environment.</p>
+  <div class="case-main">
 
-  <h3 class="mt-3">At a glance</h3>
-  <p><strong>System shift:</strong> From provider-led funding calculation to assessor-aligned preparation</p>
-  <p><strong>Capability:</strong> Evidence traceability organised by national assessment structure</p>
-  <p><strong>Scope:</strong> Assessment preparation embedded within a live, legacy care platform</p>
+    <section id="intro">
+      <p class="intro-summary">Clinical Manager is the operational system residential aged-care providers use daily for clinical documentation, administration, and compliance. When the Royal Commission-driven AN-ACC reform replaced ACFI and moved funding classification to independent government assessors, I designed the Clinical Manager update that turned funding preparation from an internal scoring exercise into assessor-aligned evidence preparation.</p>
+      <div class="intro-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Senior UX Designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Organisation</span>
+          <span class="meta-value">Telstra Health, Aged &amp; Disability</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Timeframe</span>
+          <span class="meta-value">6-month delivery window</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Users</span>
+          <span class="meta-value">Clerical and clinical staff preparing residents for assessment</span>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div><span class="stat-num">60,000</span><span class="stat-label">Residential beds nationally</span></div>
+        <div><span class="stat-num">~70%</span><span class="stat-label">Faster evidence lookup</span></div>
+        <div><span class="stat-num">4&ndash;5 &rarr; 1</span><span class="stat-label">Screens per preparation flow</span></div>
+      </div>
 
-  <h3 class="mt-3">Constraints</h3>
-  <ul>
-    <li>Government-defined funding and assessment model</li>
-    <li>Classification authority external to providers</li>
-    <li>Long-established platform with embedded legacy workflows</li>
-    <li>High audit and compliance exposure</li>
-  </ul>
-</div>
+      <div class="grid grid-3 gap-1">
+        <div class="card card-grey">
+          <span class="card-label">System shift</span>
+          <p>From provider-led funding calculation to assessor-aligned preparation</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Capability</span>
+          <p>Evidence traceability organised by the national assessment structure</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Scope</span>
+          <p>Assessment preparation embedded within a live, legacy care platform</p>
+        </div>
+      </div>
 
-<hr class="divider divider-dark">
+      <h3 class="mt-4">Constraints</h3>
+      <ul>
+        <li>Government-defined funding and assessment model</li>
+        <li>Classification authority external to providers</li>
+        <li>Long-established platform with embedded legacy workflows</li>
+        <li>High audit and compliance exposure</li>
+      </ul>
+    </section>
 
-<!-- PART 1 -->
-<div class="bg-grey">
-<div class="section">
-  <div class="eyebrow">Policy shift</div>
-  <h2>Assessment authority shifted outside facilities</h2>
+    <section id="discovery" class="divider-top">
+      <h2>Assessment authority shifted outside facilities</h2>
 
-  <h3>Policy context</h3>
-  <p>The Royal Commission identified systemic issues in aged-care funding, including inconsistent classification practices and incentives misaligned with resident need. In response, the Australian Government replaced ACFI with AN-ACC to standardise assessment nationally and remove funding determination from providers.</p>
-  <p>This was not a product change. It was a structural shift in responsibility and accountability.</p>
+      <h3>Policy context</h3>
+      <p>The Royal Commission identified systemic issues in aged-care funding, including inconsistent classification practices and incentives misaligned with resident need. In response, the Australian Government replaced ACFI with AN-ACC to standardise assessment nationally and remove funding determination from providers.</p>
+      <p>This was not a product change. It was a structural shift in responsibility and accountability.</p>
 
-  <h3>The ACFI operating model</h3>
-  <p>Under ACFI, assessments were completed internally. Evidence was collected, scored, and reviewed in-house. Funding outcomes could be estimated using a calculator. Scoring logic was visible to providers.</p>
-  <p>This transparency shaped behaviour. Because outcomes could be anticipated, preparation practices aligned to known scoring mechanics. During the Royal Commission, this dynamic was cited as a risk to equity and consistency, including optimisation around residents aligned to higher funding bands.</p>
-  <p>Clinical Manager reflected this model through calculator-led workflows and score-driven interpretation.</p>
+      <h3>The ACFI operating model</h3>
+      <p>Under ACFI, assessments were completed internally. Evidence was collected, scored, and reviewed in-house. Funding outcomes could be estimated using a calculator. Scoring logic was visible to providers.</p>
+      <p>This transparency shaped behaviour. Because outcomes could be anticipated, preparation practices aligned to known scoring mechanics. During the Royal Commission, this dynamic was cited as a risk to equity and consistency, including optimisation around residents aligned to higher funding bands.</p>
+      <p>Clinical Manager reflected this model through calculator-led workflows and score-driven interpretation.</p>
 
-  <h3>What AN-ACC changed</h3>
-  <p>AN-ACC shifted assessment responsibility away from providers. Under the new model, independent assessors apply a national assessment tool. Classifications are no longer determined internally. Funding depends on assessor interpretation of submitted evidence. Classification logic is not visible to providers. Internal systems shifted from assessment to preparation.</p>
-  <p>Early interviews with service managers highlighted concern about funding risk, assessor interpretation, and whether existing documentation would be sufficient under external review.</p>
+      <h3>What AN-ACC changed</h3>
+      <p>AN-ACC shifted assessment responsibility away from providers. Under the new model, independent assessors apply a national assessment tool. Classifications are no longer determined internally. Funding depends on assessor interpretation of submitted evidence. Classification logic is not visible to providers. Internal systems shifted from assessment to preparation.</p>
+      <p>Early interviews with service managers highlighted concern about funding risk, assessor interpretation, and whether existing documentation would be sufficient under external review.</p>
 
-  <img class="img img-border mt-3" src="images/aged-responsibility.webp" alt="Classification responsibility shifted outside facilities">
-  <div class="caption"><strong>Classification shift.</strong> Assessment moved from provider-led scoring to external classification.</div>
+      <div class="img-frame-grey">
+        <div class="img-heading">Classification responsibility moved outside facilities</div>
+        <img class="img" src="images/aged-responsibility.webp" alt="Classification responsibility shifted outside facilities">
+      </div>
+      <div class="caption">Under ACFI, providers completed assessments and could see the funding calculation. Under AN-ACC, providers prepare evidence while an independent assessor determines classification, with logic that is not visible to them.</div>
 
-  <h3 class="mt-4">Loss of calculation visibility</h3>
-  <p>At rollout, the logic used by assessors to determine classifications was not available to providers. Preparation quality now depended on whether assessors could locate relevant evidence, understand its context, and interpret resident need accurately. This increased the importance of structured, complete, and easily retrievable evidence.</p>
+      <h3>Loss of calculation visibility</h3>
+      <p>At rollout, the logic used by assessors to determine classifications was not available to providers. Preparation quality now depended on whether assessors could locate relevant evidence, understand its context, and interpret resident need accurately. This increased the importance of structured, complete, and easily retrievable evidence.</p>
 
-  <h3>Resulting system mismatch</h3>
-  <p>Within Clinical Manager, existing workflows reinforced a scoring mindset that no longer applied. Evidence existed across notes, charts, and forms but was not organised by assessment section. Calculator patterns implied predictability and control that providers no longer had. The primary risk was not usability. It was preparing staff for a process that no longer existed.</p>
+      <h3>Resulting system mismatch</h3>
+      <p>Within Clinical Manager, existing workflows reinforced a scoring mindset that no longer applied. Evidence existed across notes, charts, and forms but was not organised by assessment section. Calculator patterns implied predictability and control that providers no longer had. The primary risk was not usability. It was preparing staff for a process that no longer existed.</p>
 
-  <img class="img img-border mt-3" src="images/aged-evidence.webp" alt="Evidence storage before and after: resident record reorganised by AN-ACC sections">
-  <div class="caption"><strong>Evidence storage, before and after.</strong> Documentation existed but was not organised by AN-ACC sections.</div>
+      <div class="img-frame-border">
+        <div class="img-heading">Evidence organisation, before and after</div>
+        <img class="img" src="images/aged-evidence.webp" alt="Evidence storage before and after: resident record reorganised by AN-ACC sections">
+      </div>
+      <div class="caption">Before: notes, charts, and forms scattered around the resident record with no assessment context. After: the same evidence explicitly linked to AN-ACC sections, Health, Mobility, Cognition, and Activities of Daily Living.</div>
+    </section>
 
-  <div class="insight mt-3">
-    <span class="insight-label">Insight</span>
-    <p>Staff were not seeking to influence outcomes. They wanted clarity on how to prepare evidence that would withstand external review.</p>
+    <section id="insight" class="divider-top">
+      <h2>Clarity, not control, was the goal</h2>
+      <p class="intro-summary">Staff weren't trying to influence classification outcomes. They wanted to know how to prepare evidence that would hold up under an assessor's independent review.</p>
+    </section>
+
+    <section id="design" class="divider-top">
+      <h2>Shaping a preparation system aligned to assessor interpretation</h2>
+
+      <h3>System intent</h3>
+      <p>Before any interface decisions, I made the system boundary explicit.</p>
+      <p>The system would: support preparation for assessment; reflect the AN-ACC assessment structure; surface evidence in assessment context.</p>
+      <p>The system would not: determine classifications; predict funding outcomes; reproduce ACFI optimisation patterns.</p>
+
+      <div class="img-frame-border">
+        <div class="img-heading">The system boundary made explicit</div>
+        <img class="img" src="images/aged-boundary.webp" alt="System boundary separating Clinical Manager from Government assessment">
+      </div>
+      <div class="caption">Clinical Manager handles preparation: structure, evidence, and supporting context, with no scoring or outcome logic. Assessment, classification, and funding sit with government assessors on the other side of the line.</div>
+
+      <h3>Structural decisions</h3>
+
+      <p>Three decisions I made shaped the system.</p>
+
+      <div class="grid">
+        <div class="card card-grey">
+          <span class="card-label">Decision 1</span>
+          <p>Avoid optimisation patterns that imply control over classification. Do not reproduce funding calculators or prediction logic inside Clinical Manager.</p>
+        </div>
+      </div>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">The legacy ACFI calculator</div>
+        <img class="img" src="images/aged-calculator.webp" alt="ACFI calculator showing calculator-led workflows">
+      </div>
+      <div class="caption">Score-led review across twelve care domains with funding totals calculated on screen, reinforcing the internal scoring mindset that AN-ACC removed.</div>
+
+      <div class="grid">
+        <div class="card card-grey">
+          <span class="card-label">Decision 2</span>
+          <p>Use AN-ACC instruments as the primary information architecture. Assessment navigation mirrors the national instrument structure, creating a shared definition of completeness and reducing missed sections.</p>
+        </div>
+      </div>
+
+      <div class="img-frame-border">
+        <div class="img-heading">The AN-ACC instrument as information architecture</div>
+        <img class="img" src="images/aged-system-structure.webp" alt="AN-ACC instrument structure with six categories">
+      </div>
+      <div class="caption">Navigation mirrors the six national assessment categories, Health, Mobility, Cognition, Activities of Daily Living, Frailty, and Palliative Care, each drawing evidence from multiple sources, creating a shared definition of completeness.</div>
+
+      <div class="grid">
+        <div class="card card-grey">
+          <span class="card-label">Decision 3</span>
+          <p>Link evidence at the assessment-section level. Evidence remained part of the resident record while becoming explicitly linkable to assessment sections, enabling traceability without duplication.</p>
+        </div>
+      </div>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">Evidence linking in Clinical Manager</div>
+        <img class="img" src="images/aged-linking-evidence.webp" alt="Screenshots showing resident AN-ACC assessment with evidence linking interface">
+      </div>
+      <div class="caption">Left: the AN-ACC assessment tool with section-by-section completion status. Right: resident forms linked to specific assessment sections from the evidence tab, giving traceability without duplicating documents.</div>
+
+      <h3>User experience prioritisation</h3>
+      <p>I prioritised predictability throughout: stable navigation by assessment section; consistent layouts across instruments; visible evidence status in context; linear progression over branching. This reduced decision load while staff continued routine care.</p>
+
+      <h3>What I rejected</h3>
+      <ul>
+        <li>Facility-side scoring or funding prediction tools</li>
+        <li>Free-form evidence repositories detached from assessment structure</li>
+        <li>Parallel funding packs outside the resident record</li>
+        <li>Global evidence visibility without role-based controls</li>
+      </ul>
+      <p>Each weakened traceability or implied outcome control, conflicting with AN-ACC's separation of preparation and determination.</p>
+    </section>
+
+    <section id="validation" class="divider-top">
+      <h2>Testing with clerical staff on the floor</h2>
+
+      <h3>Iterative testing sessions</h3>
+      <p>I ran iterative testing sessions with clerical users across multiple facilities, using prompt-based questions such as "What do you expect to happen next?" to surface assumptions and misunderstandings early, before they became costly to fix in build.</p>
+
+      <p class="intro-summary">Staff wanted a clear, step-by-step assessment flow; the ability to collect supporting notes and documents; transparent mapping between evidence and AN-ACC classifications; and confidence going into the official government assessment.</p>
+
+      <h3>What changed</h3>
+      <p>Based on that feedback, I added an editable progress notes component, refined the tagging workflow, improved hierarchy to avoid unexpected navigation jumps, and adjusted terminology to match on-floor language.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">Editable progress notes</div>
+        <img class="img" src="images/aged-progress-notes.webp" alt="Editable progress notes linked to ACFI questions and AN-ACC categories">
+      </div>
+      <div class="caption">Staff can add a follow-up note to an entry, strike through superseded information, and see which ACFI questions and AN-ACC categories each note affects, without leaving the resident's record.</div>
+
+      <div class="img-frame-border">
+        <div class="img-heading">The tagging workflow</div>
+        <img class="img" src="images/aged-tagging-workflow.webp" alt="Client documents list filterable by AN-ACC and ACFI tags">
+      </div>
+      <div class="caption">Supporting documents carry both the legacy ACFI tags and the new AN-ACC tag, so staff can filter and locate evidence by assessment section instead of searching through an undifferentiated document list.</div>
+    </section>
+
+    <section id="outcomes" class="divider-top">
+      <h2>What the work delivered</h2>
+
+      <h3>Capability created</h3>
+      <ul>
+        <li>Assessor-aligned preparation structure inside Clinical Manager</li>
+        <li>Clear separation between preparation and external determination</li>
+      </ul>
+
+      <h3>Evidence</h3>
+      <p><strong>Structural impact:</strong> One preparation flow replaced four to five disconnected screens. Assessment sections and linked evidence presented together. Increased staff confidence during readiness activities.</p>
+      <p><strong>Measured outcomes:</strong> Evidence lookup time reduced by approximately 70% (6–10 minutes to under 2 minutes). Reduced follow-up clarification after preparation.</p>
+
+      <h3>What was not proven</h3>
+      <ul>
+        <li>Classification accuracy</li>
+        <li>Funding outcomes</li>
+        <li>Long-term documentation behaviour change</li>
+      </ul>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">The AN-ACC assessment tool, live in Clinical Manager</div>
+        <img class="img" src="images/aged-final-screen.webp" alt="AN-ACC funding portal within Clinical Manager">
+      </div>
+      <div class="caption">Section navigation with completion status and evidence in context, delivered inside the environment staff already use for daily care.</div>
+
+      <p>Facilities regained control over preparation quality without implying control over classification outcomes.</p>
+    </section>
+
+    <section id="reflection" class="divider-top">
+      <h2>Preparation as an evidence problem</h2>
+      <p>AN-ACC reframed funding preparation as an evidence and interpretation problem. By aligning system structure to the assessor lens and making evidence explicit within the resident record, Clinical Manager implemented a preparation model capable of supporting reform-driven change without reworking underlying care workflows.</p>
+    </section>
+
   </div>
-</div>
-</div>
 
-<!-- PART 2 -->
-<div class="section">
-  <div class="eyebrow">Design</div>
-  <h2>Shaping a preparation system aligned to assessor interpretation</h2>
+  <details class="case-toc">
+    <summary><span class="chevron">&#9662;</span> Table of contents</summary>
+    <ul>
+      <li><a href="#intro" data-toc-link>Project context and constraints</a></li>
+      <li><a href="#discovery" data-toc-link>Assessment authority shifted outside facilities</a></li>
+      <li><a href="#insight" data-toc-link>Clarity, not control, was the goal</a></li>
+      <li><a href="#design" data-toc-link>Shaping a preparation system aligned to assessor interpretation</a></li>
+      <li><a href="#validation" data-toc-link>Testing with clerical staff on the floor</a></li>
+      <li><a href="#outcomes" data-toc-link>What the work delivered</a></li>
+      <li><a href="#reflection" data-toc-link>Preparation as an evidence problem</a></li>
+    </ul>
+  </details>
 
-  <h3>System intent</h3>
-  <p>Before any interface decisions, I made the system boundary explicit.</p>
-  <p>The system would: support preparation for assessment; reflect the AN-ACC assessment structure; surface evidence in assessment context.</p>
-  <p>The system would not: determine classifications; predict funding outcomes; reproduce ACFI optimisation patterns.</p>
-
-  <img class="img img-border mt-3" src="images/aged-boundary.webp" alt="System boundary separating Clinical Manager from Government assessment">
-  <div class="caption"><strong>Assessment boundaries.</strong> Clinical Manager supports preparation; assessment and funding sit externally.</div>
-
-  <h3 class="mt-4">Structural decisions</h3>
-
-  <p>Three decisions I made shaped the system.</p>
-
-  <div class="insight">
-    <span class="insight-label">Decision</span>
-    <p>Avoid optimisation patterns that imply control over classification. Do not reproduce funding calculators or prediction logic inside Clinical Manager.</p>
-  </div>
-
-  <img class="img img-border mt-3" src="images/aged-calculator.webp" alt="ACFI calculator showing calculator-led workflows">
-  <div class="caption"><strong>The ACFI calculator.</strong> Calculator-led workflows reinforced internal scoring.</div>
-
-  <div class="insight mt-3">
-    <span class="insight-label">Decision</span>
-    <p>Use AN-ACC instruments as the primary information architecture. Assessment navigation mirrors the national instrument structure, creating a shared definition of completeness and reducing missed sections.</p>
-  </div>
-
-  <img class="img img-border mt-3" src="images/aged-system-structure.webp" alt="AN-ACC instrument structure with six categories">
-  <div class="caption"><strong>The instrument as information architecture.</strong> Navigation mirrors the AN-ACC structure across Health, Mobility, Cognition, Activities of Daily Living, Frailty, and Palliative Care.</div>
-
-  <div class="insight mt-3">
-    <span class="insight-label">Decision</span>
-    <p>Link evidence at the assessment-section level. Evidence remained part of the resident record while becoming explicitly linkable to assessment sections, enabling traceability without duplication.</p>
-  </div>
-
-  <img class="img img-border mt-3" src="images/aged-linking-evidence.webp" alt="Screenshots showing resident AN-ACC assessment with evidence linking interface">
-  <div class="caption"><strong>Evidence linking.</strong> Supporting documentation is linked to assessment sections without duplication.</div>
-
-  <h3 class="mt-4">User experience prioritisation</h3>
-  <p>I prioritised predictability throughout: stable navigation by assessment section; consistent layouts across instruments; visible evidence status in context; linear progression over branching. This reduced decision load while staff continued routine care.</p>
-
-  <h3>What I rejected</h3>
-  <ul>
-    <li>Facility-side scoring or funding prediction tools</li>
-    <li>Free-form evidence repositories detached from assessment structure</li>
-    <li>Parallel funding packs outside the resident record</li>
-    <li>Global evidence visibility without role-based controls</li>
-  </ul>
-  <p>Each weakened traceability or implied outcome control, conflicting with AN-ACC's separation of preparation and determination.</p>
 </div>
 
-<!-- PART 3 -->
-<div class="bg-grey">
-<div class="section">
-  <div class="eyebrow">Outcomes</div>
-  <h2>What the work delivered</h2>
-
-  <h3>Capability created</h3>
-  <ul>
-    <li>Assessor-aligned preparation structure inside Clinical Manager</li>
-    <li>Clear separation between preparation and external determination</li>
-  </ul>
-
-  <h3 class="mt-3">Evidence</h3>
-  <p><strong>Structural impact:</strong> One preparation flow replaced four to five disconnected screens. Assessment sections and linked evidence presented together. Increased staff confidence during readiness activities.</p>
-  <p><strong>Measured outcomes:</strong> Evidence lookup time reduced by approximately 70% (6–10 minutes to under 2 minutes). Reduced follow-up clarification after preparation.</p>
-
-  <h3 class="mt-3">What was not proven</h3>
-  <ul>
-    <li>Classification accuracy</li>
-    <li>Funding outcomes</li>
-    <li>Long-term documentation behaviour change</li>
-  </ul>
-
-  <img class="img img-border mt-4" src="images/aged-final-screen.webp" alt="AN-ACC funding portal within Clinical Manager">
-  <div class="caption"><strong>The AN-ACC funding portal.</strong> Evidence organised by assessment section within the live Clinical Manager environment.</div>
-
-  <hr class="divider divider-space">
-
-  <div class="insight">
-    <span class="insight-label">Outcome</span>
-    <p>Facilities regained control over preparation quality without implying control over classification outcomes.</p>
-  </div>
-
-  <h3 class="mt-4">Reflection</h3>
-  <p>AN-ACC reframed funding preparation as an evidence and interpretation problem. By aligning system structure to the assessor lens and making evidence explicit within the resident record, Clinical Manager implemented a preparation model capable of supporting reform-driven change without reworking underlying care workflows.</p>
-</div>
-</div>
-
-<div class="case-nav bg-grey">
+<div class="case-nav">
   <a href="index.html"><span class="case-nav-label">Back to</span>&larr; All UX product design work</a>
-  <a href="monash.html"><span class="case-nav-label">Next case study</span>Unifying learning and teaching at Monash &rarr;</a>
+  <a href="monash.html"><span class="case-nav-label">Next case study</span>Monash University &mdash; LMS &rarr;</a>
 </div>
 
-<div class="page-end bg-grey"></div>
+<div class="page-end"></div>
 
 <div class="footer-wrap">
   <footer>
@@ -249,7 +334,32 @@
   </footer>
 </div>
 
+<div class="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+  <span class="lightbox-hint">Tap anywhere to close</span>
+  <img src="" alt="">
+</div>
+
 <script>
+  // Image lightbox: click/tap any bordered case-study image to view full size
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  document.querySelectorAll("img.img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+  const closeLightbox = () => {
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+  lightbox.addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");
   const body = document.body;
@@ -266,6 +376,28 @@
         body.classList.remove("nav-open");
       });
     });
+  }
+
+  // Case study table of contents: sticky sidebar, scroll-spy active state,
+  // collapses to a tap-to-reveal disclosure under 800px
+  const tocDetails = document.querySelector(".case-toc");
+  if (tocDetails) {
+    const tocLinks = document.querySelectorAll(".case-toc a[data-toc-link]");
+    const tocSections = Array.from(tocLinks).map(l => document.querySelector(l.getAttribute("href")));
+    const setActiveLink = (id) => {
+      tocLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + id));
+    };
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveLink(entry.target.id);
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    tocSections.forEach(s => s && tocObserver.observe(s));
+    tocLinks.forEach(l => l.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(l.getAttribute("href")).scrollIntoView({ behavior: "smooth", block: "start" });
+      if (window.innerWidth <= 800) tocDetails.removeAttribute("open");
+    }));
   }
 </script>
 

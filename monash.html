@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://lisajones.com.au/monash.html">
   <meta property="og:image" content="https://lisajones.com.au/images/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/admin-favicon-day.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/admin-favicon-night.png" media="(prefers-color-scheme: dark)">
@@ -51,7 +51,7 @@
 </div>
 
 
-<nav class="crumbs" aria-label="Breadcrumb">
+<nav class="crumbs crumbs-monash" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="crumbs-sep">&rsaquo;</span>
   <a href="index.html">UX Product Design</a>
@@ -61,7 +61,7 @@
 
 <!-- HERO -->
 <div class="hero" id="main">
-  <img class="hero-bg" src="images/monash-cover.webp" alt="Monash University campus and students">
+  <img class="hero-bg hero-bg-monash" src="images/monash-cover.webp" alt="">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <img class="hero-logo" src="images/monash-logo.webp" alt="Monash University">
@@ -69,189 +69,284 @@
   </div>
 </div>
 
-<div class="case-header">
-  <p class="case-meta"><strong>Role:</strong> Senior Product Designer &nbsp; <strong>Organisation:</strong> Monash University &nbsp; <strong>Timeframe:</strong> 6-month delivery window &nbsp; <strong>Users:</strong> Teaching staff, students, and faculty administrators</p>
-</div>
+<!-- CASE STUDY BODY: content column + sticky table of contents -->
+<div class="case-toc-layout">
 
-<div class="section">
-  <h3>At a glance</h3>
-  <p>I was the lead product designer on a cross-functional team delivering a governed learning model for Monash University's enterprise Moodle environment. The platform had evolved independently across faculties, producing inconsistent structures, increased decision load for teaching staff, and uneven student experiences. This work established a single, system-led learning model designed to operate consistently across a complex university environment.</p>
-  <p>The governed model replaced faculty-specific unit layouts with one shared core system, adopted institution-wide across a platform supporting 86,558 students, approximately 9,000 academic staff, and more than 10,000 active units.</p>
+  <div class="case-main">
 
-  <h3>Constraints</h3>
-  <ul>
-    <li>Existing Moodle platform and data model could not be replaced</li>
-    <li>Strong faculty autonomy and deeply embedded legacy patterns</li>
-    <li>Governance and rollout timelines set externally</li>
-  </ul>
-</div>
+    <section id="intro">
+      <p class="intro-summary">Monash's enterprise Moodle had evolved independently across faculties, producing inconsistent structures, higher decision load for teaching staff, and uneven student experiences. As lead product designer on a cross-functional team, I designed the governed learning model that replaced faculty-specific layouts with one shared core system, adopted institution-wide.</p>
+      <div class="intro-meta">
+        <div class="meta-item">
+          <span class="meta-label">My role</span>
+          <span class="meta-value">Senior Product Designer, lead designer on a cross-functional team</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Organisation</span>
+          <span class="meta-value">Monash University</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Timeframe</span>
+          <span class="meta-value">6-month delivery window</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Users</span>
+          <span class="meta-value">Teaching staff, students, and faculty administrators</span>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div><span class="stat-num">10,000+</span><span class="stat-label">Active units</span></div>
+        <div><span class="stat-num">86,558</span><span class="stat-label">Students</span></div>
+        <div><span class="stat-num">~9,000</span><span class="stat-label">Academic staff</span></div>
+        <div><span class="stat-num">50</span><span class="stat-label">Pilot units, all campuses</span></div>
+      </div>
+      <h3 class="mt-4">Constraints</h3>
+      <ul>
+        <li>Existing Moodle platform and data model could not be replaced</li>
+        <li>Strong faculty autonomy and deeply embedded legacy patterns</li>
+        <li>Governance and rollout timelines set externally</li>
+      </ul>
+    </section>
 
-<hr class="divider divider-dark">
+    <section id="discovery" class="divider-top">
+      <h2>Fragmentation as a system problem</h2>
 
-<!-- PART 1 -->
-<div class="bg-grey">
-<div class="section">
-  <div class="eyebrow">Discovery</div>
-  <h2>Fragmentation as a system problem</h2>
+      <h3>Research foundation</h3>
+      <p>Before I joined the project, the team had completed a Discover &amp; Define research phase covering a review of 100+ Moodle units across faculties, 14 student focus groups with 56 students, 24 staff mini-groups with 50 staff, and 7 landscape interviews with staff from Australian and overseas universities. I was brought in to translate those findings into a design system.</p>
+      <p>To build my own understanding of the problem space, I independently reviewed units across faculties, capturing screenshots to document structural variation firsthand. I then looked outward, reviewing how other Australian universities structure their LMS environments: Victoria University on Brightspace, ANU on Canvas, and UQ on Blackboard.</p>
 
-  <h3>Research foundation</h3>
-  <p>Before I joined the project, the team had completed a Discover &amp; Define research phase covering a review of 100+ Moodle units across faculties, 14 student focus groups with 56 students, 24 staff mini-groups with 50 staff, and 7 landscape interviews with staff from Australian and overseas universities. I was brought in to translate those findings into a design system.</p>
-  <p>To build my own understanding of the problem space, I independently reviewed units across faculties, capturing screenshots to document structural variation firsthand. I also reviewed LMS platforms in use at other Australian universities, such as Victoria University and The Australian National University, synthesising findings into a structured comparison to identify what a governed Monash system needed to achieve.</p>
+      <div class="img-frame-grey">
+        <div class="img-heading">How other Australian universities tackle structure at scale</div>
+        <img class="img" src="images/monash-lms-approaches.webp" alt="Landscape review of LMS platforms across Australian universities">
+      </div>
+      <div class="caption">A landscape review of four institutions, each on a different LMS platform.</div>
 
-  <h3>Why Moodle made this harder</h3>
-  <p>Not all fragmentation problems are equal. Monash's situation was shaped in part by the platform itself.</p>
-  <p>Moodle is open-source and highly customisable. Unlike Canvas, which is cloud-based with a consistent default structure enforced across all institutions, Moodle gives every faculty the ability to build their own layouts, navigation patterns, and terminology from scratch. At peer institutions that had adopted Canvas or Blackboard, structural consistency came largely by default. At Monash, on Moodle, it had to be designed deliberately through governance.</p>
-  <p>This meant the solution was never going to be a simple interface fix. It required compensating for architectural flexibility through a governed template system.</p>
+      <h3>Why Moodle made this harder</h3>
+      <p>Not all fragmentation problems are equal. Monash's situation was shaped in part by the platform itself. The other three institutions get structural consistency from their platform by default; open-source Moodle leaves that entirely to each faculty.</p>
+      <p>Moodle is highly customisable: every faculty can build its own layouts, navigation patterns, and terminology from scratch. That flexibility is exactly what allowed fragmentation to take hold, and it meant the solution was never going to be a simple interface fix. It required compensating for architectural flexibility through a governed template system.</p>
 
-  <img class="img img-border mt-3" src="images/monash-lms-approaches.webp" alt="Landscape review of LMS platforms across Australian universities">
-  <div class="caption"><strong>LMS landscape review.</strong> Monash's choice of Moodle required governance to be designed in, where peer institutions using Canvas or Blackboard benefited from structural consistency by default.</div>
+      <h3>Structural variation at institutional scale</h3>
+      <p>Monash's Moodle environment evolved faculty by faculty. Each area owned its own unit layouts, navigation patterns, and terminology.</p>
+      <p>Over time, this created wide structural variation across units. Students moving between subjects encountered different ways of finding learning materials, assessments, and progress indicators. Teaching staff rebuilt structures manually, with no shared baseline to guide consistency.</p>
+      <p>The friction was not driven by course content. It was driven by structure.</p>
+      <p>Observed conditions included: inconsistent navigation and hierarchy; learning and assessment content appearing in different locations; differing terminology across faculties; no shared structural pattern to support scale or governance.</p>
 
-  <p class="mt-3">Reviewing those platforms across six design dimensions made clear where Monash's legacy patterns diverged from industry conventions, and what the unified system needed to close.</p>
+      <div class="img-frame-grey">
+        <div class="img-heading">Faculty-owned unit structures, before the redesign</div>
+        <img class="img" src="images/monash-before-units-grid.webp" alt="Unit audit documenting structural variation across faculties">
+      </div>
+      <div class="caption">Independent audit showing navigation, terminology, and content placement diverging across every faculty, with no shared baseline to guide consistency.</div>
 
-  <h3 class="mt-4">Structural variation at institutional scale</h3>
-  <p>Monash's Moodle environment evolved faculty by faculty. Each area owned its own unit layouts, navigation patterns, and terminology.</p>
-  <p>Over time, this created wide structural variation across units. Students moving between subjects encountered different ways of finding learning materials, assessments, and progress indicators. Teaching staff rebuilt structures manually, with no shared baseline to guide consistency.</p>
-  <p>The friction was not driven by course content. It was driven by structure.</p>
-  <p>Observed conditions included: inconsistent navigation and hierarchy; learning and assessment content appearing in different locations; differing terminology across faculties; no shared structural pattern to support scale or governance.</p>
+      <h3>Where the experience broke for students</h3>
+      <p>The prior research phase identified consistent friction points across disciplines through focus groups with 56 students. Mapping the routine tasks a student moves through in a unit, from navigating to it through to checking progress, showed each one breaking in a different way: unclear structure, inconsistent locations, hidden assessments, an unclear submission process, and no visibility on how they were tracking. These issues were confirmed through my own unit audit and stakeholder walkthroughs.</p>
+      <p>The pattern pointed to a systemic issue rather than isolated usability defects.</p>
 
-  <img class="img img-border mt-3" src="images/monash-before-units-grid.webp" alt="Unit audit documenting structural variation across faculties">
-  <div class="caption"><strong>Unit audit.</strong> My independent review across faculties documented structural variation in navigation, terminology, and content placement, validating and extending the prior research.</div>
+      <div class="pullquote">
+        <span class="pullquote-label">Student insight</span>
+        <p>There's an unwritten rule that it takes 2 to 4 weeks to <strong>relearn</strong> Moodle each time a student starts a <strong>new unit.</strong></p>
+        <cite>Monash Moodle Evaluation, March 2023</cite>
+      </div>
 
-  <h3 class="mt-4">Where the experience broke for students</h3>
-  <p>The prior research phase identified consistent friction points across disciplines through focus groups with 56 students. Students struggled to locate weekly learning, understand assessment requirements, and track progress. These issues were confirmed through my own unit audit and stakeholder walkthroughs.</p>
-  <p>The pattern pointed to a systemic issue rather than isolated usability defects.</p>
+      <div class="img-frame-grey">
+        <div class="img-heading">Where the journey broke down</div>
+        <img class="img" src="images/monash-journeymap.webp" alt="Simplified student journey map">
+      </div>
+      <div class="caption">Mapped across five routine tasks, from navigating to a unit through to checking progress.</div>
 
-  <div class="pullquote mt-3">
-    <span class="pullquote-label">Student insight</span>
-    <p>There's an unwritten rule that it takes 2 to 4 weeks to <strong>relearn</strong> Moodle each time a student starts a <strong>new unit.</strong></p>
-    <cite>Monash Moodle Evaluation, March 2023</cite>
+      <p>To translate these findings into a brief the team could act on, I benchmarked Monash's patterns against industry LMS conventions across six dimensions: navigation, hierarchy, assessment location, terminology, progress visibility, and customisation rules. That comparison defined exactly what the unified system needed to close.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">Benchmarking against industry convention</div>
+        <img class="img" src="images/monash-structural-table.webp" alt="Comparative analysis across six design dimensions">
+      </div>
+      <div class="caption">Legacy Monash patterns benchmarked against industry LMS conventions and the target state for the unified system, across all six dimensions.</div>
+    </section>
+
+    <section id="insight" class="divider-top">
+      <h2>The friction was structural, not cosmetic</h2>
+      <p class="intro-summary">No single-page fix would hold at the scale of 10,000 units across every faculty. The system itself had to enforce consistency, because staff couldn't be relied on to choose it.</p>
+    </section>
+
+    <section id="design" class="divider-top">
+      <h2>A governed system, not more navigation</h2>
+
+      <p>Addressing scale required a shift from designing individual pages to designing a system.</p>
+      <p>The research identified a telling pattern: when staff encountered navigation problems, they responded by adding more navigation: extra menu bars, quick links, custom sidebars. These workarounds could be effective locally but never addressed the root cause: there was no coherent system for organising content in the first place. More navigation on top of broken structure just created more conflict.</p>
+      <p>The solution went in the opposite direction. Rather than adding flexibility, we removed it in the places that mattered most, locking in the consistency other platforms enforce by default.</p>
+      <div class="grid grid-2 gap-1">
+        <div class="card card-grey">
+          <span class="card-label">Governance decision 1</span>
+          <span class="card-title">Assessments live in the assessment zone</span>
+          <p>Not in sidebars, not embedded in weekly topics, not duplicated across multiple locations. One place, every unit.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Governance decision 2</span>
+          <span class="card-title">Timetable and schedule get a dedicated section</span>
+          <p>Scheduling information is separated from learning content instead of competing with it.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Governance decision 3</span>
+          <span class="card-title">Sidebars removed entirely</span>
+          <p>Left and right sidebars were the primary source of navigation conflict. Removing them eliminated it.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Governance decision 4</span>
+          <span class="card-title">One predictable submission location</span>
+          <p>Assignment submission is always in the same place, ending the student hunting behaviour identified in research.</p>
+        </div>
+      </div>
+
+      <p>These decisions sat inside a wider tension that shaped every call we made: faculty autonomy, student consistency, and governance requirements all pulled in different directions, and no single one of them could simply win out over the others. The resolution was a governed template, structure fixed, content flexible, sitting at the centre of those competing forces.</p>
+
+      <div class="img-frame-border">
+        <div class="img-heading">Autonomy, consistency, and governance in tension</div>
+        <img class="img" src="images/monash-constraints-triangle.webp" alt="Every structural decision shaped by three forces">
+      </div>
+      <div class="caption">Resolved at the centre by a governed template: structure fixed, content flexible.</div>
+
+      <h3>Establishing a shared structural foundation</h3>
+      <p>A governed template established consistent placement for learning content, assessments, and progress indicators. Units inherited this structure rather than rebuilding it. The critical structural decisions (fixed assessment placement, removal of sidebars, and a three-panel homepage dashboard) were enforced through the template itself rather than through guidelines staff could choose to ignore.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">From fragmented navigation to a governed template</div>
+        <img class="img" src="images/monash-berore-after.webp" alt="A single governed template replaced faculty-specific layouts">
+      </div>
+      <div class="caption">Left: a faculty-built unit with competing menus, sidebars, and duplicated links. Right: the governed unit template, with sidebars removed, one navigation model, and content in predictable zones.</div>
+
+      <h3>How the system operates</h3>
+      <p>The template expressed a complete unit structure: a consistent homepage, predictable weekly learning modules, dedicated assessment zones, and clear orientation and progress cues. This reduced variation without constraining teaching approach.</p>
+      <p>These zones directly addressed the friction points identified in research: students no longer had to search for assessments, progress indicators, or weekly content because the template put them in the same place every time.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">The unified unit structure</div>
+        <img class="img" src="images/monash-flow.webp" alt="The governed template expressed a complete unit structure">
+      </div>
+      <div class="caption">Homepage, weekly learning modules, a dedicated assessment zone, and progress indicators, each fixed in position so students always know where to look.</div>
+
+      <h3>Proving flexibility across faculties</h3>
+      <p>Templates were applied across multiple disciplines to validate use beyond a single context. The structural framework remained constant while content varied by faculty, delivery mode, and pedagogy.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">One structure, three faculties</div>
+        <img class="img" src="images/monash-wireframe.webp" alt="The same governed structure applied across Science, Arts, and Business">
+      </div>
+      <div class="caption">The same governed template carrying Science, Arts, and Business units: the governed navigation layer fixed across every unit, the content layer varying freely by discipline.</div>
+
+      <h3>Establishing a shared learning journey</h3>
+      <p>A reusable learning journey model had been defined to replace inconsistent terminology across faculties such as "before, during, after class." My role was designing the visual system that expressed this model within the template, and iterating on it through structured feedback sessions with staff and students.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">Learning journey explainer</div>
+        <div class="video-wrap">
+          <video controls preload="none" poster="images/monash-video-poster.webp">
+            <source src="images/monash-explainer-video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="caption">Silent screen recording clarifying the stages of the shared learning journey and the role of task trackers in supporting progress across a unit.</div>
+
+      <h3>Designing for non-linear teaching models</h3>
+      <p>The coursework template handled twelve-week linear units well. But a significant portion of Monash's units don't follow that pattern. Architecture studios run in stages with student streams. Performance units split by instrument group. Business intensives run day by day across fieldwork trips.</p>
+      <p>How these units would work structurally was defined by stakeholders and faculty leads. My role was translating that model into the template system, ensuring the flexibility framework held together visually and that the Own-time, Real-time, Wrap-up learning journey remained legible across fundamentally different teaching contexts.</p>
+      <p>The challenge was that the same governed structure had to accommodate studios, fieldwork, performance streams, and research projects without requiring a separate template for each. The governed structure held across all of them.</p>
+    </section>
+
+    <section id="validation" class="divider-top">
+      <h2>Testing the model with staff and students</h2>
+
+      <h3>Two rounds of structured feedback</h3>
+      <p>Templates were refined through two rounds of structured feedback sessions with students and teaching staff, tested against real course scenarios across multiple disciplines.</p>
+      <p>The first round surfaced two significant problems. Neither learning journey naming option was working. "Own-time, Real-time, Consolidate" helped students plan their time but gave no sense of learning progression. "Discover, Apply, Consolidate" appealed to staff but felt abstract to students. The word "consolidate" specifically failed with both groups. The dashboard also tested poorly: the task tracker was described as "very large and looming" with status colours that were "garish," lecturer contact details were missing entirely, and announcements and forums were overcrowded and given too much visual priority.</p>
+      <p>Those findings drove two concrete changes. The learning journey was renamed Own-time, Real-time, Wrap-up, resolving the terminology problem directly without losing the structural logic. The dashboard was reorganised into three equal panels surfacing forums, contacts, and a reduced task tracker together, with content hierarchy rebalanced around the week preview rather than the tracker.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">Two iterations of the unit homepage</div>
+        <img class="img" src="images/monash-iterative.webp" alt="Two iterations of the unit homepage">
+      </div>
+      <div class="caption">Left: early exploration with a "Current focus" hero and horizontal week navigation. Right: the refined three-panel dashboard surfacing forums, contacts, and a reduced task tracker on arrival.</div>
+
+      <p>The second round was coordinated by the research team across five student sessions with approximately 35 students and seven staff sessions with approximately 50 staff, including Faculty Champions, the SAS team, and the Elevate team. Testing confirmed the dashboard and learning journey redesigns were working. The task tracker and completion states were received positively. Remaining feedback focused on detail-level refinements: collapsible subsections, due date visibility within tasks, and icon adjustments.</p>
+      <p>Templates were signed off by stakeholders following the second round. Annotated Figma files were produced for the development team to support accurate implementation. Staff onboarding and training was handled by a separate department.</p>
+
+      <h3>Constraints and trade-offs</h3>
+      <p>The initial brief directed exploration away from Monash's existing visual system. Late in delivery, a mandate required full alignment with central brand standards. Visuals were updated to meet this requirement while preserving structure and timelines.</p>
+      <p>The structural decisions remained intact throughout. Brand alignment was applied to the visual layer without requiring changes to information architecture or template logic.</p>
+
+      <div class="grid grid-2 grid-tight-top">
+        <div class="img-frame-grey">
+          <div class="img-heading">The final weekly learning page</div>
+          <img class="img" src="images/monash-unit-fulleg.webp" alt="The final weekly learning page after two rounds of iteration">
+        </div>
+        <div class="align-caption-top">
+          <div class="caption">After two rounds of iteration: Own-time, Real-time, and Wrap-up stages operating within a live unit with Moodle activity types, due dates, video playlists, and completion tracking in place.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outcomes" class="divider-top">
+      <h2>Impact and evidence</h2>
+
+      <h3>Rollout and reach</h3>
+      <p>The governed template was piloted across 50 units in the first wave, tested across all campuses before institutional commitment. It then rolled out across approximately 10,000 active courses, reaching around 86,000 students across all Monash faculties.</p>
+      <p>That scale was only possible because the system was built for it. A template that required faculty-by-faculty negotiation or custom rebuilding could not have moved at that speed or that volume. Governance was the precondition for reach.</p>
+
+      <div class="grid gap-1">
+        <div class="card card-grey">
+          <span class="testimonial-name">Professor Allie Clemans</span>
+          <span class="testimonial-role">Acting Deputy Vice-Chancellor (Education), Monash University</span>
+          <p class="mt-3">Your design will be reproduced <strong>EVERYWHERE.</strong> You put your artistry into a dull place and it is so much better for it.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="testimonial-name">Trevor Woods</span>
+          <span class="testimonial-role">Manager, Educational Platforms, Monash University</span>
+          <p class="mt-3">Your efforts have gone above and beyond achieving our goal of <strong>making Moodle a contemporary platform that redefines learning and teaching.</strong></p>
+        </div>
+        <div class="card card-grey">
+          <span class="testimonial-name">Ankur Agrawal</span>
+          <span class="testimonial-role">Product Owner, LMS Redesign, Monash University</span>
+          <p class="mt-3">Lisa has a unique ability to <strong>blend creativity with user-centric design</strong> principles, prioritising the end user's experience.</p>
+        </div>
+      </div>
+
+      <p>Beyond the initial rollout, the template was designed to keep working: a governed core of templates, the learning journey, and approved components feeds into an ongoing review process, so new teaching models and platform updates can be absorbed without requiring structural redesign.</p>
+
+      <div class="img-frame-grey">
+        <div class="img-heading">Designed for governance and growth</div>
+        <img class="img" src="images/monash-governance.webp" alt="Forward view of the learning management system">
+      </div>
+      <div class="caption">The governed core, with new teaching models and updates absorbed through ongoing review.</div>
+    </section>
+
+    <section id="reflection" class="divider-top">
+      <h2>Designing for scale</h2>
+      <p>Consistency functions as a service in large institutions. A single student moving between units, faculties, or campuses should not have to relearn how to find their assessments. A single staff member setting up a new unit should not have to make structural decisions that should already be resolved.</p>
+      <p>The most durable outcome of this project was not any individual screen. It was a system that could absorb 10,000 courses without breaking, and still leave room for a studio unit in architecture to work differently from a twelve-week law unit.</p>
+      <p>Designed for governance. Built to scale.</p>
+    </section>
+
   </div>
 
-  <img class="img img-border mt-3" src="images/monash-journeymap.webp" alt="Simplified student journey map">
-  <div class="caption"><strong>Student journey map.</strong> Synthesises focus group findings from the prior research phase, highlighting repeated friction points caused by fragmented unit structure.</div>
+  <details class="case-toc">
+    <summary><span class="chevron">&#9662;</span> Table of contents</summary>
+    <ul>
+      <li><a href="#intro" data-toc-link>Project context and constraints</a></li>
+      <li><a href="#discovery" data-toc-link>Fragmentation as a system problem</a></li>
+      <li><a href="#insight" data-toc-link>The friction was structural, not cosmetic</a></li>
+      <li><a href="#design" data-toc-link>A governed system, not more navigation</a></li>
+      <li><a href="#validation" data-toc-link>Testing the model with staff and students</a></li>
+      <li><a href="#outcomes" data-toc-link>Impact and evidence</a></li>
+      <li><a href="#reflection" data-toc-link>Designing for scale</a></li>
+    </ul>
+  </details>
 
-  <div class="insight mt-3">
-    <span class="insight-label">Insight</span>
-    <p>The breakdown was structural, not visual or discipline-specific.</p>
-  </div>
-
-  <img class="img img-border mt-3" src="images/monash-structural-table.webp" alt="Comparative analysis across six design dimensions">
-  <div class="caption"><strong>Comparative analysis.</strong> Six design dimensions position legacy Monash patterns against industry LMS conventions, identifying what the unified system needed to achieve.</div>
-
-  <h3 class="mt-4">Choosing a system-led approach</h3>
-  <p>Addressing scale required a shift from designing individual pages to designing a system.</p>
-  <p>The research identified a telling pattern: when staff encountered navigation problems, they responded by adding more navigation: extra menu bars, quick links, custom sidebars. These workarounds could be effective locally but never addressed the root cause: there was no coherent system for organising content in the first place. More navigation on top of broken structure just created more conflict.</p>
-  <p>The solution went in the opposite direction. Rather than adding flexibility, we removed it in the places that mattered most.</p>
-  <p>Key governance decisions: <strong>Assessments</strong> belong in the assessment zone: not in sidebars, not embedded in weekly topics, not duplicated across multiple locations. <strong>Timetable and schedule</strong> has a dedicated section. <strong>Left and right sidebars were removed entirely,</strong> eliminating the primary source of navigation conflict. <strong>Assignment submission</strong> is accessible from a consistent, predictable location, reducing the student hunting behaviour identified in research.</p>
-  <p>This is what Canvas and Blackboard enforce by default. On Moodle, it had to be designed deliberately.</p>
-
-  <img class="img img-border mt-3" src="images/monash-constraints-triangle.webp" alt="Every structural decision shaped by three forces">
-  <div class="caption"><strong>Three forces in tension.</strong> Every structural decision, what to lock down and what to leave open, was shaped by these forces. The governed template was the resolution.</div>
-</div>
 </div>
 
-<!-- PART 2 -->
-<div class="section">
-  <div class="eyebrow">Design</div>
-  <h2>Designing a governed, modular learning system</h2>
-
-  <h3>Establishing a shared structural foundation</h3>
-  <p>A governed template established consistent placement for learning content, assessments, and progress indicators. Units inherited this structure rather than rebuilding it. The critical structural decisions (fixed assessment placement, removal of sidebars, and a three-panel homepage dashboard) were enforced through the template itself rather than through guidelines staff could choose to ignore.</p>
-
-  <img class="img img-border mt-3" src="images/monash-berore-after.webp" alt="A single governed template replaced faculty-specific layouts">
-  <div class="caption"><strong>A single governed template replaced faculty-specific layouts.</strong> Sidebars removed, navigation fixed, content placed in predictable zones for the first time.</div>
-
-  <h3 class="mt-4">How the system operates</h3>
-  <p>The template expressed a complete unit structure: a consistent homepage, predictable weekly learning modules, dedicated assessment zones, and clear orientation and progress cues. This reduced variation without constraining teaching approach.</p>
-  <p>These zones directly addressed the friction points identified in research: students no longer had to search for assessments, progress indicators, or weekly content because the template put them in the same place every time.</p>
-
-  <img class="img img-border mt-3" src="images/monash-flow.webp" alt="The governed template expressed a complete unit structure">
-  <div class="caption"><strong>A complete unit structure.</strong> Each zone fixed in position so students always knew where to look.</div>
-
-  <h3 class="mt-4">Proving flexibility across faculties</h3>
-  <p>Templates were applied across multiple disciplines to validate use beyond a single context. The structural framework remained constant while content varied by faculty, delivery mode, and pedagogy.</p>
-
-  <img class="img img-border mt-3" src="images/monash-wireframe.webp" alt="The same governed structure applied across Science, Arts, and Business">
-  <div class="caption"><strong>One structure, three faculties.</strong> The same governed template applied across Science, Arts, and Business, with content varying freely within fixed zones.</div>
-
-  <h3 class="mt-4">Establishing a shared learning journey</h3>
-  <p>A reusable learning journey model had been defined to replace inconsistent terminology across faculties such as "before, during, after class." My role was designing the visual system that expressed this model within the template, and iterating on it through structured feedback sessions with staff and students.</p>
-
-  <div class="video-wrap mt-3">
-    <video controls preload="none">
-      <source src="images/monash-explainer-video.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="caption mt-2"><strong>Learning journey explainer.</strong> Silent screen recording clarifying the stages of the shared learning journey and the role of task trackers in supporting progress across a unit.</div>
-
-  <h3 class="mt-4">Designing for non-linear teaching models</h3>
-  <p>The coursework template handled twelve-week linear units well. But a significant portion of Monash's units don't follow that pattern. Architecture studios run in stages with student streams. Performance units split by instrument group. Business intensives run day by day across fieldwork trips.</p>
-  <p>How these units would work structurally was defined by stakeholders and faculty leads. My role was translating that model into the template system, ensuring the flexibility framework held together visually and that the Own-time, Real-time, Wrap-up learning journey remained legible across fundamentally different teaching contexts.</p>
-  <p>The challenge was that the same governed structure had to accommodate studios, fieldwork, performance streams, and research projects without requiring a separate template for each. The governed structure held across all of them.</p>
-
-  <h3 class="mt-4">Testing and iteration</h3>
-  <p>Templates were refined through two rounds of structured feedback sessions with students and teaching staff, tested against real course scenarios across multiple disciplines.</p>
-  <p>The first round surfaced two significant problems. Neither learning journey naming option was working. "Own-time, Real-time, Consolidate" helped students plan their time but gave no sense of learning progression. "Discover, Apply, Consolidate" appealed to staff but felt abstract to students. The word "consolidate" specifically failed with both groups. The dashboard also tested poorly: the task tracker was described as "very large and looming" with status colours that were "garish," lecturer contact details were missing entirely, and announcements and forums were overcrowded and given too much visual priority.</p>
-  <p>Those findings drove two concrete changes. The learning journey was renamed Own-time, Real-time, Wrap-up, resolving the terminology problem directly without losing the structural logic. The dashboard was reorganised into three equal panels surfacing forums, contacts, and a reduced task tracker together, with content hierarchy rebalanced around the week preview rather than the tracker.</p>
-
-  <img class="img img-border mt-3" src="images/monash-iterative.webp" alt="Two iterations of the unit homepage">
-  <div class="caption"><strong>Two iterations of the unit homepage.</strong> Early exploration with a "Current focus" hero and horizontal week navigation, refined to a three-panel dashboard surfacing forums, contacts, and task status on arrival.</div>
-
-  <p class="mt-3">The second round was coordinated by the research team across five student sessions with approximately 35 students and seven staff sessions with approximately 50 staff, including Faculty Champions, the SAS team, and the Elevate team. Testing confirmed the dashboard and learning journey redesigns were working. The task tracker and completion states were received positively. Remaining feedback focused on detail-level refinements: collapsible subsections, due date visibility within tasks, and icon adjustments.</p>
-  <p>Templates were signed off by stakeholders following the second round. Annotated Figma files were produced for the development team to support accurate implementation. Staff onboarding and training was handled by a separate department.</p>
-
-  <h3 class="mt-4">Constraints and trade-offs</h3>
-  <p>The initial brief directed exploration away from Monash's existing visual system. Late in delivery, a mandate required full alignment with central brand standards. Visuals were updated to meet this requirement while preserving structure and timelines.</p>
-  <p>The structural decisions remained intact throughout. Brand alignment was applied to the visual layer without requiring changes to information architecture or template logic.</p>
-
-  <img class="img img-border mt-3" src="images/monash-unit-fulleg.webp" alt="The final weekly learning page after two rounds of iteration">
-  <div class="caption"><strong>The final weekly learning page.</strong> After two rounds of iteration: Own-time, Real-time, and Wrap-up stages operating within a live unit with Moodle activity types, due dates, video playlists, and completion tracking in place.</div>
-</div>
-
-<!-- PART 3 -->
-<div class="bg-grey">
-<div class="section">
-  <div class="eyebrow">Outcomes</div>
-  <h2>Impact and evidence</h2>
-
-  <h3>Rollout and reach</h3>
-  <p>The governed template was piloted across 50 units in the first wave, tested across all campuses before institutional commitment. It then rolled out across approximately 10,000 active courses, reaching around 86,000 students across all Monash faculties.</p>
-  <p>That scale was only possible because the system was built for it. A template that required faculty-by-faculty negotiation or custom rebuilding could not have moved at that speed or that volume. Governance was the precondition for reach.</p>
-
-  <div class="grid grid-3 mt-4">
-    <div class="card card-purple">
-      <p class="testimonial-quote">Your design will be reproduced <strong>EVERYWHERE.</strong> You put your artistry into a dull place and it is so much better for it.</p>
-      <span class="testimonial-name">Professor Allie Clemans</span>
-      <span class="testimonial-role">Acting Deputy Vice-Chancellor (Education), Monash University</span>
-    </div>
-    <div class="card card-purple">
-      <p class="testimonial-quote">Your efforts have gone above and beyond achieving our goal of <strong>making Moodle a contemporary platform that redefines learning and teaching.</strong></p>
-      <span class="testimonial-name">Trevor Woods</span>
-      <span class="testimonial-role">Manager, Educational Platforms, Monash University</span>
-    </div>
-    <div class="card card-purple">
-      <p class="testimonial-quote">Lisa has a unique ability to <strong>blend creativity with user-centric design</strong> principles, prioritising the end user's experience.</p>
-      <span class="testimonial-name">Ankur Agrawal</span>
-      <span class="testimonial-role">Product Owner, LMS Redesign, Monash University</span>
-    </div>
-  </div>
-
-  <h3 class="mt-4">Reflection: designing for scale</h3>
-  <p>Consistency functions as a service in large institutions. A single student moving between units, faculties, or campuses should not have to relearn how to find their assessments. A single staff member setting up a new unit should not have to make structural decisions that should already be resolved.</p>
-  <p>The most durable outcome of this project was not any individual screen. It was a system that could absorb 10,000 courses without breaking, and still leave room for a studio unit in architecture to work differently from a twelve-week law unit.</p>
-  <p>Designed for governance. Built to scale.</p>
-
-  <img class="img img-border mt-3" src="images/monash-governance.webp" alt="Forward view of the learning management system">
-  <div class="caption"><strong>Forward view.</strong> A governed core supports ongoing evolution, new teaching models, and platform updates without structural redesign.</div>
-</div>
-</div>
-
-<div class="case-nav bg-grey">
+<div class="case-nav">
   <a href="index.html"><span class="case-nav-label">Back to</span>&larr; All UX product design work</a>
-  <a href="pas.html"><span class="case-nav-label">Next case study</span>Redefining ED patient administration &rarr;</a>
+  <a href="pas.html"><span class="case-nav-label">Next case study</span>Telstra Health &mdash; Kyra PAS &rarr;</a>
 </div>
 
-<div class="page-end bg-grey"></div>
+<div class="page-end"></div>
 
 <div class="footer-wrap">
   <footer>
@@ -271,7 +366,32 @@
   </footer>
 </div>
 
+<div class="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+  <span class="lightbox-hint">Tap anywhere to close</span>
+  <img src="" alt="">
+</div>
+
 <script>
+  // Image lightbox: click/tap any bordered case-study image to view full size
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  document.querySelectorAll("img.img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+  const closeLightbox = () => {
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+  lightbox.addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");
   const body = document.body;
@@ -288,6 +408,28 @@
         body.classList.remove("nav-open");
       });
     });
+  }
+
+  // Case study table of contents: sticky sidebar, scroll-spy active state,
+  // collapses to a tap-to-reveal disclosure under 800px
+  const tocDetails = document.querySelector(".case-toc");
+  if (tocDetails) {
+    const tocLinks = document.querySelectorAll(".case-toc a[data-toc-link]");
+    const tocSections = Array.from(tocLinks).map(l => document.querySelector(l.getAttribute("href")));
+    const setActiveLink = (id) => {
+      tocLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + id));
+    };
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveLink(entry.target.id);
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    tocSections.forEach(s => s && tocObserver.observe(s));
+    tocLinks.forEach(l => l.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(l.getAttribute("href")).scrollIntoView({ behavior: "smooth", block: "start" });
+      if (window.innerWidth <= 800) tocDetails.removeAttribute("open");
+    }));
   }
 </script>
 
