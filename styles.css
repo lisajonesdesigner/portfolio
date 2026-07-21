@@ -293,6 +293,14 @@ a:hover {
   z-index: 200;
 }
 
+/* Case study pages use a wider 1320px content column (see
+   .case-toc-layout) - widen nav and hero to match so the logo,
+   breadcrumbs, hero copy, and intro all share the same left edge. */
+body.case-study-page nav,
+body.case-study-page .hero-content {
+  max-width: 1320px;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -1706,8 +1714,8 @@ footer a:hover {
 .crumbs-monash,
 .crumbs-pas,
 .crumbs-aged {
-  padding-left: max(48px, calc(50% - 660px));
-  padding-right: max(48px, calc(50% - 660px));
+  padding-left: max(48px, calc(50% - 612px));
+  padding-right: max(48px, calc(50% - 612px));
 }
 
 .crumbs-here {
