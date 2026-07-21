@@ -117,7 +117,7 @@
       <h3>Why legacy PAS fails in ED</h3>
       <p>Emergency Departments operate under conditions most PAS platforms weren't built for: patient identity is often uncertain at arrival, work is constantly interrupted, and patients move fast across locations, while legacy systems assume complete data capture upfront and linear task completion. One clinical SME summed up the result plainly: "I know it's a black screen with green writing, but we call it the green screen. I think anything I do will be better." Staff had learned to work around their tools rather than with them, deferring administrative entry until workload allowed and correcting records later.</p>
 
-      <div class="img-frame-grey">
+      <div class="img-frame-plain">
         <div class="img-heading">The legacy PAS reality</div>
         <img class="img" src="images/pas-legacy.webp" alt="Legacy PAS interfaces: terminal and form-based systems">
       </div>
@@ -151,7 +151,7 @@
       <h3>Defining the MVP journey</h3>
       <p>The product owner scoped the MVP to a single high-risk journey: ED arrival and triage, identity check or creation, patient movement across ED locations, admission completion, and transfer or discharge. My job was to make that journey work as a coherent, clinically safe interaction model within six months.</p>
 
-      <div class="img-frame-grey">
+      <div class="img-frame-plain">
         <div class="img-heading">The MVP admission journey</div>
         <img class="img" src="images/pas-journey-map.webp" alt="The MVP admission journey map">
       </div>
@@ -160,7 +160,7 @@
       <h3>Understanding the system</h3>
       <p>Emergency admission involves more than the ED. Frontstage clinical and clerical work, midstage PAS coordination, and backstage updates across EMR, bed management, billing, and reporting systems all have to move together without blocking patient flow. The service blueprint below maps where uncertainty enters the workflow, which system owns which decisions, and how downstream systems stay informed.</p>
 
-      <div class="img-frame-border">
+      <div class="img-frame-plain">
         <div class="img-heading">The emergency admission service blueprint</div>
         <img class="img" src="images/pas-blueprint.webp" alt="Emergency admission service blueprint">
       </div>
@@ -169,10 +169,10 @@
       <h3>Bringing the movement board to life</h3>
       <p>In legacy systems, moving a patient between locations means navigating to a record, opening an edit screen, updating a field, and saving — by which point the clinical situation may have changed. I proposed a visual movement board instead, where staff drag patient cards between location columns. State updates automatically when a card moves, status and timing stay visible at all times, and detailed actions are available without leaving the board. A clinical expert I worked with had seen a similar geospatial ED view in a previous organisation, giving early validation that the model matched established clinical workflows.</p>
 
-      <div class="img-frame-border">
+      <div class="img-frame-plain">
         <div class="img-heading">The ED movement board prototype</div>
         <div class="video-wrap">
-          <video controls preload="none" poster="images/pas-wireframe.webp">
+          <video controls preload="none" poster="images/pas-video.webp">
             <source src="images/pas-dashboard.mp4" type="video/mp4">
           </video>
         </div>
@@ -222,7 +222,7 @@
 
       <p>The ED board itself was designed as a column-per-location layout where each column represented a physical space in the department: waiting area, triage, resus, trauma bays, fast track. Staff moved patients by dragging cards between columns. State updated automatically. The detail panel slid out on the right when a card was selected, keeping the full board visible while staff reviewed or updated patient information.</p>
 
-      <div class="img-frame-border">
+      <div class="img-frame-plain">
         <div class="img-heading">From wireframe assumptions to the resolved ED dashboard</div>
         <img class="img" src="images/pas-wireframe.webp" alt="Wireframe exploration alongside high-fidelity prototype">
       </div>
@@ -250,7 +250,7 @@
       <p>The MVP was delivered to a fixed showcase date and presented across the Telstra Health portfolio. More than 400 clinicians, health service leaders, researchers, and senior digital health stakeholders attended.</p>
       <p>Discussion moved quickly from whether the approach could work to how it could progress, including integration pathways, staged rollout, and expansion to other admission scenarios. The conversation that had previously centred on legacy constraints shifted to platform ambition.</p>
 
-      <div class="img-frame-border">
+      <div class="img-frame-plain">
         <div class="img-heading">Telstra Health launches Kyra</div>
         <img class="img" src="images/pas-launch.webp" alt="The Telstra Health Kyra launch event">
       </div>

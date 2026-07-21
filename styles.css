@@ -566,6 +566,15 @@ body.nav-open {
 }
 .img-frame-grey .img { border: none; }
 
+/* Like .img-frame-border but with no visible border or padding - heading
+   sits directly above the image and both run the full width of the
+   content column. Use when a border would be redundant (e.g. the image
+   already has its own edge/frame, or sits next to other bordered content). */
+.img-frame-plain {
+  padding: 0;
+}
+.img-frame-plain .img { border: none; }
+
 .img-frame-tight-x {
   padding-left: 8px;
   padding-right: 8px;
@@ -2034,11 +2043,14 @@ footer a:hover {
 .case-toc-layout .img-heading + .img,
 .case-toc-layout .img-heading + .video-wrap,
 .case-toc-layout .img-heading + .img-frame-border,
-.case-toc-layout .img-heading + .img-frame-grey { margin-top: 0; }
+.case-toc-layout .img-heading + .img-frame-grey,
+.case-toc-layout .img-heading + .img-frame-plain { margin-top: 0; }
 .case-toc-layout .img-frame-border,
-.case-toc-layout .img-frame-grey { margin-top: 40px; margin-bottom: 12px; }
+.case-toc-layout .img-frame-grey,
+.case-toc-layout .img-frame-plain { margin-top: 40px; margin-bottom: 12px; }
 .case-toc-layout .img-frame-border .img-heading,
-.case-toc-layout .img-frame-grey .img-heading { margin-top: 0; }
+.case-toc-layout .img-frame-grey .img-heading,
+.case-toc-layout .img-frame-plain .img-heading { margin-top: 0; }
 .case-toc-layout .pullquote,
 .case-toc-layout .insight { margin-top: 40px; margin-bottom: 40px; }
 .case-toc-layout .grid { margin-top: 40px; margin-bottom: 40px; }
