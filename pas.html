@@ -51,7 +51,7 @@
 </div>
 
 
-<nav class="crumbs crumbs-pas" aria-label="Breadcrumb">
+<nav class="crumbs" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="crumbs-sep">&rsaquo;</span>
   <a href="index.html">UX Product Design</a>
@@ -120,6 +120,7 @@
       <div class="img-frame-plain">
         <div class="img-heading">The legacy PAS reality</div>
         <img class="img" src="images/pas-legacy.webp" alt="Legacy PAS interfaces: terminal and form-based systems">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Left: a terminal-style interface that clinical staff nicknamed "the green screen." Right: a later-generation form-based system. Both prioritise exhaustive data capture over flow, increasing cognitive load and error risk under ED conditions.</div>
 
@@ -131,6 +132,7 @@
       <div class="img-frame-border">
         <div class="img-heading">The FHIR-native system model</div>
         <img class="img" src="images/pas-fhir-architecture.webp" alt="FHIR-native system model mapped retrospectively">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">ED staff work in Kyra PAS; a clinical data repository exchanges FHIR resources (Patient, Encounter, Location) and event updates with the EMR and bed management system, so Kyra participates in a shared data layer instead of owning a silo. Mapped retrospectively.</div>
     </section>
@@ -154,6 +156,7 @@
       <div class="img-frame-plain">
         <div class="img-heading">The MVP admission journey</div>
         <img class="img" src="images/pas-journey-map.webp" alt="The MVP admission journey map">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Six stages from arrival to handover, mapped with patient activities, staff goals, touchpoints, pain points, and the FHIR resources created at each step. The experience line dips at identity uncertainty and bed pressure, the two moments the design targets.</div>
 
@@ -163,6 +166,7 @@
       <div class="img-frame-plain">
         <div class="img-heading">The emergency admission service blueprint</div>
         <img class="img" src="images/pas-blueprint.webp" alt="Emergency admission service blueprint">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Frontstage clerical, triage, and clinical work; midstage Kyra PAS coordination through the ED board, registration, and movement; backstage FHIR repository, EMR, bed management, billing, and reporting, all moving together from arrival to admission or discharge without blocking patient flow.</div>
 
@@ -225,6 +229,7 @@
       <div class="img-frame-plain">
         <div class="img-heading">From wireframe assumptions to the resolved ED dashboard</div>
         <img class="img" src="images/pas-wireframe.webp" alt="Wireframe exploration alongside high-fidelity prototype">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Left: the original patient card assumption list, the first column-based bay layout, and the Telstra Health card format used as a style reference. Right: the high-fidelity board with concise patient cards, a slide-out detail panel, and location conveyed by bay placement instead of card data, making department status readable at a glance.</div>
     </section>
@@ -264,6 +269,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">The progressive migration model</div>
         <img class="img" src="images/pas-migration.webp" alt="The progressive migration model">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Stage 1: Kyra handles ED workflows beside the legacy PAS. Stage 2: coexistence, with FHIR resources owned domain by domain. Stage 3: a fully FHIR-native PAS serving EMR, bed management, billing, and analytics, with the legacy system retired. No high-risk cutover. Mapped retrospectively.</div>
     </section>
@@ -323,18 +329,16 @@
 </div>
 
 <script>
-  // Image lightbox: click/tap any bordered case-study image to view full size
+  // Image lightbox: opens only from a "View larger" badge (bottom-right
+  // of the image) - images themselves are no longer directly clickable.
   const lightbox = document.querySelector(".lightbox");
   const lightboxImg = lightbox.querySelector("img");
-  document.querySelectorAll("img.img").forEach(img => {
-    img.style.cursor = "zoom-in";
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-    });
-  });
+  const openLightbox = img => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
   const closeLightbox = () => {
     lightbox.classList.remove("open");
     lightboxImg.src = "";
@@ -342,6 +346,14 @@
   };
   lightbox.addEventListener("click", closeLightbox);
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+  document.querySelectorAll(".view-larger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const img = link.parentElement.querySelector("img.img");
+      if (img) openLightbox(img);
+    });
+  });
 
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");

@@ -11,10 +11,15 @@
    - Buttons ................. search BUTTONS
    - Cards (all kinds) ....... search CARDS
    - Project tiles on hubs ... search HUB
-   - Case study pieces ....... search CASE
+   - Case study pieces ....... search CASE (spans several sections:
+                                16-19 intro/dividers/quotes/video,
+                                23 breadcrumbs/case-nav, 25 stats/
+                                lightbox, 26 TOC sidebar layout)
    - About page .............. search ABOUT
    - Footer .................. search FOOTER
-   - Mobile breakpoints ...... search MEDIA
+   - Mobile breakpoints ...... search MEDIA (or @media, there are a
+                                few small ones outside the main block -
+                                Cmd+F "@media" to catch all of them)
 
    NAMING RULES (only 3 to remember):
    1. Utilities are short: mt-3 bg-grey text-purple img-border
@@ -293,17 +298,21 @@ a:hover {
   z-index: 200;
 }
 
-/* Case study pages use a wider 1320px content column (see
-   .case-toc-layout) - widen nav and hero to match so the logo,
-   breadcrumbs, hero copy, and intro all share the same left edge. */
+/* Case study pages use a 1228px content column (see .case-toc-layout
+   in section 26, CASE STUDY TOC LAYOUT - it's the exact width that
+   fits the 820px text column + 72px gap + 240px toc sidebar, plus
+   48px padding each side). Widen nav and hero to match so the logo,
+   breadcrumbs, hero copy, and intro all share the same left edge.
+   Lives here (not in section 26) because it overrides the base
+   `nav` rule just below it. */
 body.case-study-page nav,
 body.case-study-page .hero-content {
-  max-width: 1320px;
+  max-width: 1228px;
 }
 
 /* The hero heading itself is capped to match .case-main's own
    820px reading width (the actual text column below), not the
-   full 1320px hero-content box or the wider grid track, so it
+   full 1228px hero-content box or the wider grid track, so it
    doesn't run wider than the intro paragraph beneath it.
    Left-aligned, not centred, so it keeps the shared left edge. */
 @media (min-width: 801px) {
@@ -555,12 +564,14 @@ body.nav-open {
 }
 
 .img-frame-border {
+  position: relative;
   border: 1px solid var(--grey-7);
   padding: 20px 20px 10px;
 }
 .img-frame-border .img { border: none; }
 
 .img-frame-grey {
+  position: relative;
   background: var(--grey-8b);
   padding: 20px 20px 10px;
 }
@@ -571,14 +582,37 @@ body.nav-open {
    content column. Use when a border would be redundant (e.g. the image
    already has its own edge/frame, or sits next to other bordered content). */
 .img-frame-plain {
+  position: relative;
   padding: 0;
 }
 .img-frame-plain .img { border: none; }
 
-.img-frame-tight-x {
-  padding-left: 8px;
-  padding-right: 8px;
+/* Small "view larger" badge pinned to the bottom-right corner of a
+   dense image (screenshot, table, small text) - the only zoom
+   affordance now (images themselves are no longer clickable). Put it
+   as the last thing inside the .img-frame-* div, right after the
+   <img> - it positions itself against the frame div above (all three
+   .img-frame-* variants are position:relative for this reason).
+   JS wiring is in section 25 (CASE STUDY STATS & LIGHTBOX). */
+.view-larger {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+  background: rgba(20, 20, 20, 0.72);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: zoom-in;
 }
+.view-larger:hover { background: rgba(20, 20, 20, 0.9); }
 
 /* Pushes a caption down to align its top with the top of an image
    sitting in an adjacent grid column that has an img-heading above it
@@ -928,13 +962,27 @@ td:first-child {
   margin: 0 auto;
 }
 
+/* Uses the real sitewide h1 scale (var(--text-xl), same size as a
+   case study's hero-title) instead of a smaller one-off size, so the
+   hub's main heading doesn't read smaller than a case study's h2. */
 .hub-intro h1 {
   margin-top: 0;
-  font-size: clamp(22px, 3vw, 38px);
-  line-height: 1.2;
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
   color: var(--purple);
   max-width: 800px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
+}
+
+/* Intro paragraph under the hub h1, same scale as a case study's
+   .intro-summary lead paragraph for consistency across page types. */
+.hub-lead {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: var(--leading-normal);
+  color: var(--grey-1);
+  max-width: 800px;
+  margin-bottom: 40px;
 }
 
 /* Cross-link to the other hub, sits above the card grid */
@@ -972,6 +1020,20 @@ td:first-child {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 48px;
+}
+
+/* body.hub-page widens the UX Product Design hub (index.html) to its
+   own 1320px column (a separate, wider column from the 1228px one
+   case study pages use - see body.case-study-page in the NAVIGATION
+   section - since the hub's 3-card grid doesn't share the case
+   study's text + toc sidebar layout). Doesn't affect .hub-section,
+   which is only used on learning.html (a separate hub not covered
+   by this request). */
+body.hub-page nav,
+body.hub-page .hub-intro,
+body.hub-page .hub-crosslink,
+body.hub-page .project-grid {
+  max-width: 1320px;
 }
 
 .project-card {
@@ -1483,6 +1545,18 @@ footer {
   margin: 0 auto;
 }
 
+/* Hub pages use a 1320px column and case study pages use a 1228px
+   column (see body.hub-page and body.case-study-page elsewhere) -
+   match the footer to whichever one so it lines up with everything
+   above it. */
+body.hub-page footer {
+  max-width: 1320px;
+}
+
+body.case-study-page footer {
+  max-width: 1228px;
+}
+
 footer h3 {
   font-size: var(--text-sm);
   font-weight: 600;
@@ -1537,9 +1611,6 @@ footer a:hover {
   padding: 5px 16px;
   margin-bottom: 16px;
 }
-
-.divider-space { margin: 48px 0; }
-
 
 /* ============================================================
    22. ABOUT page - hero, bio grid, beyond-the-work
@@ -1688,9 +1759,12 @@ footer a:hover {
 
 
 /* ============================================================
-   23. CASE page nav - track pills (top) & prev-next bar (bottom)
+   23. PILLS, BREADCRUMBS & CASE-NAV - shortcut pills (404 page),
+   breadcrumb trail, and the prev/next bar at the bottom of each
+   case study
    ============================================================ */
-/* Track pills: which hub this case study belongs to */
+/* Pill-shaped shortcut links, currently only used on 404.html to
+   offer quick links back to the main pages of the site. */
 .pills {
   display: flex;
   gap: 8px;
@@ -1728,14 +1802,14 @@ footer a:hover {
   color: var(--grey-6);
 }
 
-/* Case studies using the wider 1320px case-toc-layout column need
-   their breadcrumb aligned with that instead of the narrower
-   804px-centered column the old layout used. */
-.crumbs-monash,
-.crumbs-pas,
-.crumbs-aged {
-  padding-left: max(48px, calc(50% - 612px));
-  padding-right: max(48px, calc(50% - 612px));
+/* Case study pages use the 1228px case-toc-layout column, so their
+   breadcrumb needs to align with that instead of the narrower
+   804px-centered column the default .crumbs padding assumes. Scoped
+   to body.case-study-page so any future case study gets this for
+   free, no new per-page class needed. */
+body.case-study-page .crumbs {
+  padding-left: max(48px, calc(50% - 566px));
+  padding-right: max(48px, calc(50% - 566px));
 }
 
 .crumbs-here {
@@ -1764,7 +1838,10 @@ footer a:hover {
   color: #fff;
 }
 
-/* Back-to-hub and next-case links at the end of every case study */
+/* Back-to-hub and next-case links at the end of every case study.
+   Also used on a couple of the digital-learning pages (chatbot,
+   access, curriculum), which still use the older, narrower 804px
+   column - that's what the base padding formula below matches. */
 .case-nav {
   display: flex;
   justify-content: space-between;
@@ -1773,6 +1850,13 @@ footer a:hover {
   flex-wrap: wrap;
   padding: 40px max(48px, calc(50% - 402px));
   border-top: 1px solid var(--grey-7);
+}
+
+/* Case study pages (monash/pas/aged) use the 1228px column - same
+   fix, same formula, as body.case-study-page .crumbs above. */
+body.case-study-page .case-nav {
+  padding-left: max(48px, calc(50% - 566px));
+  padding-right: max(48px, calc(50% - 566px));
 }
 
 .case-nav a {
@@ -1910,6 +1994,20 @@ footer a:hover {
   }
 }
 
+/* iPad and below: the case study 4-column meta grid (.case-toc-layout
+   .intro-meta, set in section 26) is too tight at 4 columns, so drop
+   it to 2 early rather than waiting for the 800px layout-shift
+   breakpoint. Prefixed with body.case-study-page (not just
+   .case-toc-layout) so it's guaranteed to win over the plain
+   .case-toc-layout .intro-meta rule in section 26 no matter which
+   one happens to come first in the file - safer than relying on
+   source order if either rule ever gets moved. */
+@media (max-width: 1024px) {
+  body.case-study-page .case-toc-layout .intro-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 480px) {
   .project-grid {
     grid-template-columns: 1fr;
@@ -1918,7 +2016,10 @@ footer a:hover {
   .hub-intro { padding-left: 16px; padding-right: 16px; }
   .thumb-logo { height: 38px; bottom: 14px; left: 14px; }
 
-  .intro-meta {
+  /* Same body.case-study-page prefix as the 1024px rule above, for
+     the same reason - guaranteed to win regardless of source order. */
+  .intro-meta,
+  body.case-study-page .case-toc-layout .intro-meta {
     grid-template-columns: 1fr;
   }
 
@@ -1940,14 +2041,25 @@ footer a:hover {
   .intro         { padding: 24px 16px; }
   .part-divider  { padding-left: 16px; padding-right: 16px; }
   footer         { padding: 32px 16px; }
+
+  /* Case study pages: nav drops to 16px side padding just above, so
+     match it here or the hero/breadcrumbs/content column (still at
+     20px from the 800px breakpoint) fall out of alignment with nav
+     on very small phones. .crumbs needs the body.case-study-page
+     prefix because a higher-specificity rule with that prefix
+     already exists (search "566px") and would otherwise block this. */
+  .hero-content  { padding-left: 16px; padding-right: 16px; }
+  body.case-study-page .crumbs { padding-left: 16px; padding-right: 16px; }
+  body.case-study-page .case-nav { padding-left: 16px; padding-right: 16px; }
+  .case-toc-layout { padding-left: 16px; padding-right: 16px; }
 }
 
 /* ============================================================
-   CASE STUDY ADDITIONS - stat strip + image lightbox
+   25. CASE STUDY STATS & LIGHTBOX - stat strip + image lightbox
    .stat-row   - auto-fit grid of headline numbers under intro
    .stat-num   - big number. .stat-label - small caps beneath
    .lightbox   - fullscreen image viewer, tap/click to close.
-                 JS attaches to .img-border images per page.
+                 JS attaches a click handler to every img.img.
    ============================================================ */
 .stat-row {
   display: grid;
@@ -2003,7 +2115,7 @@ footer a:hover {
 }
 
 /* ============================================================
-   CASE STUDY TOC LAYOUT - sticky table of contents sidebar
+   26. CASE STUDY TOC LAYOUT - sticky table of contents sidebar
    Replaces the grey/white band pattern on case study pages.
    .case-toc-layout   - grid wrapper: content column + toc sidebar
    .case-main         - content column, capped reading width
@@ -2014,7 +2126,7 @@ footer a:hover {
    section.divider-top - hairline rule before a large (h2) heading
    ============================================================ */
 .case-toc-layout {
-  max-width: 1320px;
+  max-width: 1228px;
   margin: 0 auto;
   padding: 50px 48px 100px;
   display: grid;
@@ -2061,6 +2173,11 @@ footer a:hover {
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
+
+/* The 4 -> 2 -> 1 column breakpoints for this grid live earlier in
+   the file, right before the 480px media block (Cmd+F "iPad and
+   below" to find them). They use a body.case-study-page prefix so
+   they reliably override the rule above regardless of source order. */
 
 .case-toc-layout .stat-row {
   background: var(--purple);
@@ -2140,9 +2257,8 @@ footer a:hover {
     gap: 0;
   }
   .case-main { max-width: none; min-width: 0; }
-  .case-toc-layout .intro-meta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  /* .intro-meta is already 2 columns from the 1024px breakpoint above,
+     and drops to 1 column at 480px - nothing to do here. */
 
   /* Tucked into the gap between the hero image and the intro text.
      The whole thing (heading + list) is one absolutely-positioned

@@ -51,7 +51,7 @@
 </div>
 
 
-<nav class="crumbs crumbs-aged" aria-label="Breadcrumb">
+<nav class="crumbs" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="crumbs-sep">&rsaquo;</span>
   <a href="index.html">UX Product Design</a>
@@ -137,6 +137,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">Classification responsibility moved outside facilities</div>
         <img class="img" src="images/aged-responsibility.webp" alt="Classification responsibility shifted outside facilities">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Under ACFI, providers completed assessments and could see the funding calculation. Under AN-ACC, providers prepare evidence while an independent assessor determines classification, with logic that is not visible to them.</div>
 
@@ -146,6 +147,7 @@
       <div class="img-frame-border">
         <div class="img-heading">Evidence organisation, before and after</div>
         <img class="img" src="images/aged-evidence.webp" alt="Evidence storage before and after: resident record reorganised by AN-ACC sections">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Before: notes, charts, and forms scattered around the resident record with no assessment context. After: the same evidence explicitly linked to AN-ACC sections, Health, Mobility, Cognition, and Activities of Daily Living.</div>
     </section>
@@ -184,6 +186,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">The legacy ACFI calculator</div>
         <img class="img" src="images/aged-calculator.webp" alt="ACFI calculator showing calculator-led workflows">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Score-led review across twelve care domains with funding totals calculated on screen, reinforcing the internal scoring mindset that AN-ACC removed.</div>
 
@@ -197,6 +200,7 @@
       <div class="img-frame-border">
         <div class="img-heading">The AN-ACC instrument as information architecture</div>
         <img class="img" src="images/aged-system-structure.webp" alt="AN-ACC instrument structure with six categories">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Navigation mirrors the six national assessment categories, Health, Mobility, Cognition, Activities of Daily Living, Frailty, and Palliative Care, each drawing evidence from multiple sources, creating a shared definition of completeness.</div>
 
@@ -210,6 +214,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">Evidence linking in Clinical Manager</div>
         <img class="img" src="images/aged-linking-evidence.webp" alt="Screenshots showing resident AN-ACC assessment with evidence linking interface">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Left: the AN-ACC assessment tool with section-by-section completion status. Right: resident forms linked to specific assessment sections from the evidence tab, giving traceability without duplicating documents.</div>
 
@@ -240,12 +245,14 @@
       <div class="img-frame-border">
         <div class="img-heading">Editable progress notes</div>
         <img class="img" src="images/aged-progress-notes.webp" alt="Editable progress notes linked to ACFI questions and AN-ACC categories">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Staff can add a follow-up note to an entry, strike through superseded information, and see which ACFI questions and AN-ACC categories each note affects, without leaving the resident's record.</div>
 
       <div class="img-frame-border">
         <div class="img-heading">The tagging workflow</div>
         <img class="img" src="images/aged-tagging-workflow.webp" alt="Client documents list filterable by AN-ACC and ACFI tags">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Supporting documents carry both the legacy ACFI tags and the new AN-ACC tag, so staff can filter and locate evidence by assessment section instead of searching through an undifferentiated document list.</div>
     </section>
@@ -332,18 +339,16 @@
 </div>
 
 <script>
-  // Image lightbox: click/tap any bordered case-study image to view full size
+  // Image lightbox: opens only from a "View larger" badge (bottom-right
+  // of the image) - images themselves are no longer directly clickable.
   const lightbox = document.querySelector(".lightbox");
   const lightboxImg = lightbox.querySelector("img");
-  document.querySelectorAll("img.img").forEach(img => {
-    img.style.cursor = "zoom-in";
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-    });
-  });
+  const openLightbox = img => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
   const closeLightbox = () => {
     lightbox.classList.remove("open");
     lightboxImg.src = "";
@@ -351,6 +356,14 @@
   };
   lightbox.addEventListener("click", closeLightbox);
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+  document.querySelectorAll(".view-larger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const img = link.parentElement.querySelector("img.img");
+      if (img) openLightbox(img);
+    });
+  });
 
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");

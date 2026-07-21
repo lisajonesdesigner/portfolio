@@ -51,7 +51,7 @@
 </div>
 
 
-<nav class="crumbs crumbs-monash" aria-label="Breadcrumb">
+<nav class="crumbs" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="crumbs-sep">&rsaquo;</span>
   <a href="index.html">UX Product Design</a>
@@ -118,6 +118,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">How other Australian universities tackle structure at scale</div>
         <img class="img" src="images/monash-lms-approaches.webp" alt="Landscape review of LMS platforms across Australian universities">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">A landscape review of four institutions, each on a different LMS platform.</div>
 
@@ -130,6 +131,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">Faculty-owned unit structures, before the redesign</div>
         <img class="img" src="images/monash-before-units-grid.webp" alt="Unit audit documenting structural variation across faculties">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Independent audit showing navigation, terminology, and content placement diverging across every faculty, with no shared baseline to guide consistency.</div>
 
@@ -194,6 +196,7 @@
       <div class="img-frame-border">
         <div class="img-heading">Autonomy, consistency, and governance in tension</div>
         <img class="img" src="images/monash-constraints-triangle.webp" alt="Every structural decision shaped by three forces">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Resolved at the centre by a governed template: structure fixed, content flexible.</div>
 
@@ -203,6 +206,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">From fragmented navigation to a governed template</div>
         <img class="img" src="images/monash-berore-after.webp" alt="A single governed template replaced faculty-specific layouts">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Left: a faculty-built unit with competing menus, sidebars, and duplicated links. Right: the governed unit template, with sidebars removed, one navigation model, and content in predictable zones.</div>
 
@@ -222,6 +226,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">One structure, three faculties</div>
         <img class="img" src="images/monash-wireframe.webp" alt="The same governed structure applied across Science, Arts, and Business">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">The same governed template carrying Science, Arts, and Business units: the governed navigation layer fixed across every unit, the content layer varying freely by discipline.</div>
 
@@ -255,6 +260,7 @@
       <div class="img-frame-grey">
         <div class="img-heading">Two iterations of the unit homepage</div>
         <img class="img" src="images/monash-iterative.webp" alt="Two iterations of the unit homepage">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
       <div class="caption">Left: early exploration with a "Current focus" hero and horizontal week navigation. Right: the refined three-panel dashboard surfacing forums, contacts, and a reduced task tracker on arrival.</div>
 
@@ -269,6 +275,7 @@
         <div class="img-frame-plain">
           <div class="img-heading">The final weekly learning page</div>
           <img class="img" src="images/monash-unit-fulleg.webp" alt="The final weekly learning page after two rounds of iteration">
+          <a href="#" class="view-larger">View larger &#8599;</a>
         </div>
         <div class="align-caption-top">
           <div class="caption">After two rounds of iteration: Own-time, Real-time, and Wrap-up stages operating within a live unit with Moodle activity types, due dates, video playlists, and completion tracking in place.</div>
@@ -374,18 +381,16 @@
 </div>
 
 <script>
-  // Image lightbox: click/tap any bordered case-study image to view full size
+  // Image lightbox: opens only from a "View larger" badge (bottom-right
+  // of the image) - images themselves are no longer directly clickable.
   const lightbox = document.querySelector(".lightbox");
   const lightboxImg = lightbox.querySelector("img");
-  document.querySelectorAll("img.img").forEach(img => {
-    img.style.cursor = "zoom-in";
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-    });
-  });
+  const openLightbox = img => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
   const closeLightbox = () => {
     lightbox.classList.remove("open");
     lightboxImg.src = "";
@@ -393,6 +398,14 @@
   };
   lightbox.addEventListener("click", closeLightbox);
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+  document.querySelectorAll(".view-larger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const img = link.parentElement.querySelector("img.img");
+      if (img) openLightbox(img);
+    });
+  });
 
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");
