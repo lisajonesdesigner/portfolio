@@ -90,6 +90,10 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   font-size: var(--text-base);
@@ -99,6 +103,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 
@@ -2096,13 +2101,13 @@ footer a:hover {
 @media (max-width: 800px) {
   .case-toc-layout {
     position: relative;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 40px 20px 80px;
     gap: 0;
   }
-  .case-main { max-width: none; }
+  .case-main { max-width: none; min-width: 0; }
   .case-toc-layout .intro-meta {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   /* Tucked into the gap between the hero image and the intro text.
