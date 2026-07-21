@@ -75,11 +75,11 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary">As sole designer on a six-person team, I designed a proof-of-life Patient Administration System MVP built on FHIR: a modern administrative workflow supporting end-to-end Emergency Department admissions, from arrival through triage, treatment, and discharge, interoperable with existing hospital systems. It became the foundation for Kyra PAS, which Telstra Health brought to market as Australia's first FHIR-native, mobile-enabled PAS.</p>
+      <p class="intro-summary">As sole designer on a six-person cross-functional team made up of a product owner, three developers, a lead engineer and system architect, and a scrum master, I designed a proof-of-life Patient Administration System MVP built on FHIR: a modern administrative workflow supporting end-to-end Emergency Department admissions, from arrival through triage, treatment, and discharge, interoperable with existing hospital systems. It became the foundation for Kyra PAS, which Telstra Health brought to market as Australia's first FHIR-native, mobile-enabled PAS.</p>
       <div class="intro-meta">
         <div class="meta-item">
-          <span class="meta-label">Role</span>
-          <span class="meta-value">Lead Product Designer, sole designer on a six-person cross-functional team</span>
+          <span class="meta-label">My role</span>
+          <span class="meta-value">Lead Product Designer</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Organisation</span>
@@ -101,7 +101,7 @@
       </div>
       <h3 class="mt-4">Constraints</h3>
       <ul>
-        <li>Sole designer working alongside four developers, a lead engineer and system architect, two managing directors (one a clinical SME, one the product owner), and a scrum master</li>
+        <li>Sole designer working alongside a product owner, three developers, a lead engineer and system architect, and a scrum master</li>
         <li>No external user testing budget</li>
         <li>Coexistence with legacy PAS required throughout</li>
         <li>Clinical safety and data integrity requirements were non-negotiable</li>
@@ -275,7 +275,7 @@
 
   </div>
 
-  <details class="case-toc">
+  <details class="case-toc" open>
     <summary><span class="chevron">&#9662;</span> Table of contents</summary>
     <ul>
       <li><a href="#intro" data-toc-link>Project context and constraints</a></li>
@@ -363,6 +363,15 @@
   // collapses to a tap-to-reveal disclosure under 800px
   const tocDetails = document.querySelector(".case-toc");
   if (tocDetails) {
+    // Collapsed by default on mobile, permanently open on desktop -
+    // re-synced live on resize, not just on initial load
+    const tocMql = window.matchMedia("(max-width: 800px)");
+    const syncTocOpen = (e) => {
+      if (e.matches) tocDetails.removeAttribute("open");
+      else tocDetails.setAttribute("open", "");
+    };
+    syncTocOpen(tocMql);
+    tocMql.addEventListener("change", syncTocOpen);
     const tocLinks = document.querySelectorAll(".case-toc a[data-toc-link]");
     const tocSections = Array.from(tocLinks).map(l => document.querySelector(l.getAttribute("href")));
     const setActiveLink = (id) => {

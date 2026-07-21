@@ -75,10 +75,10 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary">Clinical Manager is the operational system residential aged-care providers use daily for clinical documentation, administration, and compliance. When the Royal Commission-driven AN-ACC reform replaced ACFI and moved funding classification to independent government assessors, I designed the Clinical Manager update that turned funding preparation from an internal scoring exercise into assessor-aligned evidence preparation.</p>
+      <p class="intro-summary">Clinical Manager is the operational system residential aged-care providers use daily for clinical documentation, administration, and compliance. When the Royal Commission-driven AN-ACC reform replaced ACFI and moved funding classification to independent government assessors, I, as senior UX designer on a cross-functional team that included a business analyst, a product owner, and a team of developers, designed the Clinical Manager update that turned funding preparation from an internal scoring exercise into assessor-aligned evidence preparation.</p>
       <div class="intro-meta">
         <div class="meta-item">
-          <span class="meta-label">Role</span>
+          <span class="meta-label">My role</span>
           <span class="meta-value">Senior UX Designer</span>
         </div>
         <div class="meta-item">
@@ -294,7 +294,7 @@
 
   </div>
 
-  <details class="case-toc">
+  <details class="case-toc" open>
     <summary><span class="chevron">&#9662;</span> Table of contents</summary>
     <ul>
       <li><a href="#intro" data-toc-link>Project context and constraints</a></li>
@@ -382,6 +382,15 @@
   // collapses to a tap-to-reveal disclosure under 800px
   const tocDetails = document.querySelector(".case-toc");
   if (tocDetails) {
+    // Collapsed by default on mobile, permanently open on desktop -
+    // re-synced live on resize, not just on initial load
+    const tocMql = window.matchMedia("(max-width: 800px)");
+    const syncTocOpen = (e) => {
+      if (e.matches) tocDetails.removeAttribute("open");
+      else tocDetails.setAttribute("open", "");
+    };
+    syncTocOpen(tocMql);
+    tocMql.addEventListener("change", syncTocOpen);
     const tocLinks = document.querySelectorAll(".case-toc a[data-toc-link]");
     const tocSections = Array.from(tocLinks).map(l => document.querySelector(l.getAttribute("href")));
     const setActiveLink = (id) => {

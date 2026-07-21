@@ -1971,9 +1971,10 @@ footer a:hover {
    Replaces the grey/white band pattern on case study pages.
    .case-toc-layout   - grid wrapper: content column + toc sidebar
    .case-main         - content column, capped reading width
-   .case-toc          - <details> sticky sidebar, always open on
-                         desktop; collapses to a tap-to-reveal
-                         disclosure under 800px, no bullets
+   .case-toc          - <details> sticky sidebar, permanently open
+                         on desktop (no toggle, no chevron);
+                         collapses to a tap-to-reveal disclosure
+                         under 800px, no bullets
    section.divider-top - hairline rule before a large (h2) heading
    ============================================================ */
 .case-toc-layout {
@@ -2080,8 +2081,21 @@ footer a:hover {
 .case-toc a:hover { color: var(--grey-1); }
 .case-toc a.active { color: var(--purple); font-weight: 600; }
 
+/* Desktop: TOC is permanently open, not a toggle - hide the chevron
+   and block clicks on the summary so it can't be collapsed. */
+@media (min-width: 801px) {
+  .case-toc summary {
+    cursor: default;
+    pointer-events: none;
+  }
+  .case-toc summary .chevron {
+    display: none;
+  }
+}
+
 @media (max-width: 800px) {
   .case-toc-layout {
+    position: relative;
     grid-template-columns: 1fr;
     padding: 40px 20px 80px;
     gap: 0;
@@ -2090,14 +2104,36 @@ footer a:hover {
   .case-toc-layout .intro-meta {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Tucked into the gap between the hero image and the intro text.
+     The whole thing (heading + list) is one absolutely-positioned
+     panel, so it never occupies flow space - it hovers above the
+     content instead of pushing it down, and switching to mobile
+     never shifts the intro text. */
   .case-toc {
-    position: static;
-    order: -1;
-    padding-top: 0;
-    padding-left: 0;
+    position: absolute;
+    top: -48px;
+    right: 20px;
+    left: auto;
+    width: auto;
+    max-width: 280px;
+    margin: 0;
+    padding: 10px 18px;
     border-left: none;
-    margin-bottom: 32px;
-    border-bottom: 1px solid var(--grey-7);
-    padding-bottom: 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .12);
+    z-index: 20;
+  }
+  .case-toc summary {
+    margin-bottom: 0;
+    font-size: 10.5px;
+  }
+  .case-toc[open] summary {
+    margin-bottom: 12px;
+  }
+  .case-toc ul {
+    max-height: 60vh;
+    overflow-y: auto;
   }
 }

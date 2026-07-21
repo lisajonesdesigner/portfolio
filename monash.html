@@ -75,11 +75,11 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary">Monash's enterprise Moodle had evolved independently across faculties, producing inconsistent structures, higher decision load for teaching staff, and uneven student experiences. As lead product designer on a cross-functional team, I designed the governed learning model that replaced faculty-specific layouts with one shared core system, adopted institution-wide.</p>
+      <p class="intro-summary">Monash's enterprise Moodle had evolved independently across faculties, producing inconsistent structures, higher decision load for teaching staff, and uneven student experiences. As senior UX designer on a cross-functional team that included a product owner, two business analysts, a researcher, and a team of developers, I designed the governed learning model that replaced faculty-specific layouts with one shared core system, adopted institution-wide.</p>
       <div class="intro-meta">
         <div class="meta-item">
           <span class="meta-label">My role</span>
-          <span class="meta-value">Senior Product Designer, lead designer on a cross-functional team</span>
+          <span class="meta-value">Senior UX Designer</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Organisation</span>
@@ -326,7 +326,7 @@
 
   </div>
 
-  <details class="case-toc">
+  <details class="case-toc" open>
     <summary><span class="chevron">&#9662;</span> Table of contents</summary>
     <ul>
       <li><a href="#intro" data-toc-link>Project context and constraints</a></li>
@@ -414,6 +414,15 @@
   // collapses to a tap-to-reveal disclosure under 800px
   const tocDetails = document.querySelector(".case-toc");
   if (tocDetails) {
+    // Collapsed by default on mobile, permanently open on desktop -
+    // re-synced live on resize, not just on initial load
+    const tocMql = window.matchMedia("(max-width: 800px)");
+    const syncTocOpen = (e) => {
+      if (e.matches) tocDetails.removeAttribute("open");
+      else tocDetails.setAttribute("open", "");
+    };
+    syncTocOpen(tocMql);
+    tocMql.addEventListener("change", syncTocOpen);
     const tocLinks = document.querySelectorAll(".case-toc a[data-toc-link]");
     const tocSections = Array.from(tocLinks).map(l => document.querySelector(l.getAttribute("href")));
     const setActiveLink = (id) => {
