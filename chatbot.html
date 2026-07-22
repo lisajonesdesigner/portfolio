@@ -90,6 +90,10 @@
           <span class="meta-value">Sole designer and developer</span>
         </div>
       </div>
+      <div class="intro-action">
+        <button type="button" class="btn btn-grey" onclick="if (window.voiceflow) window.voiceflow.chat.open();">Try Schema Compass</button>
+        <p class="intro-note">Chat with Mira in the widget in the bottom corner. Takes about five minutes.</p>
+      </div>
     </section>
 
     <section id="problem" class="divider-top">
@@ -465,6 +469,23 @@
       if (window.innerWidth <= 800) tocDetails.removeAttribute("open");
     }));
   }
+</script>
+
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6a6070fbd74da05e7d984b15' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
 </script>
 
 </body>
