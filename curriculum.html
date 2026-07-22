@@ -18,7 +18,7 @@
   <link rel="icon" href="images/admin-favicon-day.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/admin-favicon-night.png" media="(prefers-color-scheme: dark)">
 </head>
-<body>
+<body class="case-study-page">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -69,196 +69,203 @@
   </div>
 </div>
 
-<!-- CASE STUDY INTRO -->
-<div class="intro">
-  <p class="intro-summary">A blended six-hour unit teaching adult UX learners to map user flows, evaluate onboarding experiences, and translate findings into low-fidelity wireframes. Designed, written, and built end-to-end in D2L Brightspace, across in-person, synchronous online, and self-paced delivery.</p>
-  <div class="intro-meta">
-    <div class="meta-item">
-      <span class="meta-label">Audience</span>
-      <span class="meta-value">Adult UX learners: early-career designers and professionals upskilling, cohort of 20&ndash;25 with mixed digital experience</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Tools</span>
-      <span class="meta-value">D2L Brightspace &middot; H5P &middot; Miro &middot; Figma &middot; FeedbackFruits</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Role</span>
-      <span class="meta-value">Sole learning designer and developer</span>
-    </div>
-  </div>
-  <div class="intro-action">
-    <a href="uxcourse/index.html" target="_blank" rel="noopener" class="btn btn-grey">Launch course</a>
-    <p class="intro-note">The complete working unit, recreated outside the university LMS. Every page, activity, and knowledge check is explorable.</p>
-  </div>
-</div>
+<!-- CASE STUDY BODY: content column + sticky table of contents -->
+<div class="case-toc-layout">
 
-<hr class="divider divider-dark">
+  <div class="case-main">
 
-<!-- THE PROBLEM -->
-<div class="section">
-  <div class="eyebrow">The Problem</div>
-  <h2>A unit about UX cannot live in an LMS that ignores it</h2>
-  <p>Before designing anything, I evaluated existing university LMS spaces against structured criteria across six categories: ease of use, content quality, design and aesthetics, assessment and feedback, motivation and engagement, and outcomes. The pattern was familiar to anyone who has studied online. Content sat sometimes on the page and sometimes behind a link to a separate page, forcing a constant click-out-read-navigate-back loop that my evaluation notes described as "really tiring and confusing." Assessment information was duplicated across areas and written differently in each, so working out what to actually do meant cross-referencing. Searching "assessment" surfaced a page about Zoom. Heading text failed W3C contrast standards, and nothing worked on mobile.</p>
-  <p>None of this is unusual. It is the default state of link-heavy Blackboard and D2L course sites, where every extra link fragments attention and buries the information students need most. The design challenge: build a unit that teaches user flows and usability heuristics inside that same LMS, without committing the sins it teaches students to spot.</p>
-  <div class="card card-grey mt-3">
-    <span class="card-label">From my evaluation notes</span>
-    <p>"The content is sometimes on the page and sometimes you have to click a link to access a separate page to read the content, then navigate back, which gets really tiring and confusing. &hellip; Because the assessment content is found in multiple places, it was difficult to work out what to do."</p>
+    <section id="intro">
+      <p class="intro-summary">A blended six-hour unit teaching adult UX learners to map user flows, evaluate onboarding experiences, and translate findings into low-fidelity wireframes. Designed, written, and built end-to-end in D2L Brightspace, across in-person, synchronous online, and self-paced delivery.</p>
+      <div class="intro-meta">
+        <div class="meta-item">
+          <span class="meta-label">Audience</span>
+          <span class="meta-value">Adult UX learners: early-career designers and professionals upskilling, cohort of 20&ndash;25 with mixed digital experience</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tools</span>
+          <span class="meta-value">D2L Brightspace &middot; H5P &middot; Miro &middot; Figma &middot; FeedbackFruits</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Sole learning designer and developer</span>
+        </div>
+      </div>
+      <div class="intro-action">
+        <a href="uxcourse/index.html" target="_blank" rel="noopener" class="btn btn-grey">Launch course</a>
+        <p class="intro-note">The complete working unit, recreated outside the university LMS. Every page, activity, and knowledge check is explorable.</p>
+      </div>
+    </section>
+
+    <section id="problem" class="divider-top">
+      <div class="eyebrow">The Problem</div>
+      <h2>A unit about UX cannot live in an LMS that ignores it</h2>
+      <p>Before designing anything, I evaluated existing university LMS spaces against structured criteria across six categories: ease of use, content quality, design and aesthetics, assessment and feedback, motivation and engagement, and outcomes. The pattern was familiar to anyone who has studied online. Content sat sometimes on the page and sometimes behind a link to a separate page, forcing a constant click-out-read-navigate-back loop that my evaluation notes described as "really tiring and confusing." Assessment information was duplicated across areas and written differently in each, so working out what to actually do meant cross-referencing. Searching "assessment" surfaced a page about Zoom. Heading text failed W3C contrast standards, and nothing worked on mobile.</p>
+      <p>None of this is unusual. It is the default state of link-heavy Blackboard and D2L course sites, where every extra link fragments attention and buries the information students need most. The design challenge: build a unit that teaches user flows and usability heuristics inside that same LMS, without committing the sins it teaches students to spot.</p>
+      <div class="card card-grey mt-3">
+        <span class="card-label">From my evaluation notes</span>
+        <p>"The content is sometimes on the page and sometimes you have to click a link to access a separate page to read the content, then navigate back, which gets really tiring and confusing. &hellip; Because the assessment content is found in multiple places, it was difficult to work out what to do."</p>
+      </div>
+    </section>
+
+    <section id="solution" class="divider-top">
+      <div class="eyebrow">The Solution</div>
+      <h2>A unit that practises the UX it teaches</h2>
+      <p>The unit moves learners through three two-hour sessions, each in the delivery mode that suits its cognitive work: foundations and group flow-mapping in person, collaborative heuristic evaluation live online, and independent wireframe creation self-paced. Three learning objectives climb Bloom's taxonomy from Apply to Evaluate to Create, and all three converge on one authentic project: designing the onboarding flow for NSURE, a fictional insurance app, exactly as a junior designer would in practice.</p>
+      <p>Every structural decision answers a failure mode from the evaluation. Content lives on the page in progressive-disclosure accordions, so learners scan a session at a glance and expand only what they need, with no link-hopping. Assessment has one canonical home: a single table lists all six tasks with due dates, and each task page appears exactly once, inside the topic it belongs to. Every session follows the same predictable pattern, so learners spend their attention on the content rather than the interface.</p>
+      <div class="module-grid mt-4">
+        <div class="module-card">
+          <div class="card-label text-muted">Session 1 &middot; 2 hrs &middot; In-person</div>
+          <h3>Foundations of User Flows</h3>
+          <p>Flow symbols, logic, and error paths. Learners map a real checkout process, then chart the NSURE onboarding journey in groups. Outcome: accurate user-flow diagrams with explained logic (LO1).</p>
+        </div>
+        <div class="module-card">
+          <div class="card-label text-muted">Session 2 &middot; 2 hrs &middot; Synchronous online</div>
+          <h3>Heuristics and Competitor Analysis</h3>
+          <p>Nielsen's heuristics applied in breakout workshops, then a structured analysis of direct and indirect competitors. Outcome: evaluated interfaces and patterns to inform wireframes (LO2).</p>
+        </div>
+        <div class="module-card">
+          <div class="card-label text-muted">Session 3 &middot; 2 hrs &middot; Self-paced</div>
+          <h3>From Flows to Wireframes</h3>
+          <p>Wireframing principles, screen planning, and annotated low-fidelity wireframes uploaded for assessment, with a mandatory reflection journal. Outcome: wireframes meeting usability and accessibility criteria (LO3).</p>
+        </div>
+      </div>
+
+      <div class="grid grid-3 grid-overflow">
+        <div>
+          <img src="images/curriculum-assessment.webp" alt="The unit's single assessment table listing all six tasks, what each involves, and when each is due." class="img img-border img-zoom">
+          <div class="caption"><strong>One canonical assessment table.</strong> Six tasks, one location, no duplication. A direct answer to the scattered assessment information found in the evaluation.</div>
+        </div>
+        <div>
+          <img src="images/curriculum-quiz.webp" alt="H5P knowledge check asking what a user flow shows, with four selectable answers." class="img img-border img-zoom">
+          <div class="caption"><strong>Embedded knowledge checks.</strong> H5P quizzes sit inside each session with instant feedback, rather than linking out to a separate quiz tool.</div>
+        </div>
+        <div>
+          <img src="images/curriculum-headspace.webp" alt="Course page presenting the Headspace onboarding evolution case study, with an embedded video interview with a Headspace lead designer." class="img img-border img-zoom">
+          <div class="caption"><strong>Real-world anchor.</strong> A case study on Headspace's onboarding redesign shows learners iterative prototyping working in a product they know.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="decisions" class="divider-top">
+      <div class="eyebrow">Key Design Decisions</div>
+      <h2>Choices that shaped the learner experience</h2>
+      <div class="grid gap-1">
+        <div class="card card-grey">
+          <span class="card-label">Decision 1</span>
+          <span class="card-title">Content on the page, not behind links</span>
+          <p>Every topic overview, lesson list, and activity brief is readable in place, with accordions providing progressive disclosure instead of separate pages. Each click a course demands is a cost; the evaluation showed how quickly those costs compound into frustration. Reducing them is the same discipline the unit teaches for onboarding flows.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Decision 2</span>
+          <span class="card-title">Constructive alignment from objective to artefact</span>
+          <p>Each learning objective is pitched at a named Bloom's level and assessed by the same integrated project, following Biggs and Tang's constructive alignment. Nothing is assessed that isn't taught, and nothing is taught that doesn't feed the final artefact: an annotated wireframe set for the NSURE onboarding flow.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">Decision 3</span>
+          <span class="card-title">Delivery mode matched to cognitive work</span>
+          <p>In-person time is spent where dialogue and error-spotting matter most, live online sessions power collaborative evaluation in breakouts, and creation happens self-paced where learners control their tools and tempo. The blend follows Kolb's experiential cycle rather than distributing content evenly across modes for its own sake.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="artefacts" class="divider-top">
+      <div class="eyebrow">Design Artefacts</div>
+      <h2>Objectives built to be measured</h2>
+      <p>The curriculum design document specifies every session down to timed activities with paired student and educator instructions. Its spine is three objectives, each with a Bloom's level and a direct line to the assessment criteria.</p>
+      <div class="table-wrap mt-3">
+        <table>
+          <thead>
+            <tr>
+              <th>Learning objective</th>
+              <th>Bloom's level</th>
+              <th>Assessed by</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Explain and apply user-flow principles to model user journeys within digital products.</td><td>Apply</td><td>Accuracy and clarity of user-flow logic in the NSURE onboarding flow.</td></tr>
+            <tr><td>Evaluate onboarding experiences using usability heuristics and competitor analysis.</td><td>Evaluate</td><td>Application of heuristics and competitive insight in the structured analysis.</td></tr>
+            <tr><td>Design and annotate low-fidelity wireframes that demonstrate clear structure, logic, and accessibility.</td><td>Create</td><td>Completeness and annotation quality of the final wireframe set.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3">Accessibility ran through the build rather than being retrofitted: plain language, alt text on every image, captioned video, colour contrast checked, downloadable text versions of activities, and keyboard-navigable quizzes.</p>
+    </section>
+
+    <section id="process" class="divider-top">
+      <div class="eyebrow">Design Process</div>
+      <h2>How the unit was built</h2>
+      <div class="grid gap-1">
+        <div class="card step">
+          <span class="step-num">1</span>
+          <div class="step-body">
+            <h3>Evaluate existing learning environments</h3>
+            <p>Structured evaluation of live LMS spaces against criteria spanning ease of use, content quality, aesthetics, assessment, engagement, and outcomes. The documented failure modes became design requirements for the new unit.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <span class="step-num">2</span>
+          <div class="step-body">
+            <h3>Curriculum design document</h3>
+            <p>Objectives, assessment, and three full lesson plans with timed activities, paired student and educator instructions, and development resources. Grounded in constructive alignment (Biggs &amp; Tang), adult learning principles (Knowles), and active learning (Laurillard).</p>
+          </div>
+        </div>
+        <div class="card step">
+          <span class="step-num">3</span>
+          <div class="step-body">
+            <h3>Build in D2L Brightspace</h3>
+            <p>Full unit authored in a D2L sandpit: module and topic architecture, session pages with progressive disclosure, H5P knowledge checks, templates and activity pages, and the Headspace case study with embedded video.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <span class="step-num">4</span>
+          <div class="step-body">
+            <h3>Peer review</h3>
+            <p>The draft curriculum document went through structured peer review in FeedbackFruits. Feedback identified content repeated across session mini-lectures and flagged that the reflection activity, as an optional task, was likely to be skipped.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <span class="step-num">5</span>
+          <div class="step-body">
+            <h3>Iterate</h3>
+            <p>Repeated content was streamlined so sessions build progressively without overlap, the reflection journal became mandatory to support metacognition, and accessibility coverage expanded to captioned media and clearly labelled downloads. Each change is documented against the feedback that prompted it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card card-purple mt-4">
+        <span class="card-label text-muted">Pedagogical grounding</span>
+        <p>The unit design draws on Kolb's experiential learning cycle, Laurillard's active learning, Knowles' adult learning principles, and Biggs and Tang's constructive alignment, with Nielsen's usability heuristics doing double duty as both subject matter and design standard for the unit itself.</p>
+      </div>
+    </section>
+
+    <section id="outcomes" class="divider-top">
+      <div class="eyebrow">Outcomes</div>
+      <h2>A working unit, validated by review</h2>
+      <p>The complete unit was built and is explorable above: three sessions, twenty-nine topic pages, six aligned assessment tasks, embedded knowledge checks, and a real-world case study. The design was validated through structured peer review, with every piece of feedback actioned and documented before the final build.</p>
+      <p>Delivered live, evaluation would track completion of the mandatory reflections, quiz performance against the 80% threshold, and the quality of submitted wireframe artefacts against the marking criteria, then follow up on whether learners apply flow-mapping and heuristic evaluation in their own work.</p>
+    </section>
+
+    <section id="reflection" class="divider-top">
+      <div class="eyebrow">Reflection</div>
+      <h2>What I would do differently</h2>
+      <p>The evaluation-first approach earned its keep: designing against documented failure modes produced sharper decisions than designing from preference. Two things I would change. I would pilot the unit with a real cohort early, because assumptions about activity timing survive peer review but rarely survive learners. And I would design social engagement into assessed activities from the start; the evaluation showed that discussion forums go unused unless participation matters, so relying on optional forum posts, even lightly, was optimism the evidence didn't support.</p>
+    </section>
+
   </div>
-</div>
 
-<!-- THE SOLUTION -->
-<div class="bg-grey">
-  <div class="section">
-    <div class="eyebrow">The Solution</div>
-    <h2>A unit that practises the UX it teaches</h2>
-    <p>The unit moves learners through three two-hour sessions, each in the delivery mode that suits its cognitive work: foundations and group flow-mapping in person, collaborative heuristic evaluation live online, and independent wireframe creation self-paced. Three learning objectives climb Bloom's taxonomy from Apply to Evaluate to Create, and all three converge on one authentic project: designing the onboarding flow for NSURE, a fictional insurance app, exactly as a junior designer would in practice.</p>
-    <p>Every structural decision answers a failure mode from the evaluation. Content lives on the page in progressive-disclosure accordions, so learners scan a session at a glance and expand only what they need, with no link-hopping. Assessment has one canonical home: a single table lists all six tasks with due dates, and each task page appears exactly once, inside the topic it belongs to. Every session follows the same predictable pattern, so learners spend their attention on the content rather than the interface.</p>
-    <div class="module-grid mt-4">
-      <div class="module-card">
-        <div class="card-label text-muted">Session 1 &middot; 2 hrs &middot; In-person</div>
-        <h3>Foundations of User Flows</h3>
-        <p>Flow symbols, logic, and error paths. Learners map a real checkout process, then chart the NSURE onboarding journey in groups. Outcome: accurate user-flow diagrams with explained logic (LO1).</p>
-      </div>
-      <div class="module-card">
-        <div class="card-label text-muted">Session 2 &middot; 2 hrs &middot; Synchronous online</div>
-        <h3>Heuristics and Competitor Analysis</h3>
-        <p>Nielsen's heuristics applied in breakout workshops, then a structured analysis of direct and indirect competitors. Outcome: evaluated interfaces and patterns to inform wireframes (LO2).</p>
-      </div>
-      <div class="module-card">
-        <div class="card-label text-muted">Session 3 &middot; 2 hrs &middot; Self-paced</div>
-        <h3>From Flows to Wireframes</h3>
-        <p>Wireframing principles, screen planning, and annotated low-fidelity wireframes uploaded for assessment, with a mandatory reflection journal. Outcome: wireframes meeting usability and accessibility criteria (LO3).</p>
-      </div>
-    </div>
+  <details class="case-toc" open>
+    <summary><span class="chevron">&#9662;</span> Table of contents</summary>
+    <ul>
+      <li><a href="#intro" data-toc-link>Project overview</a></li>
+      <li><a href="#problem" data-toc-link>A unit about UX cannot live in an LMS that ignores it</a></li>
+      <li><a href="#solution" data-toc-link>A unit that practises the UX it teaches</a></li>
+      <li><a href="#decisions" data-toc-link>Choices that shaped the learner experience</a></li>
+      <li><a href="#artefacts" data-toc-link>Objectives built to be measured</a></li>
+      <li><a href="#process" data-toc-link>How the unit was built</a></li>
+      <li><a href="#outcomes" data-toc-link>A working unit, validated by review</a></li>
+      <li><a href="#reflection" data-toc-link>What I would do differently</a></li>
+    </ul>
+  </details>
 
-    <div class="grid grid-3 grid-overflow">
-      <div>
-        <img src="images/curriculum-assessment.webp" alt="The unit's single assessment table listing all six tasks, what each involves, and when each is due." class="img img-border img-zoom">
-        <div class="caption"><strong>One canonical assessment table.</strong> Six tasks, one location, no duplication. A direct answer to the scattered assessment information found in the evaluation.</div>
-      </div>
-      <div>
-        <img src="images/curriculum-quiz.webp" alt="H5P knowledge check asking what a user flow shows, with four selectable answers." class="img img-border img-zoom">
-        <div class="caption"><strong>Embedded knowledge checks.</strong> H5P quizzes sit inside each session with instant feedback, rather than linking out to a separate quiz tool.</div>
-      </div>
-      <div>
-        <img src="images/curriculum-headspace.webp" alt="Course page presenting the Headspace onboarding evolution case study, with an embedded video interview with a Headspace lead designer." class="img img-border img-zoom">
-        <div class="caption"><strong>Real-world anchor.</strong> A case study on Headspace's onboarding redesign shows learners iterative prototyping working in a product they know.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- KEY DESIGN DECISIONS -->
-<div class="section">
-  <div class="eyebrow">Key Design Decisions</div>
-  <h2>Choices that shaped the learner experience</h2>
-  <div class="grid gap-1">
-    <div class="card card-grey">
-      <span class="card-label">Decision 1</span>
-      <span class="card-title">Content on the page, not behind links</span>
-      <p>Every topic overview, lesson list, and activity brief is readable in place, with accordions providing progressive disclosure instead of separate pages. Each click a course demands is a cost; the evaluation showed how quickly those costs compound into frustration. Reducing them is the same discipline the unit teaches for onboarding flows.</p>
-    </div>
-    <div class="card card-grey">
-      <span class="card-label">Decision 2</span>
-      <span class="card-title">Constructive alignment from objective to artefact</span>
-      <p>Each learning objective is pitched at a named Bloom's level and assessed by the same integrated project, following Biggs and Tang's constructive alignment. Nothing is assessed that isn't taught, and nothing is taught that doesn't feed the final artefact: an annotated wireframe set for the NSURE onboarding flow.</p>
-    </div>
-    <div class="card card-grey">
-      <span class="card-label">Decision 3</span>
-      <span class="card-title">Delivery mode matched to cognitive work</span>
-      <p>In-person time is spent where dialogue and error-spotting matter most, live online sessions power collaborative evaluation in breakouts, and creation happens self-paced where learners control their tools and tempo. The blend follows Kolb's experiential cycle rather than distributing content evenly across modes for its own sake.</p>
-    </div>
-  </div>
-</div>
-
-<!-- DESIGN ARTEFACTS -->
-<div class="bg-grey">
-  <div class="section">
-    <div class="eyebrow">Design Artefacts</div>
-    <h2>Objectives built to be measured</h2>
-    <p>The curriculum design document specifies every session down to timed activities with paired student and educator instructions. Its spine is three objectives, each with a Bloom's level and a direct line to the assessment criteria.</p>
-    <div class="table-wrap mt-3">
-      <table>
-        <thead>
-          <tr>
-            <th>Learning objective</th>
-            <th>Bloom's level</th>
-            <th>Assessed by</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Explain and apply user-flow principles to model user journeys within digital products.</td><td>Apply</td><td>Accuracy and clarity of user-flow logic in the NSURE onboarding flow.</td></tr>
-          <tr><td>Evaluate onboarding experiences using usability heuristics and competitor analysis.</td><td>Evaluate</td><td>Application of heuristics and competitive insight in the structured analysis.</td></tr>
-          <tr><td>Design and annotate low-fidelity wireframes that demonstrate clear structure, logic, and accessibility.</td><td>Create</td><td>Completeness and annotation quality of the final wireframe set.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="mt-3">Accessibility ran through the build rather than being retrofitted: plain language, alt text on every image, captioned video, colour contrast checked, downloadable text versions of activities, and keyboard-navigable quizzes.</p>
-  </div>
-</div>
-
-<!-- DESIGN PROCESS -->
-<div class="section">
-  <div class="eyebrow">Design Process</div>
-  <h2>How the unit was built</h2>
-  <div class="grid gap-1">
-    <div class="card step">
-      <span class="step-num">1</span>
-      <div class="step-body">
-        <h3>Evaluate existing learning environments</h3>
-        <p>Structured evaluation of live LMS spaces against criteria spanning ease of use, content quality, aesthetics, assessment, engagement, and outcomes. The documented failure modes became design requirements for the new unit.</p>
-      </div>
-    </div>
-    <div class="card step">
-      <span class="step-num">2</span>
-      <div class="step-body">
-        <h3>Curriculum design document</h3>
-        <p>Objectives, assessment, and three full lesson plans with timed activities, paired student and educator instructions, and development resources. Grounded in constructive alignment (Biggs &amp; Tang), adult learning principles (Knowles), and active learning (Laurillard).</p>
-      </div>
-    </div>
-    <div class="card step">
-      <span class="step-num">3</span>
-      <div class="step-body">
-        <h3>Build in D2L Brightspace</h3>
-        <p>Full unit authored in a D2L sandpit: module and topic architecture, session pages with progressive disclosure, H5P knowledge checks, templates and activity pages, and the Headspace case study with embedded video.</p>
-      </div>
-    </div>
-    <div class="card step">
-      <span class="step-num">4</span>
-      <div class="step-body">
-        <h3>Peer review</h3>
-        <p>The draft curriculum document went through structured peer review in FeedbackFruits. Feedback identified content repeated across session mini-lectures and flagged that the reflection activity, as an optional task, was likely to be skipped.</p>
-      </div>
-    </div>
-    <div class="card step">
-      <span class="step-num">5</span>
-      <div class="step-body">
-        <h3>Iterate</h3>
-        <p>Repeated content was streamlined so sessions build progressively without overlap, the reflection journal became mandatory to support metacognition, and accessibility coverage expanded to captioned media and clearly labelled downloads. Each change is documented against the feedback that prompted it.</p>
-      </div>
-    </div>
-  </div>
-  <div class="card card-purple mt-4">
-    <span class="card-label text-muted">Pedagogical grounding</span>
-    <p>The unit design draws on Kolb's experiential learning cycle, Laurillard's active learning, Knowles' adult learning principles, and Biggs and Tang's constructive alignment, with Nielsen's usability heuristics doing double duty as both subject matter and design standard for the unit itself.</p>
-  </div>
-</div>
-
-<!-- OUTCOMES -->
-<div class="bg-grey">
-  <div class="section">
-    <div class="eyebrow">Outcomes</div>
-    <h2>A working unit, validated by review</h2>
-    <p>The complete unit was built and is explorable above: three sessions, twenty-nine topic pages, six aligned assessment tasks, embedded knowledge checks, and a real-world case study. The design was validated through structured peer review, with every piece of feedback actioned and documented before the final build.</p>
-    <p>Delivered live, evaluation would track completion of the mandatory reflections, quiz performance against the 80% threshold, and the quality of submitted wireframe artefacts against the marking criteria, then follow up on whether learners apply flow-mapping and heuristic evaluation in their own work.</p>
-  </div>
-</div>
-
-<!-- REFLECTION -->
-<div class="section">
-  <div class="eyebrow">Reflection</div>
-  <h2>What I would do differently</h2>
-  <p>The evaluation-first approach earned its keep: designing against documented failure modes produced sharper decisions than designing from preference. Two things I would change. I would pilot the unit with a real cohort early, because assumptions about activity timing survive peer review but rarely survive learners. And I would design social engagement into assessed activities from the start; the evaluation showed that discussion forums go unused unless participation matters, so relying on optional forum posts, even lightly, was optimism the evidence didn't support.</p>
 </div>
 
 <div class="case-nav">
@@ -304,6 +311,35 @@
         body.classList.remove("nav-open");
       });
     });
+  }
+
+  // Case study table of contents: sticky sidebar, scroll-spy active state,
+  // collapses to a tap-to-reveal disclosure under 800px
+  const tocDetails = document.querySelector(".case-toc");
+  if (tocDetails) {
+    const tocMql = window.matchMedia("(max-width: 800px)");
+    const syncTocOpen = (e) => {
+      if (e.matches) tocDetails.removeAttribute("open");
+      else tocDetails.setAttribute("open", "");
+    };
+    syncTocOpen(tocMql);
+    tocMql.addEventListener("change", syncTocOpen);
+    const tocLinks = document.querySelectorAll(".case-toc a[data-toc-link]");
+    const tocSections = Array.from(tocLinks).map(l => document.querySelector(l.getAttribute("href")));
+    const setActiveLink = (id) => {
+      tocLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + id));
+    };
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveLink(entry.target.id);
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    tocSections.forEach(s => s && tocObserver.observe(s));
+    tocLinks.forEach(l => l.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(l.getAttribute("href")).scrollIntoView({ behavior: "smooth", block: "start" });
+      if (window.innerWidth <= 800) tocDetails.removeAttribute("open");
+    }));
   }
 </script>
 

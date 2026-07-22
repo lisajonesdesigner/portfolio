@@ -975,13 +975,22 @@ td:first-child {
 }
 
 /* Intro paragraph under the hub h1, same scale as a case study's
-   .intro-summary lead paragraph for consistency across page types. */
+   .intro-summary lead paragraph for consistency across page types.
+   margin-bottom is set below with the .hub-intro parent prefix,
+   because the global `p:last-child { margin-bottom: 0; }` reset
+   (section 2) is more specific than .hub-lead alone (it matches on
+   both the p tag and the :last-child pseudo-class) and would
+   otherwise cancel this out, since .hub-lead is the last paragraph
+   in .hub-intro. */
 .hub-lead {
   font-size: 18px;
   font-weight: 500;
   line-height: var(--leading-normal);
   color: var(--grey-1);
   max-width: 800px;
+}
+
+.hub-intro .hub-lead {
   margin-bottom: 40px;
 }
 
@@ -1609,7 +1618,7 @@ footer a:hover {
   border: 1px solid #000;
   border-radius: 999px;
   padding: 5px 16px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 /* ============================================================
