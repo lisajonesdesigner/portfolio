@@ -75,7 +75,7 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary">A research-informed exploration of the design principles required for trustworthy AI-assisted communication in brain injury rehabilitation. The Digital Twin Advocate (DTA) is a concept for a personalised AI companion, grounded in analysis of over 5,000 Reddit posts about digital twins and AI companions rather than a built or tested product.</p>
+      <p class="intro-summary"><strong>Design principles validated against public sentiment data before a single screen was designed, not against a built product.</strong> A research-informed exploration of the design principles required for trustworthy AI-assisted communication in brain injury rehabilitation. The Digital Twin Advocate (DTA) is a concept for a personalised AI companion, grounded in analysis of over 5,000 Reddit posts about digital twins and AI companions.</p>
       <div class="intro-meta">
         <div class="meta-item">
           <span class="meta-label">Focus</span>
@@ -93,7 +93,6 @@
     </section>
 
     <section id="problem" class="divider-top">
-      <div class="eyebrow">The Problem</div>
       <h2>Losing speech after brain injury doesn't mean losing understanding. Trust decides whether AI can help.</h2>
       <p>After a stroke or traumatic brain injury, some patients stay fully aware but lose the ability to speak or gesture reliably. Families and clinicians are left interpreting small physical signals, and what gets lost isn't just communication, it's recognition.</p>
       <p>The Digital Twin Advocate (DTA) is a concept for a personalised AI companion trained on a patient's pre-injury voice, expressions and communication history, designed to help them communicate again during rehabilitation. It isn't an autonomous replacement. It's designed to look to the patient for signals of comfort, confusion or consent before it speaks on their behalf.</p>
@@ -105,61 +104,99 @@
     </section>
 
     <section id="research" class="divider-top">
-      <div class="eyebrow">Research</div>
       <h2>Two rounds of Reddit analysis, from broad sentiment to a focused design signal</h2>
       <p>Rather than starting from assumptions about AI acceptance, the project started with what people already say when nobody's asking them a survey question. Phase one examined how public conversation about digital twins evolved between 2014 and 2025 across engineering, medical, creative and AI-agent contexts, using Communalytic to collect around 900 Reddit comments and semantic clustering to group recurring topics and attitudes by time period.</p>
       <p>Phase two narrowed the lens to assistive AI and brain injury care specifically: 4,343 posts and comments (2014–2025) across r/TBI, r/AssistiveTechnology, r/technology, r/artificialinteligence and r/artificial, coded into six themes covering framing, healthcare use, empathy, identity and ethics, autonomy, and trust and privacy.</p>
+
+      <h3 class="mt-4">How the conversation shifted, 2014–2025</h3>
+      <div class="img-frame-grey">
+        <div class="img-heading">Discourse timeline, 2014&ndash;2025</div>
+        <img class="img" src="images/digitaltwin-timeline.webp" alt="Timeline of discourse: 2014-2019 industrial and scientific simulations, informative and technically curious in tone. 2020-2022 medical and predictive twins, optimistic and hopeful. 2022-2023 AI clones, ownership and AI art, reflective and concerned. 2023-2025 AI agents and simulation ethics, philosophical and ethical.">
+        <a href="#" class="view-larger">View larger &#8599;</a>
+      </div>
+      <div class="caption">Public discourse gradually shifted from technical explanation to ethical reflection. From the phase one analysis of around 900 Reddit comments (2014–2025).</div>
 
       <div class="table-wrap mt-3">
         <table>
           <thead>
             <tr>
               <th>Theme</th>
-              <th>Mentions</th>
+              <th>Focus</th>
+              <th>Quote</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Robot vs ally framing</td><td>1,352</td></tr>
-            <tr><td>Healthcare use</td><td>1,135</td></tr>
-            <tr><td>Empathy and companionship</td><td>765</td></tr>
-            <tr><td>Identity and ethics</td><td>527</td></tr>
-            <tr><td>Control and autonomy</td><td>323</td></tr>
+            <tr><td>Technical curiosity</td><td>Explaining how digital twins work. Fascination with the technology.</td><td>"The important thing is that it has constant operation data&hellip; makes the simulation accurate." &ndash; AtrociousMeandering, Dec 2024</td></tr>
+            <tr><td>Biomedical optimism</td><td>Positive potential of digital twins in medicine and health prediction.</td><td>"They could test drugs on your twin before you take them." &ndash; User comment, 2023</td></tr>
+            <tr><td>Identity and ownership</td><td>AI clones, likeness, control.</td><td>"No, but your digital clone will." &ndash; WhatTheZuck420, Sept 2022</td></tr>
+            <tr><td>Creativity and art</td><td>AI authorship and originality.</td><td>"The whole purpose of art is the thought and precision that goes into creating it&hellip; this is a huge hit for anyone that appreciates true art." &ndash; whatsthewordguys, Jul 2023</td></tr>
+            <tr><td>Simulation and agents</td><td>Omniverse, training environments.</td><td>"Every AI will need its own world to live in." &ndash; r/artificial, 2024</td></tr>
+            <tr><td>Ethics and trust</td><td>Privacy and autonomy concerns.</td><td>"What are the chances this stuff gets hacked and we see people's likeness in weird videos?" &ndash; bottledsoi, Sept 2022</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="caption"><strong>Thematic distribution.</strong> Coded from 4,343 posts across r/TBI, r/AssistiveTechnology, r/technology, r/artificialinteligence and r/artificial. Trust and privacy was coded as a sixth theme and runs through the discussion below.</div>
+      <div class="caption">Patterns of discourse, coded from around 900 Reddit comments (2014&ndash;2025).</div>
 
-      <div class="table-wrap mt-4">
-        <table>
-          <thead>
-            <tr>
-              <th>Framing term</th>
-              <th>Mentions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Ally</td><td>1,205</td></tr>
-            <tr><td>Friend</td><td>221</td></tr>
-            <tr><td>Robot</td><td>33</td></tr>
-            <tr><td>Advocate</td><td>32</td></tr>
-            <tr><td>Android</td><td>32</td></tr>
-          </tbody>
-        </table>
+      <h3 class="mt-4">What the focused study found</h3>
+      <div class="grid grid-2 gap-1">
+        <div>
+          <div class="table-wrap">
+            <table class="table-stat">
+              <thead>
+                <tr>
+                  <th>Theme</th>
+                  <th>Mentions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Robot vs ally framing</td><td>1,352</td></tr>
+                <tr><td>Healthcare use</td><td>1,135</td></tr>
+                <tr><td>Empathy and companionship</td><td>765</td></tr>
+                <tr><td>Identity and ethics</td><td>527</td></tr>
+                <tr><td>Control and autonomy</td><td>323</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="caption">Thematic distribution, coded from 4,343 posts. Trust and privacy was coded as a sixth theme and runs through the discussion below.</div>
+        </div>
+        <div>
+          <div class="table-wrap">
+            <table class="table-stat">
+              <thead>
+                <tr>
+                  <th>Framing term</th>
+                  <th>Mentions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Ally</td><td>1,205</td></tr>
+                <tr><td>Friend</td><td>221</td></tr>
+                <tr><td>Robot</td><td>33</td></tr>
+                <tr><td>Advocate</td><td>32</td></tr>
+                <tr><td>Android</td><td>32</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="caption">Language and sentiment: "ally" outperformed "robot" by more than 36 to 1.</div>
+        </div>
       </div>
-      <div class="caption"><strong>Language and sentiment.</strong> "Ally" outperformed "robot" by more than 36 to 1. Relational language consistently outperformed technical labels across every subreddit.</div>
 
-      <div class="card card-grey mt-3">
-        <span class="card-label">Community insights</span>
-        <ul>
-          <li><strong>r/TBI:</strong> the strongest desire for tools that preserve identity and independence, and the most positive sentiment toward assistive AI overall.</li>
-          <li><strong>r/AssistiveTechnology:</strong> technical innovation is valued, but empathy is seen as the missing element that makes technology feel human.</li>
-          <li><strong>r/technology and r/artificial:</strong> discussion centres on autonomy and ethics. Sentiment turns positive when AI is framed as therapeutic rather than commercial.</li>
-        </ul>
+      <h3 class="mt-4">Community insights</h3>
+      <ul>
+        <li><strong>r/TBI:</strong> the strongest desire for tools that preserve identity and independence, and the most positive sentiment toward assistive AI overall.</li>
+        <li><strong>r/AssistiveTechnology:</strong> technical innovation is valued, but empathy is seen as the missing element that makes technology feel human.</li>
+        <li><strong>r/technology and r/artificial:</strong> discussion centres on autonomy and ethics. Sentiment turns positive when AI is framed as therapeutic rather than commercial.</li>
+      </ul>
+
+      <div class="img-frame-grey mt-4">
+        <div class="img-heading">Key insights for design</div>
+        <img class="img" src="images/digitaltwin-key-insights.webp" alt="Key insights: 1. Reveals areas of ethics and trust, public discussion shows where people feel uncertain or conflicted about AI. 2. Helps guide design choices, analysis turns conversation into measurable data showing which values or fears matter most. 3. Evidence for human-centred AI design, findings support frameworks that put people first, stressing transparency, user control, and reflection.">
+        <a href="#" class="view-larger">View larger &#8599;</a>
       </div>
+      <div class="caption">Public discourse acts as both a diagnostic tool and a design guide.</div>
     </section>
 
     <section id="principles" class="divider-top">
-      <div class="eyebrow">Design Principles</div>
       <h2>Translating public sentiment into design principles</h2>
       <p>Each recommendation below traces back to a specific pattern in the data rather than a general assumption about what makes AI feel trustworthy.</p>
       <div class="table-wrap mt-3">
@@ -185,7 +222,6 @@
     </section>
 
     <section id="decisions" class="divider-top">
-      <div class="eyebrow">Key Design Decisions</div>
       <h2>Choices that shape whether a companion feels like a partner, not a replacement</h2>
       <div class="grid grid-2 gap-1">
         <div class="card card-grey">
@@ -216,11 +252,24 @@
       </div>
     </section>
 
+    <section id="outcomes" class="divider-top">
+      <h2>What the research supports, and what it doesn't</h2>
+      <p>This project is a research-informed concept, not a built or tested system. Every design principle traces back to a specific pattern in the data rather than a general assumption about what makes AI feel trustworthy.</p>
+      <div class="grid grid-2 gap-1">
+        <div class="card card-grey">
+          <span class="card-label">What the evidence shows</span>
+          <p>Two rounds of Reddit analysis (around 900 comments, then 4,343 posts across five subreddits) surfaced consistent patterns: "ally" language outperforming "robot" language by more than 36 to 1, and control and autonomy as the dominant concern across every community studied. Each design principle traces directly to one of these patterns.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">What was not measured</span>
+          <p>Whether patients, families, or clinicians would actually trust the DTA in practice. Reddit users skew technically literate and don't necessarily reflect the attitudes of people directly affected by brain injury, and automated thematic coding captures sentiment patterns rather than deeper emotional nuance. These principles are hypotheses to test, not validated outcomes.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="reflection" class="divider-top">
-      <div class="eyebrow">Reflection</div>
       <h2>What this project is, and what it still needs to become</h2>
-      <p>The DTA is a concept, not a built or tested system. The value of this project is in showing how large-scale public sentiment research can directly shape ethical, trustworthy design principles for AI in a sensitive care setting, before a single screen is designed.</p>
-      <p>Reddit users skew technically literate and don't necessarily reflect the attitudes of patients or families directly affected by brain injury, and automated thematic coding captures sentiment patterns rather than deeper emotional nuance. Validating these principles further would mean direct engagement: interviews with rehabilitation patients, families and clinical teams, and testing the human-in-the-loop interaction pattern with people who would actually rely on it.</p>
+      <p>The value of this project is in showing how large-scale public sentiment research can directly shape ethical, trustworthy design principles for AI in a sensitive care setting, before a single screen is designed. The next step is direct engagement: interviews with rehabilitation patients, families and clinical teams, and testing the human-in-the-loop interaction pattern with people who would actually rely on it.</p>
     </section>
 
   </div>
@@ -233,6 +282,7 @@
       <li><a href="#research" data-toc-link>Two rounds of Reddit analysis, from broad sentiment to a focused design signal</a></li>
       <li><a href="#principles" data-toc-link>Translating public sentiment into design principles</a></li>
       <li><a href="#decisions" data-toc-link>Choices that shape whether a companion feels like a partner, not a replacement</a></li>
+      <li><a href="#outcomes" data-toc-link>What the research supports, and what it doesn't</a></li>
       <li><a href="#reflection" data-toc-link>What this project is, and what it still needs to become</a></li>
     </ul>
   </details>
@@ -264,8 +314,53 @@
 </footer>
 </div>
 
+<div class="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+  <span class="lightbox-hint">Tap outside to close</span>
+  <div class="lightbox-panel">
+    <div class="img-heading"></div>
+    <img src="" alt="">
+  </div>
+</div>
 
 <script>
+  // Image lightbox: opens only from a "View larger" badge (bottom-right
+  // of the image) - images themselves are no longer directly clickable.
+  // The panel clones the source frame's heading text and frame class
+  // (border/grey/plain) so the enlarged view matches the on-page unit,
+  // not a bare image on black.
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxPanel = lightbox.querySelector(".lightbox-panel");
+  const lightboxHeading = lightbox.querySelector(".img-heading");
+  const lightboxImg = lightbox.querySelector("img");
+  const openLightbox = (img, headingText, frameClass) => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxHeading.textContent = headingText || "";
+    lightboxHeading.style.display = headingText ? "" : "none";
+    lightboxPanel.className = "lightbox-panel" + (frameClass ? " " + frameClass : "");
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+  const closeLightbox = () => {
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+  lightbox.addEventListener("click", closeLightbox);
+  lightboxPanel.addEventListener("click", e => e.stopPropagation());
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+  document.querySelectorAll(".view-larger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const frame = link.closest(".img-frame-border, .img-frame-grey, .img-frame-plain");
+      const img = frame ? frame.querySelector("img.img") : link.parentElement.querySelector("img.img");
+      const heading = frame ? frame.querySelector(".img-heading") : null;
+      const frameClass = frame ? [...frame.classList].find(c => c.startsWith("img-frame-")) : null;
+      if (img) openLightbox(img, heading ? heading.textContent : "", frameClass);
+    });
+  });
+
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");
   const body = document.body;

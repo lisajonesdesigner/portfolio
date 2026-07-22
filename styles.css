@@ -929,6 +929,15 @@ th {
 
 th:first-child { width: 120px; }
 
+/* .table-stat - two-column frequency/ranking tables (term + count).
+   Widens the label column so short numeric values don't strand
+   in a mostly-empty second column. min-width: 0 overrides the
+   480px default so two can sit side by side in a .grid.grid-2
+   without forcing the grid track past the content column width. */
+.table-stat { min-width: 0; }
+.table-stat th:first-child,
+.table-stat td:first-child { width: 70%; }
+
 th.col-good { background: var(--teal);  color: var(--on-dark); }
 th.col-warn { background: var(--amber); color: var(--on-dark); }
 th.col-fail { background: var(--red);   color: var(--on-dark); }
@@ -1031,17 +1040,20 @@ td:first-child {
   padding: 0 48px;
 }
 
-/* body.hub-page widens the UX Product Design hub (index.html) to its
-   own 1320px column (a separate, wider column from the 1228px one
-   case study pages use - see body.case-study-page in the NAVIGATION
-   section - since the hub's 3-card grid doesn't share the case
-   study's text + toc sidebar layout). Doesn't affect .hub-section,
-   which is only used on learning.html (a separate hub not covered
-   by this request). */
+/* body.hub-page widens both hub pages (index.html and learning.html)
+   to the same 1320px column (a separate, wider column from the
+   1228px one case study pages use - see body.case-study-page in the
+   NAVIGATION section - since the hub's card grid doesn't share the
+   case study's text + toc sidebar layout). .hub-section is included
+   here too so learning.html's "Learning platforms at scale" and
+   "Experimental and research" bands share the same left edge as the
+   main project grid above them, instead of sitting at the older
+   1200px width. */
 body.hub-page nav,
 body.hub-page .hub-intro,
 body.hub-page .hub-crosslink,
-body.hub-page .project-grid {
+body.hub-page .project-grid,
+body.hub-page .hub-section {
   max-width: 1320px;
 }
 
@@ -1848,9 +1860,11 @@ body.case-study-page .crumbs {
 }
 
 /* Back-to-hub and next-case links at the end of every case study.
-   Also used on a couple of the digital-learning pages (chatbot,
-   access, curriculum), which still use the older, narrower 804px
-   column - that's what the base padding formula below matches. */
+   The base padding formula below (804px column) is a fallback only -
+   every page that currently uses .case-nav also has body.case-study-
+   page, so the override just below always wins in practice. Kept as
+   the base so any future non-case-study-page use of .case-nav still
+   gets a sensible default. */
 .case-nav {
   display: flex;
   justify-content: space-between;
@@ -1861,8 +1875,9 @@ body.case-study-page .crumbs {
   border-top: 1px solid var(--grey-7);
 }
 
-/* Case study pages (monash/pas/aged) use the 1228px column - same
-   fix, same formula, as body.case-study-page .crumbs above. */
+/* Every case study page (monash/pas/aged/access/chatbot/curriculum/
+   digitaltwin) uses the 1228px column - same fix, same formula, as
+   body.case-study-page .crumbs above. */
 body.case-study-page .case-nav {
   padding-left: max(48px, calc(50% - 566px));
   padding-right: max(48px, calc(50% - 566px));
@@ -2065,10 +2080,14 @@ body.case-study-page .case-nav {
 
 /* ============================================================
    25. CASE STUDY STATS & LIGHTBOX - stat strip + image lightbox
-   .stat-row   - auto-fit grid of headline numbers under intro
-   .stat-num   - big number. .stat-label - small caps beneath
-   .lightbox   - fullscreen image viewer, tap/click to close.
-                 JS attaches a click handler to every img.img.
+   .stat-row      - auto-fit grid of headline numbers under intro
+   .stat-num      - big number. .stat-label - small caps beneath
+   .lightbox      - dimmed backdrop, tap/click outside panel to close
+   .lightbox-panel - white card holding heading + framed image, i.e.
+                     the same heading/frame/image unit as on the page,
+                     just enlarged - not a bare image on black.
+                     JS clones the source .img-frame-* div's heading
+                     text, frame class, and image into this panel.
    ============================================================ */
 .stat-row {
   display: grid;
@@ -2097,22 +2116,37 @@ body.case-study-page .case-nav {
   inset: 0;
   z-index: 200;
   display: none;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   overflow: auto;
-  padding: 32px 16px;
-  background: rgba(26, 26, 26, 0.92);
+  padding: 40px 16px;
+  background: rgba(26, 26, 26, 0.85);
   cursor: zoom-out;
 }
 .lightbox.open { display: flex; }
-.lightbox img {
-  max-width: min(1100px, 100%);
+.lightbox-panel {
+  cursor: default;
+  width: 100%;
+  max-width: min(770px, 100%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+.lightbox-panel .img-heading { margin-bottom: 14px; }
+.lightbox-panel .img-frame-border,
+.lightbox-panel .img-frame-grey,
+.lightbox-panel .img-frame-plain { padding: 20px 20px 16px; }
+.lightbox-panel .img-frame-plain { padding: 0; }
+.lightbox-panel img {
+  display: block;
+  width: 100%;
   height: auto;
   border-radius: 4px;
 }
 .lightbox-hint {
   position: fixed;
-  top: 12px;
+  top: 16px;
   right: 20px;
   color: #fff;
   font-size: var(--text-sm);

@@ -268,7 +268,7 @@
       <p>Templates were signed off by stakeholders following the second round. Annotated Figma files were produced for the development team to support accurate implementation. Staff onboarding and training was handled by a separate department.</p>
 
       <h3>Constraints and trade-offs</h3>
-      <p>The initial brief directed exploration away from Monash's existing visual system. Late in delivery, a mandate required full alignment with central brand standards. Visuals were updated to meet this requirement while preserving structure and timelines.</p>
+      <p>The initial brief directed exploration away from Monash's existing visual system. Late in delivery, a mandate required full alignment with central brand standards. I led that realignment directly with Monash's central Brand Review team, iterating the visual language over several rounds of stakeholder feedback until it met brand requirements while preserving the underlying structure and delivery timeline.</p>
       <p>The structural decisions remained intact throughout. Brand alignment was applied to the visual layer without requiring changes to information architecture or template logic.</p>
 
       <div class="grid grid-2 grid-tight-top">
@@ -376,18 +376,29 @@
 </div>
 
 <div class="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
-  <span class="lightbox-hint">Tap anywhere to close</span>
-  <img src="" alt="">
+  <span class="lightbox-hint">Tap outside to close</span>
+  <div class="lightbox-panel">
+    <div class="img-heading"></div>
+    <img src="" alt="">
+  </div>
 </div>
 
 <script>
   // Image lightbox: opens only from a "View larger" badge (bottom-right
   // of the image) - images themselves are no longer directly clickable.
+  // The panel clones the source frame's heading text and frame class
+  // (border/grey/plain) so the enlarged view matches the on-page unit,
+  // not a bare image on black.
   const lightbox = document.querySelector(".lightbox");
+  const lightboxPanel = lightbox.querySelector(".lightbox-panel");
+  const lightboxHeading = lightbox.querySelector(".img-heading");
   const lightboxImg = lightbox.querySelector("img");
-  const openLightbox = img => {
+  const openLightbox = (img, headingText, frameClass) => {
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
+    lightboxHeading.textContent = headingText || "";
+    lightboxHeading.style.display = headingText ? "" : "none";
+    lightboxPanel.className = "lightbox-panel" + (frameClass ? " " + frameClass : "");
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
   };
@@ -397,13 +408,17 @@
     document.body.style.overflow = "";
   };
   lightbox.addEventListener("click", closeLightbox);
+  lightboxPanel.addEventListener("click", e => e.stopPropagation());
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
   document.querySelectorAll(".view-larger").forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-      const img = link.parentElement.querySelector("img.img");
-      if (img) openLightbox(img);
+      const frame = link.closest(".img-frame-border, .img-frame-grey, .img-frame-plain");
+      const img = frame ? frame.querySelector("img.img") : link.parentElement.querySelector("img.img");
+      const heading = frame ? frame.querySelector(".img-heading") : null;
+      const frameClass = frame ? [...frame.classList].find(c => c.startsWith("img-frame-")) : null;
+      if (img) openLightbox(img, heading ? heading.textContent : "", frameClass);
     });
   });
 

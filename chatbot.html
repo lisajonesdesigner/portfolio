@@ -75,7 +75,7 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary">Schema Compass is a Voiceflow chatbot that guides adults through schema therapy concepts using conversation rather than text. This project demonstrates needs analysis, conversational learning design, accessibility decision-making, and iterative development based on user testing.</p>
+      <p class="intro-summary"><strong>A conversational chatbot that lets people apply schema therapy to their own life, something a static workbook can't do.</strong> Schema Compass is a Voiceflow chatbot that guides adults through schema therapy concepts using conversation rather than text. This project demonstrates needs analysis, conversational learning design, accessibility decision-making, and iterative development based on user testing.</p>
       <div class="intro-meta">
         <div class="meta-item">
           <span class="meta-label">Audience</span>
@@ -93,7 +93,6 @@
     </section>
 
     <section id="problem" class="divider-top">
-      <div class="eyebrow">The Problem</div>
       <h2>Understanding schemas can feel daunting.<br>Most resources make it worse.</h2>
       <p>Schema therapy is a well-evidenced framework for understanding why people think, feel, and behave the way they do. But the resources available (workbooks, questionnaires, academic texts) are written for clinicians. They are text-heavy, overwhelming, and inaccessible to the people who could benefit most.</p>
       <p>The design challenge was finding a format that could make complex, emotionally engaged content approachable without a therapist in the room.</p>
@@ -132,7 +131,6 @@
     </section>
 
     <section id="rationale" class="divider-top">
-      <div class="eyebrow">Design Rationale</div>
       <h2>Why conversational learning?</h2>
       <p class="lead">Schema therapy is about applying a framework to lived experience, not memorising a taxonomy. That requires reflection, personalisation, and guided questioning. A chatbot can provide all three. A static resource cannot.</p>
       <div class="card card-grey mt-3">
@@ -152,12 +150,15 @@
     </section>
 
     <section id="solution" class="divider-top">
-      <div class="eyebrow">The Solution</div>
       <h2>A five-stage structured learning sequence</h2>
       <p class="lead">Each stage mirrors the therapeutic process and corresponds to a learning objective. Learners do not read about schemas; they apply the framework to their own experience as the content unfolds.</p>
         <div>
-          <img src="images/chatbot-flow-stages.webp" alt="Schema Compass five-stage learning sequence: emotion, trigger, schema, unmet need, coping skill" class="img img-border img-zoom mt-4">
-          <div class="caption"><strong>Five stages.</strong> Each stage corresponds to a learning objective and mirrors the therapeutic process.</div>
+          <div class="img-frame-grey">
+            <div class="img-heading">Five stages</div>
+            <img class="img" src="images/chatbot-flow-stages.webp" alt="Schema Compass five-stage learning sequence: emotion, trigger, schema, unmet need, coping skill">
+            <a href="#" class="view-larger">View larger &#8599;</a>
+          </div>
+          <div class="caption">Each stage corresponds to a learning objective and mirrors the therapeutic process.</div>
         </div>
 
 
@@ -173,7 +174,6 @@
     </section>
 
     <section id="decisions" class="divider-top">
-      <div class="eyebrow">Key Design Decisions</div>
       <h2>Choices that shaped the learning experience</h2>
       <div class="grid grid-2 gap-1">
         <div class="card card-grey">
@@ -200,7 +200,6 @@
     </section>
 
     <section id="process" class="divider-top">
-      <div class="eyebrow">Design Process</div>
       <h2>How Schema Compass was built</h2>
       <div class="grid gap-1">
         <div class="card step">
@@ -208,8 +207,12 @@
           <div class="step-body">
             <h3>Domain analysis and content architecture</h3>
             <p>Twenty schemas mapped across five domains with associated unmet needs, schema modes, and linked coping skills. This content model became the branching architecture before any build began.</p>
-            <img src="images/chatbot-voiceflow-backend.webp" alt="Schema Compass full Voiceflow conversation architecture showing all emotion pathways" class="img img-border mt-3">
-            <div class="caption"><strong>Conversation flow.</strong> Full Voiceflow architecture mapped before any content was written. Every path resolves to a coping skill with no dead ends.</div>
+            <div class="img-frame-border">
+              <div class="img-heading">Conversation flow</div>
+              <img class="img" src="images/chatbot-voiceflow-backend.webp" alt="Schema Compass full Voiceflow conversation architecture showing all emotion pathways">
+              <a href="#" class="view-larger">View larger &#8599;</a>
+            </div>
+            <div class="caption">Full Voiceflow architecture mapped before any content was written. Every path resolves to a coping skill with no dead ends.</div>
           </div>
         </div>
         <div class="card step">
@@ -244,7 +247,6 @@
     </section>
 
     <section id="testing" class="divider-top">
-      <div class="eyebrow">Formative Testing</div>
       <h2>Prototype validation with five participants</h2>
       <div class="grid grid-2 gap-4">
         <div class="card">
@@ -312,10 +314,18 @@
     </section>
 
     <section id="outcomes" class="divider-top">
-      <div class="eyebrow">Outcomes and Reflection</div>
       <h2>What was validated and what comes next</h2>
-      <p>Testing validated the core concept. Ease of use was consistently high and the character voice landed, confirmed as appropriate by the psychologist, who asked to be sent the finished tool. Two iterations came directly from feedback: voice playback added, and name input rules updated after several users struggled to get started.</p>
-      <p>The most useful critique came from Alan, whose expectation of broader functionality identifies the gap between proof-of-concept and a tool that earns sustained engagement. Testing also revealed a limitation in the evaluation design: close-ended questions couldn't measure what participants had actually learned. Future testing would use open prompts tied to the learning objectives.</p>
+      <p>Testing validated the core concept. The most useful critique came from Alan, whose expectation of broader functionality identifies the gap between proof-of-concept and a tool that earns sustained engagement.</p>
+      <div class="grid grid-2 gap-1">
+        <div class="card card-grey">
+          <span class="card-label">What the evidence shows</span>
+          <p>Formative testing with five participants, including a clinical psychologist. Consistently high ease-of-use ratings. Character voice confirmed appropriate by the psychologist, who asked to be sent the finished tool. Two iterations made directly from feedback: voice playback added, name input rules relaxed.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">What was not measured</span>
+          <p>Whether participants could actually identify a schema or apply a coping skill - the close-ended rating questions couldn't test this. Sustained engagement beyond a single session. Future testing would use open prompts tied to the learning objectives instead.</p>
+        </div>
+      </div>
       <div class="card card-grey mt-3">
         <span class="card-label">Future development</span>
         <ul>
@@ -369,8 +379,53 @@
 </footer>
 </div>
 
+<div class="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+  <span class="lightbox-hint">Tap outside to close</span>
+  <div class="lightbox-panel">
+    <div class="img-heading"></div>
+    <img src="" alt="">
+  </div>
+</div>
 
 <script>
+  // Image lightbox: opens only from a "View larger" badge (bottom-right
+  // of the image) - images themselves are no longer directly clickable.
+  // The panel clones the source frame's heading text and frame class
+  // (border/grey/plain) so the enlarged view matches the on-page unit,
+  // not a bare image on black.
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxPanel = lightbox.querySelector(".lightbox-panel");
+  const lightboxHeading = lightbox.querySelector(".img-heading");
+  const lightboxImg = lightbox.querySelector("img");
+  const openLightbox = (img, headingText, frameClass) => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxHeading.textContent = headingText || "";
+    lightboxHeading.style.display = headingText ? "" : "none";
+    lightboxPanel.className = "lightbox-panel" + (frameClass ? " " + frameClass : "");
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+  const closeLightbox = () => {
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+  lightbox.addEventListener("click", closeLightbox);
+  lightboxPanel.addEventListener("click", e => e.stopPropagation());
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+  document.querySelectorAll(".view-larger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const frame = link.closest(".img-frame-border, .img-frame-grey, .img-frame-plain");
+      const img = frame ? frame.querySelector("img.img") : link.parentElement.querySelector("img.img");
+      const heading = frame ? frame.querySelector(".img-heading") : null;
+      const frameClass = frame ? [...frame.classList].find(c => c.startsWith("img-frame-")) : null;
+      if (img) openLightbox(img, heading ? heading.textContent : "", frameClass);
+    });
+  });
+
   const toggle = document.querySelector(".nav-toggle");
   const overlay = document.querySelector(".nav-overlay");
   const body = document.body;
