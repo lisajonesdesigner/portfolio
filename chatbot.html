@@ -75,7 +75,7 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary"><strong>A conversational AI agent that lets people apply schema therapy concepts to their own experience through guided questioning.</strong> Built in Voiceflow, Schema Compass guides adults through a structured conversation with Mira, a cat character, ending in a personalised takeaway they can revisit. This project demonstrates needs analysis, conversational learning design, accessibility decision-making, and iterative development based on user testing.</p>
+      <p class="intro-summary"><strong>An educational conversation that helps adults explore schema therapy concepts through guided reflection and a practical coping skill.</strong> Built in Voiceflow, Schema Compass guides adults through a structured conversation with Mira, a cat character, ending in a personalised reflection they can revisit. It's a self-directed learning experience, not a clinical or therapeutic one. The project demonstrates needs analysis, conversational learning design, accessibility decision-making, and iterative development based on user testing.</p>
       <div class="intro-meta">
         <div class="meta-item">
           <span class="meta-label">Audience</span>
@@ -102,8 +102,13 @@
       <p>The design challenge was untangling that maze into a single guided path: one schema, one need, one skill at a time, so a lay person could recognise their own pattern without needing to learn the whole framework first.</p>
 
       <div class="card card-bar mt-4">
+        <span class="card-label">Core design insight</span>
+        <span class="card-title">A single guided path: one schema, one need, one skill at a time.</span>
+      </div>
+
+      <div class="card card-bar mt-3">
         <span class="card-label">Learning challenge</span>
-        <span class="card-title">How might we help adults apply schema therapy to their own patterns, without a therapist present?</span>
+        <span class="card-title">How might we help adults apply schema therapy concepts to their own experiences in a self-directed learning environment?</span>
       </div>
 
       <div class="grid grid-2 gap-1">
@@ -122,9 +127,14 @@
             <li>Identify and name an emotion and connect it to a situational trigger.</li>
             <li>Apply schema therapy concepts to a personal example to recognise which schema is active and the unmet need beneath it.</li>
             <li>Select and apply a coping skill matched to their schema and emotional state.</li>
-            <li>Reflect on the pattern's origin and a healthier alternative through a personalised takeaway.</li>
+            <li>Review a personalised synthesis of the pattern's origin and a healthier alternative, drawn from the conversation, as a prompt for further reflection.</li>
           </ol>
         </div>
+      </div>
+
+      <div class="card card-purple mt-3">
+        <span class="card-label text-muted">Content and clinical framing</span>
+        <p>Schema Compass is an educational tool, not a therapeutic one. All content was developed from primary sources (Young et al., 2003; Bricker and Young, 2020) and reviewed by a practising psychologist, who confirmed the educational framing was appropriate and expressed intent to recommend the tool to clients for use alongside therapy.</p>
       </div>
 
       <div class="card card-purple mt-3">
@@ -136,15 +146,14 @@
 
     <section id="rationale" class="divider-top">
       <h2>Why conversational learning?</h2>
-      <p class="lead">Schema therapy is about applying a framework to lived experience, not memorising a taxonomy. That requires reflection, personalisation, and guided questioning. A chatbot can provide all three. A static resource cannot.</p>
+      <p class="lead">Schema therapy is about applying a framework to lived experience, not memorising a taxonomy. That requires reflection, personalisation, and guided questioning. A conversation can combine all three in a single sequence, adapting the next question to what the learner just said.</p>
       <div class="card card-grey mt-3">
         <span class="card-label">Learning principles applied</span>
         <ul>
           <li><strong>Scaffolding through guided questioning:</strong> each stage builds on the previous one before introducing new complexity.</li>
           <li><strong>Progressive disclosure:</strong> one concept per exchange reduces cognitive load across emotionally demanding content.</li>
           <li><strong>Reflection and self-explanation:</strong> learners apply the framework to their own experience, not hypothetical examples.</li>
-          <li><strong>Retrieval through scenario-based practice:</strong> the insight is arrived at through questioning rather than delivered as instruction.</li>
-          <li><strong>Reflection synthesised into a takeaway:</strong> origin, thinking distortion, a healthier view, and supporting evidence are drawn together into a personalised flashcard at the end of the conversation, so insight becomes something the learner can revisit.</li>
+          <li><strong>Personalised synthesis:</strong> Mira draws the origin, thinking distortion, a healthier view, and supporting evidence together into a flashcard at the end of the conversation, asking a quick follow-up only for anything she can't infer, so insight becomes something the learner can revisit.</li>
           <li><strong>Transfer built into the sequence:</strong> every path ends with a coping skill and a personalised flashcard, ensuring reflection connects to application.</li>
         </ul>
       </div>
@@ -156,47 +165,53 @@
 
     <section id="solution" class="divider-top">
       <h2>A structured reflective learning sequence</h2>
-      <p class="lead">Each step mirrors the therapeutic process and corresponds to a learning objective, moving from emotion to a personalised takeaway. Learners do not read about schemas; they apply the framework to their own experience as the conversation unfolds.</p>
+      <p class="lead">Each step mirrors the therapeutic process and corresponds to a learning objective, moving from emotion to a personalised reflection. Learners do not read about schemas; they apply the framework to their own experience as the conversation unfolds.</p>
         <div>
           <div class="img-frame-grey">
-            <div class="img-heading">Core sequence</div>
+            <div class="img-heading">One guided path, not a taxonomy</div>
             <img class="img" src="images/chatbot-flow-stages.webp" alt="Schema Compass five-stage learning sequence: emotion, trigger, schema, unmet need, coping skill">
             <a href="#" class="view-larger">View larger &#8599;</a>
           </div>
-          <div class="caption">A simplified view of the sequence. Each part corresponds to a learning objective and mirrors the therapeutic process.</div>
+          <div class="caption">Each stage corresponds to a learning objective and mirrors the therapeutic process.</div>
         </div>
 
       <div class="grid grid-3 gap-1 mt-4">
         <div class="card card-grey">
-          <span class="card-label">1. Select emotion</span>
+          <span class="card-label">1. Identify the emotion</span>
           <p>Mira greets the learner and presents a set of emotion buttons (anxious, sad, angry, ashamed, overwhelmed, lonely, frustrated, numb, guilty, hopeful) to choose from.</p>
         </div>
         <div class="card card-grey">
-          <span class="card-label">2. Identify trigger</span>
+          <span class="card-label">2. Explore the trigger</span>
           <p>Based on the emotion selected, Mira presents likely triggers as buttons and asks what happened, or what the learner was thinking about.</p>
         </div>
         <div class="card card-grey">
-          <span class="card-label">3. Present schemas</span>
+          <span class="card-label">3. Recognise a schema</span>
           <p>Using the emotion and trigger together, Mira surfaces two to four likely schemas with a plain-English description of each for the learner to choose from.</p>
         </div>
         <div class="card card-grey">
-          <span class="card-label">4. Display schema info</span>
+          <span class="card-label">4. Understand the pattern</span>
           <p>Mira explains the selected schema in short warm paragraphs: its definition, common thoughts, feelings, behaviours, and the underlying need it points to.</p>
         </div>
         <div class="card card-grey">
-          <span class="card-label">5. Guide skill</span>
+          <span class="card-label">5. Practise a coping skill</span>
           <p>Mira walks the learner through a matched coping skill one numbered step at a time, confirming each step before moving to the next.</p>
         </div>
         <div class="card card-grey">
-          <span class="card-label">6. Save flashcard and close</span>
+          <span class="card-label">6. Create a personal reflection</span>
           <p>Mira offers to save a personalised flashcard capturing the pattern's origin, thinking distortion, a healthier view, supporting evidence, and an alternative behaviour, asking a short follow-up only for anything she can't infer.</p>
         </div>
+      </div>
+
+      <div class="card card-purple mt-4">
+        <span class="card-label text-muted">The learning output</span>
+        <span class="card-title">The conversation ends with something the learner keeps.</span>
+        <p>The flashcard is the point where the session moves from reflection to something the learner can return to later.</p>
       </div>
 
       <div class="card card-bar mt-4">
         <span class="card-label">Accessibility decisions</span>
         <ul>
-          <li>Choice buttons throughout: no free text input, removing typing barriers and supporting users with low literacy or motor difficulties.</li>
+          <li>Choice buttons throughout: reducing typing demands and supporting learners who find open-ended text entry difficult.</li>
           <li>Voice playback added after user testing: learners can listen rather than read.</li>
           <li>Single-character name input allowed: removes the friction point that blocked some users from starting.</li>
           <li>Short text per screen: plain language and chunked delivery reduce cognitive load.</li>
@@ -209,7 +224,7 @@
       <div class="grid grid-2 gap-1">
         <div class="card card-grey">
           <span class="card-label">Decision 1</span>
-          <span class="card-title">Sequence follows the therapy</span>
+          <span class="card-title">Sequence follows the conceptual framework</span>
           <p>The sequence follows the same order as the schema therapy framework because each step depends on the last. You cannot name a schema without first grounding it in an emotion and a trigger, and you cannot reflect on its origin and a healthier alternative until the schema and a coping skill have been established. The sequence is the pedagogy and each step is a prerequisite for the next.</p>
         </div>
         <div class="card card-grey">
@@ -220,7 +235,7 @@
         <div class="card card-grey">
           <span class="card-label">Decision 3</span>
           <span class="card-title">Character over system voice</span>
-          <p>The character functions as an instructional scaffold, guiding learners through reflective activities without creating the sense of being assessed or diagnosed. When content asks learners to examine uncomfortable patterns, the framing of the interaction affects whether they engage honestly. User testing confirmed the tone landed as intended.</p>
+          <p>The character functions as an instructional scaffold, guiding learners through reflective activities without creating the sense of being assessed or diagnosed. She also gives the sequence a consistent guide from the first message to the flashcard, which supports continuity as well as safety. When content asks learners to examine uncomfortable patterns, the framing of the interaction affects whether they engage honestly. User testing confirmed the tone landed as intended.</p>
         </div>
         <div class="card card-grey">
           <span class="card-label">Decision 4</span>
@@ -236,42 +251,35 @@
         <div class="card step">
           <span class="step-num">1</span>
           <div class="step-body">
-            <h3>Domain analysis and content architecture</h3>
-            <p>Twenty schemas mapped across five domains with associated unmet needs, schema modes, and linked coping skills. This content model became the branching architecture before any build began.</p>
-            <div class="img-frame-border">
-              <div class="img-heading">Conversation flow</div>
-              <img class="img" src="images/chatbot-voiceflow-backend.webp" alt="Schema Compass full Voiceflow conversation architecture showing all emotion pathways">
-              <a href="#" class="view-larger">View larger &#8599;</a>
-            </div>
-            <div class="caption">Full Voiceflow architecture mapped before any content was written. Every path resolves to a coping skill with no dead ends.</div>
-          </div>
-        </div>
-        <div class="card step">
-          <span class="step-num">2</span>
-          <div class="step-body">
             <h3>Design brief</h3>
             <p>A "How might we" brief framed the problem before solution development. Learning objectives were derived from the brief to define what success looks like for a learner completing the experience.</p>
           </div>
         </div>
         <div class="card step">
-          <span class="step-num">3</span>
+          <span class="step-num">2</span>
           <div class="step-body">
-            <h3>Conversation flow mapping</h3>
-            <p>Full architecture mapped in Voiceflow before any content was written. Every path reviewed for dead ends. The goal: no learner path terminates without reaching a skill.</p>
+            <h3>Domain analysis and conversation architecture</h3>
+            <p>Twenty schemas mapped across five domains with associated unmet needs, schema modes, and linked coping skills. This content model became the full Voiceflow conversation architecture, with every path reviewed for dead ends before any content was written.</p>
+            <div class="img-frame-border">
+              <div class="img-heading">Every path resolves to a skill</div>
+              <img class="img" src="images/chatbot-voiceflow-backend.webp" alt="Schema Compass full Voiceflow conversation architecture showing all emotion pathways">
+              <a href="#" class="view-larger">View larger &#8599;</a>
+            </div>
+            <div class="caption">No learner path terminates without reaching a coping skill.</div>
           </div>
         </div>
         <div class="card step">
-          <span class="step-num">4</span>
+          <span class="step-num">3</span>
           <div class="step-body">
             <h3>Content writing in Mira's voice</h3>
             <p>Every response written in plain language: warm, direct, non-clinical. Skill content written for immediate practical use, with numbered steps rather than abstract guidance.</p>
           </div>
         </div>
         <div class="card step">
-          <span class="step-num">5</span>
+          <span class="step-num">4</span>
           <div class="step-body">
             <h3>Formative testing with early users</h3>
-            <p>Exploratory prototype validation with a small group of testers including a clinical psychologist. Structured protocol across three phases: before use, immediately after, and on reflection. Two iterations made in response to identified friction points.</p>
+            <p>Exploratory prototype validation with five testers, including a clinical psychologist. Structured protocol across three phases: before use, immediately after, and on reflection. Two iterations made in response to identified friction points.</p>
           </div>
         </div>
       </div>
@@ -293,9 +301,29 @@
           <blockquote>"I felt very guided. The practical strategies were easy to use. Send it to me when it's fully up and running. I'll use it."</blockquote>
         </div>
       </div>
-      <p class="text-muted mt-2">Alan's ratings were the most critical of the group, reflecting frustration with how limited the response options felt. Patrick raised a similar concern about functionality in writing but still rated the experience highly across the board, shown below.</p>
+      <p class="text-muted mt-2">Alan's ratings were the most critical of the group, reflecting frustration with how limited the response options felt. Patrick raised a similar concern about functionality in writing but still rated the experience highly across the board.</p>
 
-      <div class="table-wrap">
+      <div class="card card-grey mt-3">
+        <span class="card-label">What testing found, and what changed</span>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Finding</th>
+                <th>Design response</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Name entry frustrated several testers before they could begin</td><td>Allowed single-character name input</td></tr>
+              <tr><td>Some testers found reading dense schema content harder to follow</td><td>Added voice playback so learners can listen instead</td></tr>
+              <tr><td>Alan and Patrick wanted broader response options</td><td>Identified as a priority for expanding the coping skills library</td></tr>
+              <tr><td>Closed-ended ratings couldn't confirm whether learning objectives were met</td><td>Proposed objective-linked evaluation for future testing</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="table-wrap mt-3">
         <table>
           <thead>
             <tr>
@@ -315,14 +343,6 @@
       <div class="caption"><strong>What these ratings measure.</strong> Ease of use, helpfulness, and engagement are usability measures, not evidence of learning. Whether participants could actually identify a schema or apply a coping skill was not tested here. See Outcomes below.</div>
 
       <div class="card card-grey mt-3">
-        <span class="card-label">Iterations made after testing</span>
-        <ul>
-          <li>Voice playback added so users can listen to Mira rather than read.</li>
-          <li>Name input rules updated to allow a single character, removing the friction point that blocked several users from starting.</li>
-        </ul>
-      </div>
-
-      <div class="card card-grey mt-3">
         <span class="card-label">Future evaluation measures</span>
         <ul>
           <li>Ability to identify an emotion and connect it to a situational trigger.</li>
@@ -332,19 +352,15 @@
         </ul>
       </div>
 
-      <div class="card card-purple mt-4">
-        <span class="card-label text-muted">Content and clinical framing</span>
-        <p>Schema Compass is an educational tool, not a therapeutic one. All content was developed from primary sources (Young et al., 2003; Bricker and Young, 2020) and reviewed by a practising psychologist, who confirmed the educational framing was appropriate and expressed intent to recommend the tool to clients for use alongside therapy.</p>
-      </div>
     </section>
 
     <section id="outcomes" class="divider-top">
       <h2>Outcomes and next steps</h2>
-      <p>Testing validated the core concept. The most useful critique came from Alan, whose expectation of broader functionality identifies the gap between proof-of-concept and a tool that earns sustained engagement.</p>
+      <p>Testing provided early evidence that the core interaction was understandable and approachable, while also identifying limits in the prototype's breadth and functionality. The most useful critique came from Alan and Patrick, whose expectation of broader functionality points to the gap between a proof of concept and a tool built for sustained engagement.</p>
       <div class="grid grid-2 gap-1">
         <div class="card card-grey">
           <span class="card-label">What the evidence shows</span>
-          <p>Formative testing with a small group of early users, including a clinical psychologist. Consistently high ease-of-use ratings. Character voice confirmed appropriate by the psychologist, who asked to be sent the finished tool. Two iterations made directly from feedback: voice playback added, name input rules relaxed.</p>
+          <p>Formative testing with five participants, including a clinical psychologist. Ease of use was rated positively across the group, while helpfulness and engagement varied. Character voice confirmed appropriate by the psychologist, who asked to be sent the finished tool. Two iterations made directly from feedback: voice playback added, name input rules relaxed.</p>
         </div>
         <div class="card card-grey">
           <span class="card-label">What was not measured</span>
