@@ -2213,7 +2213,6 @@ body.case-study-page .case-nav {
 .case-toc-layout .intro-meta {
   border-top: none;
   padding-top: 0;
-  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
 

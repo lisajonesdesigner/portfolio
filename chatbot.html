@@ -65,7 +65,7 @@
   <img src="images/chatbot-cover.webp" alt="" class="hero-bg">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-title">Designing a conversational learning experience for complex psychological concepts</h1>
+    <h1 class="hero-title">Making schema therapy approachable through AI conversation</h1>
   </div>
 </div>
 
@@ -75,7 +75,7 @@
   <div class="case-main">
 
     <section id="intro">
-      <p class="intro-summary"><strong>A conversational chatbot that lets people apply schema therapy concepts to their own experience through guided questioning.</strong> Schema Compass is a Voiceflow chatbot that guides adults through schema therapy concepts using conversation rather than text. This project demonstrates needs analysis, conversational learning design, accessibility decision-making, and iterative development based on user testing.</p>
+      <p class="intro-summary"><strong>A conversational AI agent that lets people apply schema therapy concepts to their own experience through guided questioning.</strong> Built in Voiceflow, Schema Compass guides adults through a structured conversation with Mira, a cat character, ending in a personalised takeaway they can revisit. This project demonstrates needs analysis, conversational learning design, accessibility decision-making, and iterative development based on user testing.</p>
       <div class="intro-meta">
         <div class="meta-item">
           <span class="meta-label">Audience</span>
@@ -83,7 +83,7 @@
         </div>
         <div class="meta-item">
           <span class="meta-label">Tools</span>
-          <span class="meta-value">Voiceflow · Conversational UX writing · Learning design</span>
+          <span class="meta-value">Voiceflow · Generative AI · Conversational UX writing</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Role</span>
@@ -97,13 +97,13 @@
     </section>
 
     <section id="problem" class="divider-top">
-      <h2>Understanding schemas can feel daunting.<br>Most resources make it worse.</h2>
-      <p>Schema therapy is a well-evidenced framework for understanding why people think, feel, and behave the way they do. But many of the resources available (workbooks, questionnaires, academic texts) are written primarily for clinicians. They can be text-heavy, overwhelming, and inaccessible to the people who could benefit most.</p>
-      <p>The design challenge was finding a format that could make complex, emotionally engaged content approachable as a self-directed educational experience.</p>
+      <h2>Recognising a pattern, not a taxonomy</h2>
+      <p>Schema therapy is a well-evidenced framework for understanding why people think, feel, and behave the way they do, but the goal for a lay person isn't to learn the whole framework. It's to recognise the one pattern behind how they're feeling right now. That's hard because the concepts are highly interconnected: each schema links to an unmet need, a set of triggers, a thinking distortion, and one or more coping skills, and the workbooks and academic texts that map this out present it as a taxonomy to study rather than a single pattern to find.</p>
+      <p>The design challenge was untangling that maze into a single guided path: one schema, one need, one skill at a time, so a lay person could recognise their own pattern without needing to learn the whole framework first.</p>
 
       <div class="card card-bar mt-4">
         <span class="card-label">Learning challenge</span>
-        <span class="card-title">How might we guide reflective adults through schema therapy concepts so that they can recognise their own patterns and apply practical coping skills without needing a therapist present?</span>
+        <span class="card-title">How might we help adults apply schema therapy to their own patterns, without a therapist present?</span>
       </div>
 
       <div class="grid grid-2 gap-1">
@@ -120,17 +120,17 @@
           <span class="card-label">Learning objectives</span>
           <ol>
             <li>Identify and name an emotion and connect it to a situational trigger.</li>
-            <li>Apply schema therapy concepts to a personal example to recognise which schema is active.</li>
-            <li>Explain the unmet need associated with their identified schema.</li>
-            <li>Select and apply a practical coping skill matched to their schema and emotional state.</li>
+            <li>Apply schema therapy concepts to a personal example to recognise which schema is active and the unmet need beneath it.</li>
+            <li>Select and apply a coping skill matched to their schema and emotional state.</li>
+            <li>Reflect on the pattern's origin and a healthier alternative through a personalised takeaway.</li>
           </ol>
         </div>
       </div>
 
       <div class="card card-purple mt-3">
         <span class="card-label">An example learner path</span>
-        <span class="card-title">Learner selects "anxious" → identifies trigger "felt left out at the party" → Mira surfaces "abandonment schema" → learner receives a grounding technique with steps</span>
-        <p>Through guided questions, Mira surfaces the abandonment schema: a pattern of expecting to be excluded or left behind. The learner reads a short explanation of the unmet need beneath it. The session ends with a grounding technique in plain steps: notice five things you can see, four you can touch, three you can hear, two you can smell, one you can taste. Move your body gently.</p>
+        <span class="card-title">"Anxious" → "felt left out at a party" → abandonment schema → grounding skill → flashcard</span>
+        <p>Through guided questions, Mira surfaces the abandonment schema: a pattern of expecting to be excluded or left behind, along with the unmet need beneath it. She then walks through a matched grounding technique in plain steps: notice five things you can see, four you can touch, three you can hear, two you can smell, one you can taste. Move your body gently. Before ending, Mira offers to save a flashcard: a short personalised summary capturing where the pattern was likely learned, the thinking distortion it creates, a healthier view, supporting evidence from the learner's own life, and an alternative behaviour to try next time, asking a quick follow-up only for anything she can't infer from the conversation.</p>
       </div>
     </section>
 
@@ -144,7 +144,8 @@
           <li><strong>Progressive disclosure:</strong> one concept per exchange reduces cognitive load across emotionally demanding content.</li>
           <li><strong>Reflection and self-explanation:</strong> learners apply the framework to their own experience, not hypothetical examples.</li>
           <li><strong>Retrieval through scenario-based practice:</strong> the insight is arrived at through questioning rather than delivered as instruction.</li>
-          <li><strong>Transfer built into the sequence:</strong> every path ends with a coping skill, ensuring reflection connects to application.</li>
+          <li><strong>Reflection synthesised into a takeaway:</strong> origin, thinking distortion, a healthier view, and supporting evidence are drawn together into a personalised flashcard at the end of the conversation, so insight becomes something the learner can revisit.</li>
+          <li><strong>Transfer built into the sequence:</strong> every path ends with a coping skill and a personalised flashcard, ensuring reflection connects to application.</li>
         </ul>
       </div>
       <div class="card card-purple mt-4">
@@ -154,17 +155,43 @@
     </section>
 
     <section id="solution" class="divider-top">
-      <h2>A five-stage structured learning sequence</h2>
-      <p class="lead">Each stage mirrors the therapeutic process and corresponds to a learning objective. Learners do not read about schemas; they apply the framework to their own experience as the content unfolds.</p>
+      <h2>A structured reflective learning sequence</h2>
+      <p class="lead">Each step mirrors the therapeutic process and corresponds to a learning objective, moving from emotion to a personalised takeaway. Learners do not read about schemas; they apply the framework to their own experience as the conversation unfolds.</p>
         <div>
           <div class="img-frame-grey">
-            <div class="img-heading">Five stages</div>
+            <div class="img-heading">Core sequence</div>
             <img class="img" src="images/chatbot-flow-stages.webp" alt="Schema Compass five-stage learning sequence: emotion, trigger, schema, unmet need, coping skill">
             <a href="#" class="view-larger">View larger &#8599;</a>
           </div>
-          <div class="caption">Each stage corresponds to a learning objective and mirrors the therapeutic process.</div>
+          <div class="caption">A simplified view of the sequence. Each part corresponds to a learning objective and mirrors the therapeutic process.</div>
         </div>
 
+      <div class="grid grid-3 gap-1 mt-4">
+        <div class="card card-grey">
+          <span class="card-label">1. Select emotion</span>
+          <p>Mira greets the learner and presents a set of emotion buttons (anxious, sad, angry, ashamed, overwhelmed, lonely, frustrated, numb, guilty, hopeful) to choose from.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">2. Identify trigger</span>
+          <p>Based on the emotion selected, Mira presents likely triggers as buttons and asks what happened, or what the learner was thinking about.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">3. Present schemas</span>
+          <p>Using the emotion and trigger together, Mira surfaces two to four likely schemas with a plain-English description of each for the learner to choose from.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">4. Display schema info</span>
+          <p>Mira explains the selected schema in short warm paragraphs: its definition, common thoughts, feelings, behaviours, and the underlying need it points to.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">5. Guide skill</span>
+          <p>Mira walks the learner through a matched coping skill one numbered step at a time, confirming each step before moving to the next.</p>
+        </div>
+        <div class="card card-grey">
+          <span class="card-label">6. Save flashcard and close</span>
+          <p>Mira offers to save a personalised flashcard capturing the pattern's origin, thinking distortion, a healthier view, supporting evidence, and an alternative behaviour, asking a short follow-up only for anything she can't infer.</p>
+        </div>
+      </div>
 
       <div class="card card-bar mt-4">
         <span class="card-label">Accessibility decisions</span>
@@ -178,26 +205,26 @@
     </section>
 
     <section id="decisions" class="divider-top">
-      <h2>Choices that shaped the learning experience</h2>
+      <h2>Design decisions</h2>
       <div class="grid grid-2 gap-1">
         <div class="card card-grey">
           <span class="card-label">Decision 1</span>
-          <span class="card-title">Learning sequence derived from the therapeutic process, not imposed on it</span>
-          <p>The five stages follow the same order as the schema therapy framework because the concepts depend on each other. You cannot name a schema without first grounding it in an emotion and a trigger. The sequence is the pedagogy and each stage is a prerequisite for the next.</p>
+          <span class="card-title">Sequence follows the therapy</span>
+          <p>The sequence follows the same order as the schema therapy framework because each step depends on the last. You cannot name a schema without first grounding it in an emotion and a trigger, and you cannot reflect on its origin and a healthier alternative until the schema and a coping skill have been established. The sequence is the pedagogy and each step is a prerequisite for the next.</p>
         </div>
         <div class="card card-grey">
           <span class="card-label">Decision 2</span>
-          <span class="card-title">Choice buttons instead of free text: for learning reasons as well as UX reasons</span>
-          <p>Free text would require learners to already know the vocabulary of schema therapy. Buttons reframe the task to recognition rather than recall with a lower-demand cognitive task at the right point in the sequence. They also ensure every path reaches a coping skill, the actual learning outcome.</p>
+          <span class="card-title">Buttons over free text</span>
+          <p>Free text would require learners to already know the vocabulary of schema therapy. Buttons reframe the task to recognition rather than recall with a lower-demand cognitive task at the right point in the sequence. They also ensure every path reaches a completed skill and a personalised flashcard, the actual learning outcome.</p>
         </div>
         <div class="card card-grey">
           <span class="card-label">Decision 3</span>
-          <span class="card-title">A character guide rather than a system voice</span>
+          <span class="card-title">Character over system voice</span>
           <p>The character functions as an instructional scaffold, guiding learners through reflective activities without creating the sense of being assessed or diagnosed. When content asks learners to examine uncomfortable patterns, the framing of the interaction affects whether they engage honestly. User testing confirmed the tone landed as intended.</p>
         </div>
         <div class="card card-grey">
           <span class="card-label">Decision 4</span>
-          <span class="card-title">The skill is the deliverable, not the insight</span>
+          <span class="card-title">Skill over insight</span>
           <p>Each conversation path ends with a coping skill matched to the schema and emotion the learner identified with step-by-step instructions and a photograph. This is the transfer moment. Without it, the session is reflection without application.</p>
         </div>
       </div>
@@ -243,15 +270,15 @@
         <div class="card step">
           <span class="step-num">5</span>
           <div class="step-body">
-            <h3>Formative testing with five participants</h3>
-            <p>Exploratory prototype validation with five participants including a clinical psychologist. Structured protocol across three phases: before use, immediately after, and on reflection. Two iterations made in response to identified friction points.</p>
+            <h3>Formative testing with early users</h3>
+            <p>Exploratory prototype validation with a small group of testers including a clinical psychologist. Structured protocol across three phases: before use, immediately after, and on reflection. Two iterations made in response to identified friction points.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="testing" class="divider-top">
-      <h2>Prototype validation with five participants</h2>
+      <h2>Testing with early users</h2>
       <div class="grid grid-2 gap-4">
         <div class="card">
           <span class="card-label text-muted">Deb</span>
@@ -262,27 +289,28 @@
           <blockquote>"Reasonably clear from the start. Entering my name was what frustrated me most."</blockquote>
         </div>
         <div class="card">
-          <span class="card-label text-muted">Dr Cahill, clinical psychologist</span>
+          <span class="card-label text-muted">A clinical psychologist, tester</span>
           <blockquote>"I felt very guided. The practical strategies were easy to use. Send it to me when it's fully up and running. I'll use it."</blockquote>
         </div>
       </div>
-      <p class="text-muted mt-2">Alan and Patrick's feedback followed the same pattern: strong trust in the tone and voice, with Alan wanting broader functionality than the current demo offered &mdash; both reflected in the ratings below.</p>
+      <p class="text-muted mt-2">Alan's ratings were the most critical of the group, reflecting frustration with how limited the response options felt. Patrick raised a similar concern about functionality in writing but still rated the experience highly across the board, shown below.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Measure (1–5)</th>
-              <th>Deb</th><th>Alan</th><th>Margi</th><th>Dr Cahill</th><th>Patrick</th>
+              <th>Deb</th><th>Alan</th><th>Margi</th><th>Psychologist</th><th>Patrick</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Ease of use</td><td>5</td><td>4</td><td>5</td><td>5</td><td>5</td></tr>
+            <tr><td>Ease of use</td><td>5</td><td>4</td><td>Easy*</td><td>5</td><td>5</td></tr>
             <tr><td>Helpfulness</td><td>5</td><td>2</td><td>3</td><td>5</td><td>5</td></tr>
             <tr><td>Engagement</td><td>5</td><td>2</td><td>2</td><td>4</td><td>5</td></tr>
           </tbody>
         </table>
       </div>
+      <div class="caption">*Margi answered this question in words rather than a number; "easy" is her actual response, not a converted score.</div>
       <div class="caption"><strong>Alan's lower ratings.</strong> These reflect an unmet expectation of broader functionality, consistent with his written feedback that he could see the potential in the prototype.</div>
       <div class="caption"><strong>What these ratings measure.</strong> Ease of use, helpfulness, and engagement are usability measures, not evidence of learning. Whether participants could actually identify a schema or apply a coping skill was not tested here. See Outcomes below.</div>
 
@@ -311,12 +339,12 @@
     </section>
 
     <section id="outcomes" class="divider-top">
-      <h2>What was validated and what comes next</h2>
+      <h2>Outcomes and next steps</h2>
       <p>Testing validated the core concept. The most useful critique came from Alan, whose expectation of broader functionality identifies the gap between proof-of-concept and a tool that earns sustained engagement.</p>
       <div class="grid grid-2 gap-1">
         <div class="card card-grey">
           <span class="card-label">What the evidence shows</span>
-          <p>Formative testing with five participants, including a clinical psychologist. Consistently high ease-of-use ratings. Character voice confirmed appropriate by the psychologist, who asked to be sent the finished tool. Two iterations made directly from feedback: voice playback added, name input rules relaxed.</p>
+          <p>Formative testing with a small group of early users, including a clinical psychologist. Consistently high ease-of-use ratings. Character voice confirmed appropriate by the psychologist, who asked to be sent the finished tool. Two iterations made directly from feedback: voice playback added, name input rules relaxed.</p>
         </div>
         <div class="card card-grey">
           <span class="card-label">What was not measured</span>
@@ -339,13 +367,13 @@
     <summary><span class="chevron">&#9662;</span> Table of contents</summary>
     <ul>
       <li><a href="#intro" data-toc-link>Project overview</a></li>
-      <li><a href="#problem" data-toc-link>Understanding schemas can feel daunting. Most resources make it worse.</a></li>
+      <li><a href="#problem" data-toc-link>Recognising a pattern, not a taxonomy</a></li>
       <li><a href="#rationale" data-toc-link>Why conversational learning?</a></li>
-      <li><a href="#solution" data-toc-link>A five-stage structured learning sequence</a></li>
-      <li><a href="#decisions" data-toc-link>Choices that shaped the learning experience</a></li>
+      <li><a href="#solution" data-toc-link>A structured reflective learning sequence</a></li>
+      <li><a href="#decisions" data-toc-link>Design decisions</a></li>
       <li><a href="#process" data-toc-link>How Schema Compass was built</a></li>
-      <li><a href="#testing" data-toc-link>Prototype validation with five participants</a></li>
-      <li><a href="#outcomes" data-toc-link>What was validated and what comes next</a></li>
+      <li><a href="#testing" data-toc-link>Testing with early users</a></li>
+      <li><a href="#outcomes" data-toc-link>Outcomes and next steps</a></li>
     </ul>
   </details>
 
