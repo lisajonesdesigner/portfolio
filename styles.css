@@ -806,7 +806,7 @@ body.nav-open {
   border: none;
   border-bottom: 1px solid var(--grey-7);
   padding: 28px 0;
-  align-items: start;
+  align-items: baseline;
 }
 
 .step:last-child {
@@ -827,7 +827,6 @@ body.nav-open {
   font-weight: 700;
   color: var(--purple);
   line-height: 1;
-  padding-top: 2px;
 }
 
 .step-body {
@@ -937,6 +936,14 @@ th:first-child { width: 120px; }
 .table-stat { min-width: 0; }
 .table-stat th:first-child,
 .table-stat td:first-child { width: 70%; }
+
+/* .table-lead - two-column tables where both columns hold prose
+   (e.g. finding + response) and the first needs more room than the
+   120px default. Distinct from .table-stat, which is tuned for
+   short term + count pairs. */
+.table-lead { min-width: 0; }
+.table-lead th:first-child,
+.table-lead td:first-child { width: 55%; }
 
 th.col-good { background: var(--teal);  color: var(--on-dark); }
 th.col-warn { background: var(--amber); color: var(--on-dark); }
