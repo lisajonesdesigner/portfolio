@@ -230,7 +230,7 @@ a:hover {
 /* On dark cards, labels go light */
 .card-purple .card-label,
 .card-purple .text-muted {
-  color: rgba(255,255,255,0.7);
+  color: var(--on-dark);
 }
 
 
@@ -587,6 +587,16 @@ body.nav-open {
 }
 .img-frame-plain .img { border: none; }
 
+/* Access case study: the 3 equal-size Rise screenshots (.grid-3
+   .rise-shots) get a border hugging the image directly, no padding -
+   scoped here rather than changing .img-frame-plain sitewide, since
+   other case studies rely on it having no border. */
+.rise-shots .img-frame-plain .img { border: 1px solid var(--grey-7); }
+
+/* Curriculum case study: same treatment for the 3 process screenshots
+   (assessment table, quiz, Headspace case study). */
+.curriculum-shots .img-frame-plain .img { border: 1px solid var(--grey-7); }
+
 /* Small "view larger" badge pinned to the bottom-right corner of a
    dense image (screenshot, table, small text) - the only zoom
    affordance now (images themselves are no longer clickable). Put it
@@ -660,6 +670,7 @@ body.nav-open {
   text-decoration: none;
   cursor: pointer;
   border: 2px solid transparent;
+  white-space: nowrap;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
@@ -746,7 +757,6 @@ body.nav-open {
    11. CARDS
    .card              - white, grey border
    .card-bar  - white, purple left bar, shadow
-   .card-bar-grey    - white, grey left bar
    .card-grey      - soft grey background
    .card-white      - white, drop shadow
    .card-purple        - purple background, white text
@@ -765,13 +775,6 @@ body.nav-open {
   border: none;
   border: 1px solid var(--grey-7);
   border-left: 5px solid var(--purple);
-  padding: 24px 28px;
-}
-
-.card-bar-grey {
-  background: #fff;
-  border: none;
-  border-left: 5px solid var(--grey-6);
   padding: 24px 28px;
 }
 
@@ -798,20 +801,25 @@ body.nav-open {
   padding: 36px 40px;
 }
 
+/* Numbered process step (used by access.html, curriculum.html, and
+   chatbot.html's "how it was built" lists, and any future one). Number
+   and heading are top-aligned and share the same line-height (1.3) so
+   they sit at the same visual offset despite the size difference - box
+   top-alignment alone isn't enough when font sizes differ, since each
+   inherits different default leading. The divider line lives on
+   .step-body rather than .step, so it only runs under the text column,
+   not under the number. */
 .step {
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 20px;
   background: none;
   border: none;
-  border-bottom: 1px solid var(--grey-7);
-  padding: 28px 0;
-  align-items: baseline;
+  padding: 12px 0 0;
+  align-items: start;
 }
 
-.step:last-child {
-  border-bottom: none;
-}
+.step h3 { font-size: 17px; line-height: 1.3; }
 
 /* Card content elements */
 .card-title {
@@ -823,14 +831,20 @@ body.nav-open {
 }
 
 .step-num {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
-  color: var(--purple);
-  line-height: 1;
+  color: var(--grey-1);
+  line-height: 1.3;
 }
 
 .step-body {
   min-width: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--grey-7);
+}
+
+.step:last-child .step-body {
+  border-bottom: none;
 }
 
 .card p,
@@ -845,7 +859,7 @@ body.nav-open {
 
 .card-purple .card-title { color: var(--on-dark); }
 .card-purple p,
-.card-purple li            { color: var(--on-dark-high); }
+.card-purple li            { color: var(--on-dark); }
 
 
 /* ============================================================
@@ -927,6 +941,17 @@ th {
 }
 
 th:first-child { width: 120px; }
+
+/* Curriculum case study: the objectives table has its longest content
+   in column 1 and shortest (single words) in column 2 - the opposite
+   of the generic th:first-child rule above, so override widths to
+   keep row height as low as possible. */
+.table-objectives th:first-child,
+.table-objectives td:first-child { width: 42%; }
+.table-objectives th:nth-child(2),
+.table-objectives td:nth-child(2) { width: 14%; }
+.table-objectives th:nth-child(3),
+.table-objectives td:nth-child(3) { width: 44%; }
 
 /* .table-stat - two-column frequency/ranking tables (term + count).
    Widens the label column so short numeric values don't strand
@@ -1119,13 +1144,11 @@ body.hub-page .hub-section {
 }
 
 
-/* Company then product, above the card heading */
-.card-eyebrow {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--purple);
+/* Company then product, above the card heading - reuses the shared
+   .eyebrow label (section 4); tighter margins to sit close to the
+   thumbnail and title inside a compact tile. */
+.project-card .eyebrow {
+  margin-top: 0;
   margin-bottom: 6px;
 }
 
@@ -1307,6 +1330,8 @@ body.hub-page .hub-section {
   border-top: 1px solid var(--grey-7);
 }
 
+.intro-action .btn { flex-shrink: 0; }
+
 .intro-note {
   font-size: 11px;
   color: var(--grey-3);
@@ -1319,23 +1344,9 @@ body.hub-page .hub-section {
    Numbered section headers: PART 1, PART 2, PART 3.
    Sits outside .section so padding aligns with content.
    ============================================================ */
-.part-divider {
-  padding: 64px max(48px, calc(50% - 402px)) 0;
-}
-
-.part-num {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--purple);
-  display: block;
-  margin-bottom: 10px;
-}
-
-
 /* ============================================================
-   18. CASE study - pullquote, insight, testimonials, video
+   18. CASE study - pullquote, testimonials, video
    .pullquote    - large quote with purple left bar
-   .insight      - tinted callout with label (Insight / Decision)
    .testimonial-*  - quote + attribution for impact section
    .video-wrap   - black-bg video container
    ============================================================ */
@@ -1343,8 +1354,9 @@ body.hub-page .hub-section {
 /* Pull quote */
 .pullquote {
   background: transparent;
+  border: 1px solid var(--purple);
   border-left: 4px solid var(--purple);
-  padding: 8px 0 8px 32px;
+  padding: 20px 28px 20px 32px;
   margin: 40px 0;
 }
 
@@ -1370,39 +1382,6 @@ body.hub-page .hub-section {
   font-style: normal;
   display: block;
   line-height: 1.6;
-}
-
-/* Insight / Decision callout */
-.insight {
-  background: #f6f0f6;
-  border: 1px solid #dcc9dc;
-  padding: 24px 28px;
-  margin: 28px 0;
-}
-
-.insight-label {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--purple);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.insight p {
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--grey-1);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Testimonial quote - use inside .card-purple */
-.testimonial-quote {
-  font-size: clamp(17px, 2vw, 20px);
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--on-dark);
-  margin-bottom: 20px;
 }
 
 /* Testimonial attribution - light cards; auto-inverts on .card-purple */
@@ -1448,24 +1427,31 @@ body.hub-page .hub-section {
 .module-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 28px 0 0;
+  gap: 8px;
+  margin: 20px 0 0;
+}
+
+/* Curriculum case study: 3 sessions read better in one row on desktop
+   rather than the 2-column layout access.html's 4 modules use. */
+@media (min-width: 801px) {
+  .module-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .module-card {
-  background: #fff;
-  border: 1px solid var(--grey-7);
-  padding: 20px;
+  background: var(--grey-8);
+  border: 1px solid transparent;
+  padding: 16px 20px;
 }
 
 .module-card.active {
-  background: var(--purple);
   border-color: var(--purple);
 }
 
 .module-card h3 {
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .module-card p {
@@ -1475,13 +1461,9 @@ body.hub-page .hub-section {
   line-height: 1.5;
 }
 
-.module-card.active .text-muted { color: var(--on-dark-low); }
-.module-card.active h3                 { color: var(--on-dark); }
-.module-card.active p                  { color: var(--on-dark-low); }
-
 .miro-wrap {
-  margin: 28px 0 0;
-  border: 1px solid var(--grey-7);
+  margin: 20px 0 24px;
+  border: none;
   overflow: hidden;
 }
 
@@ -1997,9 +1979,7 @@ body.case-study-page .case-nav {
     align-items: flex-start;
   }
 
-  .part-divider { padding: 48px 20px 0; }
-
-  .pullquote { padding: 4px 0 4px 18px; }
+  .pullquote { padding: 16px 20px 16px 20px; }
 
   .hero           { min-height: 320px; }
   .hero-logo     { height: 35px; margin-bottom: 14px; }
@@ -2011,7 +1991,6 @@ body.case-study-page .case-nav {
   }
 
   .card-bar,
-  .card-bar-grey,
   .card-grey,
   .card-white {
     padding: 20px;
@@ -2070,7 +2049,6 @@ body.case-study-page .case-nav {
   .hub-section { padding: 32px 16px 0; }
   .section       { padding: 28px 16px; }
   .intro         { padding: 24px 16px; }
-  .part-divider  { padding-left: 16px; padding-right: 16px; }
   footer         { padding: 32px 16px; }
 
   /* Case study pages: nav drops to 16px side padding just above, so
@@ -2214,9 +2192,14 @@ body.case-study-page .case-nav {
 .case-toc-layout .img-frame-border .img-heading,
 .case-toc-layout .img-frame-grey .img-heading,
 .case-toc-layout .img-frame-plain .img-heading { margin-top: 0; }
-.case-toc-layout .pullquote,
-.case-toc-layout .insight { margin-top: 40px; margin-bottom: 40px; }
+.case-toc-layout .pullquote { margin-top: 40px; margin-bottom: 40px; }
 .case-toc-layout .grid { margin-top: 40px; margin-bottom: 40px; }
+
+/* The numbered process list's wrapper doesn't need the standard 40px
+   .grid spacing above/below - .step's own padding already carries the
+   rhythm. Scoped to #process (not .step generally) since this is about
+   the surrounding case-toc-layout section, not the step component. */
+#process .grid.gap-1 { margin-top: 24px; margin-bottom: 24px; }
 
 .case-toc-layout .intro-meta {
   border-top: none;
