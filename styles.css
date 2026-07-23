@@ -2198,6 +2198,7 @@ body.case-study-page .case-nav {
 }
 
 .case-toc-layout h3 { margin-top: 44px; }
+.case-toc-layout .step h3 { margin-top: 0; }
 .case-toc-layout .img,
 .case-toc-layout .video-wrap { margin-top: 40px; margin-bottom: 12px; }
 .case-toc-layout .caption { margin-bottom: 40px; }
