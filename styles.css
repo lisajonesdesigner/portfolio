@@ -304,8 +304,14 @@ a:hover {
    48px padding each side). Widen nav and hero to match so the logo,
    breadcrumbs, hero copy, and intro all share the same left edge.
    Lives here (not in section 26) because it overrides the base
-   `nav` rule just below it. */
-body.case-study-page nav,
+   `nav` rule just below it. Excludes .crumbs: that's a <nav> tag
+   too, but it centers itself via percentage padding (see Breadcrumbs
+   section below) rather than a fixed max-width + auto margin. Capping
+   it here as well double-constrains it - on viewports wider than
+   ~2360px the percentage padding (calculated against the full body
+   width) outgrows this 1228px cap, squeezing the content area down
+   to nothing and forcing every breadcrumb word onto its own line. */
+body.case-study-page nav:not(.crumbs),
 body.case-study-page .hero-content {
   max-width: 1228px;
 }
@@ -534,6 +540,12 @@ body.nav-open {
 .gap-1  { gap: 12px; }
 .gap-4  { gap: 32px; }
 .grid-overflow { overflow: visible; }
+
+/* Larger top margin, same 80px value as .pt-5 - placed after .grid
+   so it reliably overrides .grid's own 28px margin-top when combined
+   (e.g. class="grid grid-2 mt-6"), since equal-specificity rules
+   resolve by source order. */
+.mt-6 { margin-top: 80px; }
 
 
 /* ============================================================
@@ -1341,9 +1353,31 @@ body.hub-page .hub-section {
 
 /* ============================================================
    17. CASE study - part dividers
-   Numbered section headers: PART 1, PART 2, PART 3.
-   Sits outside .section so padding aligns with content.
+   Small kicker label marking a new part (Context, Design,
+   Evaluation, Reflection) that groups several sections together.
+   Sits as the first line inside the group's first <section>, so
+   the section's own divider-top hairline still provides the
+   visual break - no separate wrapper needed.
+
+   Convention: only the 4 part-opening <section>s get class=
+   "divider-top" and an <h2>. Every other section inside that part
+   is a plain <section id="..."> (no divider-top) with an <h3>
+   heading instead of <h2> - h3's own margin-top (see TYPOGRAPHY)
+   gives it enough separation without another hairline. This keeps
+   each case study to exactly 4 dividers regardless of how many
+   sub-topics a part covers. Marked in the HTML with
+   <!-- PART: CONTEXT/DESIGN/EVALUATION/REFLECTION --> comments
+   above each of the 4 divider-top sections for quick Cmd+F.
    ============================================================ */
+.case-part-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
 /* ============================================================
    18. CASE study - pullquote, testimonials, video
    .pullquote    - large quote with purple left bar
@@ -1794,6 +1828,12 @@ footer a:hover {
   font-size: 12px;
 }
 
+.crumbs a,
+.crumbs-sep,
+.crumbs-here {
+  white-space: nowrap;
+}
+
 .crumbs a {
   color: var(--grey-4);
   text-decoration: none;
@@ -1802,9 +1842,6 @@ footer a:hover {
 .crumbs a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.crumbs a:hover {
   color: var(--purple);
 }
 
@@ -2175,7 +2212,17 @@ body.case-study-page .case-nav {
   padding-top: 56px;
 }
 
-.case-toc-layout h3 { margin-top: 44px; }
+/* Interior (non-divider-top) sections are subsections within the
+   same part as whatever came before them, not a new part - the full
+   56px gap read as too much air between them. Tightened here instead,
+   combined with a smaller h3 margin-top just below. Part-to-part
+   transitions are unaffected: they get their own 56px padding-top
+   from .divider-top above. */
+.case-toc-layout section:not(.divider-top) {
+  padding-bottom: 28px;
+}
+
+.case-toc-layout h3 { margin-top: 28px; }
 .case-toc-layout .step h3 { margin-top: 0; }
 .case-toc-layout .img,
 .case-toc-layout .video-wrap { margin-top: 40px; margin-bottom: 12px; }
@@ -2324,4 +2371,25 @@ body.case-study-page .case-nav {
     max-height: 60vh;
     overflow-y: auto;
   }
+}
+
+/* ============================================================
+   27. CASE STUDY - action map
+   Three-level goal -> actions -> practice diagram (Cathy Moore
+   action mapping, simplified for portfolio display). Reuses
+   .card-purple for the goal banner and .pill for each step -
+   only these two small layout helpers are new.
+   ============================================================ */
+.action-map-arrow {
+  text-align: center;
+  color: var(--grey-5);
+  font-size: 20px;
+  line-height: 1;
+  margin: 10px 0;
+}
+.action-map-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
